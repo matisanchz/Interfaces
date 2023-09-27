@@ -1,0 +1,13 @@
+.carrusel{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+}
+
+.card{
+    flex: 1 0 auto;
+    margin: 0 50px;
+    background-color: red;
+    width: 500 px;
+    height: 500 px;
+}
