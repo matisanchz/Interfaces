@@ -8,6 +8,7 @@
     flex: 1 0 auto;
     margin: 0 50px;
     background-color: red;
-    width: 500 px;
-    height: 500 px;
+    width: 210 px;
+    height: 120 px;
+    border-radius: 13px;
 }
