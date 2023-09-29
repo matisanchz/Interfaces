@@ -1,3 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background-color: var(--neutral-dark);
+}
+
+:root{
+    /*Colores*/
+    --primary: #8B7AAE;
+    --primary-light1: #A799C5;
+    --primary-light2: #CBBFE4;
+    --primary-light3: #EAE3FC;
+    --primary-dark1: #7C569A;
+    --primary-dark2: #483A62;
+    --primary-dark1: #2C2436;
+    --secondary: #C1B87E;
+    --secondary-light1: #D2CB9E;
+    --secondary-light2: #E6E1C0;
+    --secondary-light3: #EAE8D7;
+    --secondary-dark1: #B2A762;
+    --secondary-dark2: #A59848;
+    --secondary-dark1: #867824;
+    --accent: #A707FF;
+    --neutral: rgba(149, 135, 157, 0.53);
+    --neutral-light: #F8F4FF;
+    --neutral-dark: #1D1824;
+    --success: #37DE8E;
+    --warning: #F8E220;
+    --cancel: rgba(183, 49, 49, 0.76);
+}
+
+header{
+    display:flex;
+}
+
+
+
 .carrusel{
     display: flex;
     flex-wrap: nowrap;
@@ -5,10 +46,13 @@
 }
 
 .card{
-    flex: 1 0 auto;
-    margin: 0 50px;
-    background-color: red;
+    display:flex;
     width: 210 px;
     height: 120 px;
     border-radius: 13px;
+}
+
+.card:hover{
+    border: 15px;
+    border-color: var(--accent);
 }
