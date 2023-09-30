@@ -16,7 +16,7 @@ cards_payable.forEach(function(card){
     label.className = "label";
     
     let price = document.createElement("p");
-    price.textContent = "$0,95";
+    price.textContent = "$1,95";
     price.className = "price";
     
     card.insertAdjacentElement("afterend", cart);
