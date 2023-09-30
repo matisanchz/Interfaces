@@ -80,9 +80,8 @@ header{
 }
 
 .card .card-img:hover {
-    border: 2px solid var(--accent); /* Establece un borde de 2 píxeles en color negro al pasar el mouse por encima */
+    border: 2px solid var(--accent);
 }
-
   
 h3{
     color: var(--neutral-light);
@@ -114,4 +113,8 @@ h3{
     position: absolute;
     bottom: 15%;
     right: 8%;
+}
+
+.none{
+    display:none;
 }

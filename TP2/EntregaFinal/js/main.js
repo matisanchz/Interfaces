@@ -10,9 +10,9 @@ cards_payable.forEach(function(card){
     let paid = document.createElement("img");
     paid.src =  "media/iconos/paid.png";
     paid.className = "icon-paid";
-
-    card.insertAdjacentElement("afterend", paid);
+    
     card.insertAdjacentElement("afterend", cart);
+    card.insertAdjacentElement("afterend", paid);
 });
 
 let carts = document.querySelectorAll(".icon-cart");
@@ -55,7 +55,32 @@ cards.forEach(function(card){
         nodoImg.className = "icon-medium";
 
         card.insertAdjacentElement("afterend", nodoImg);
+        
+        if(clasesArray.includes("card-payable")){
 
+            let paid = card.nextElementSibling.nextElementSibling;
+
+            console.log(paid);
+
+            let clases = paid.classList;
+
+            let clasesArray = Array.from(clases);
+
+            if(clasesArray.includes("icon-paid")){
+                paid.classList.add("none")
+            }
+        }
+
+        let texto = card.nextElementSibling;
+
+        while (texto) {
+            if (texto.tagName === "H3") {
+                console.log(texto);
+                texto.classList.remove("none");
+                break; 
+            }
+            texto = texto.nextElementSibling;
+        }
     });
     
     //Deshago cambios del hover, al salir del hover -> cambio gif a imagen
@@ -70,9 +95,37 @@ cards.forEach(function(card){
 
         if (nodoSiguiente) {
             nodoSiguiente.remove();
-          }
+        }
 
+        let clases = card.classList;
 
+        let clasesArray = Array.from(clases);
+
+        if(clasesArray.includes("card-payable")){
+
+            let paid = card.nextElementSibling;
+
+            console.log(paid);
+
+            let clases = paid.classList;
+
+            let clasesArray = Array.from(clases);
+
+            if(clasesArray.includes("icon-paid")){
+                paid.classList.remove("none");
+            }
+        }
+
+        let texto = card.nextElementSibling;
+
+        while (texto) {
+            if (texto.tagName === "H3") {
+                console.log(texto);
+                texto.classList.add("none");
+                break; 
+            }
+            texto = texto.nextElementSibling;
+        }
 
     });
 
