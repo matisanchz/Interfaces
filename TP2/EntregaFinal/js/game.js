@@ -2,7 +2,7 @@
 
 const canvas = document.querySelector('canvas');
 canvas.width = 1370;
-canvas.height = 840;
+canvas.height = 700;
 
 const ctx = canvas.getContext('2d');
 
