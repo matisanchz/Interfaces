@@ -40,19 +40,34 @@ header{
 
 
 .carrusel{
+    padding: 30px;
     display: flex;
     flex-wrap: nowrap;
-    overflow: scroll;
+    width: 1410px;
+    size: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    
 }
+
 
 .card{
-    display:flex;
-    width: 210 px;
-    height: 120 px;
-    border-radius: 13px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
-.card:hover{
-    border: 15px;
-    border-color: var(--accent);
+.card img{
+    width: 210px;
+    height: 120px;
+    border: 2px solid transparent;
+    border-radius: 14px;
+}
+
+.card img:hover {
+    border: 2px solid var(--accent); /* Establece un borde de 2 píxeles en color negro al pasar el mouse por encima */
+  }
+
+#fire-water:hover{
+    content: url('media/gift/multiplayer/fw.gif');
 }
