@@ -46,6 +46,7 @@ body{
 
 header{
     display:flex;
+    justify-content: space-between;
 }
 
 .carrusel{
@@ -85,7 +86,7 @@ header{
     border: 2px solid var(--accent);
 }
   
-h3{
+.card h3{
     color: var(--neutral-light);
     position: absolute;
     top: 15px;
@@ -196,4 +197,21 @@ footer p{
 .text-footer{
     flex-direction: column;
     align-items: center;
+}
+
+.option{
+    display: flex;
+    width: 238px;
+    height: 46px;
+    background-color: var(--primary-dark2);
+}
+
+.option h3{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font);
+    font-size: var(--third-title);
+    font-weight: var(--style2);
 }
