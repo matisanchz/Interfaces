@@ -10,9 +10,19 @@ cards_payable.forEach(function(card){
     let paid = document.createElement("img");
     paid.src =  "media/iconos/paid.png";
     paid.className = "icon-paid";
+
+    let label = document.createElement("img");
+    label.src =  "media/iconos/label.png";
+    label.className = "label";
+    
+    let price = document.createElement("p");
+    price.textContent = "$0,95";
+    price.className = "price";
     
     card.insertAdjacentElement("afterend", cart);
     card.insertAdjacentElement("afterend", paid);
+    card.insertAdjacentElement("afterend", label);
+    card.insertAdjacentElement("afterend", price);
 });
 
 let carts = document.querySelectorAll(".icon-cart");
@@ -58,7 +68,7 @@ cards.forEach(function(card){
         
         if(clasesArray.includes("card-payable")){
 
-            let paid = card.nextElementSibling.nextElementSibling;
+            let paid = card.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
 
             console.log(paid);
 
@@ -103,7 +113,7 @@ cards.forEach(function(card){
 
         if(clasesArray.includes("card-payable")){
 
-            let paid = card.nextElementSibling;
+            let paid = card.nextElementSibling.nextElementSibling.nextElementSibling;
 
             console.log(paid);
 
