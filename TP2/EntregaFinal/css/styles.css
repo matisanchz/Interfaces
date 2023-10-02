@@ -42,11 +42,13 @@
 
 body{
     background-color: var(--neutral-dark);
+    z-index: 1;
 }
 
 header{
     display:flex;
     justify-content: space-between;
+    width: auto;
 }
 
 .carrusel{
@@ -203,15 +205,64 @@ footer p{
     display: flex;
     width: 238px;
     height: 46px;
+    align-items: center;
     background-color: var(--primary-dark2);
 }
 
 .option h3{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
     font-family: var(--font);
     font-size: var(--third-title);
     font-weight: var(--style2);
+    padding-left: 36px;
 }
+
+.option img{
+    padding-left: 25px;
+    max-width: 35.41px;  /*PREGUNTAR SI HAY OTRA FORMA DE ALINEAR EL NAV*/
+}
+
+nav{
+    position: fixed;
+    z-index: 99;
+}
+
+.menu{
+    left: -238px;
+    transition: left 0.3s ease;
+}
+
+.menu-user{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    right: -238px;
+    transition: right 0.3s ease;
+}
+
+.closed-menu {
+    left: -238px;
+}
+
+.closed-user {
+    right: -238px;
+}
+
+.open-left {
+    left: 0;
+}
+
+.open-right {
+    right: 0;
+}
+
+.menu-cart{
+    left: -284px;
+    transition: right 0.3s ease;
+}
+
+.menu-user{
+    left: -238px;
+    transition: right 0.3s ease;
+}
+
+

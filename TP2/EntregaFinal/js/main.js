@@ -193,5 +193,23 @@ cards.forEach(function(card){
 
 });
 
+let burguerToggle = document.getElementById("burguer");
+let UserToggle = document.getElementById("user");
+
+let menu = document.querySelector(".menu");
+let user = document.querySelector(".menu-user");
+
+burguerToggle.addEventListener('click', () => {
+    menu.classList.toggle('open-left');
+    menu.classList.toggle('closed-menu');
+});
+
+UserToggle.addEventListener('click', () => {
+    user.classList.toggle('open-right');
+    user.classList.toggle('closed-user');
+});
+
+
+
 
 
