@@ -45,6 +45,12 @@ body{
     z-index: 1;
 }
 
+main{
+    margin-left: 33px;
+    margin-right: 33px;
+    max-width: 1440px;
+}
+
 header{
     display:flex;
     justify-content: space-between;
@@ -52,10 +58,8 @@ header{
 }
 
 .carrusel{
-    padding: 30px;
     display: flex;
     flex-wrap: nowrap;
-    width: 1410px;
     size: auto;
     overflow: hidden;
     white-space: nowrap;
@@ -233,9 +237,13 @@ nav{
 
 .menu-user{
     position: absolute;
-    top: 100%;
     right: 0;
     right: -238px;
+    transition: right 0.3s ease;
+}
+
+.menu-cart{
+    left: -284px;
     transition: right 0.3s ease;
 }
 
@@ -254,15 +262,4 @@ nav{
 .open-right {
     right: 0;
 }
-
-.menu-cart{
-    left: -284px;
-    transition: right 0.3s ease;
-}
-
-.menu-user{
-    left: -238px;
-    transition: right 0.3s ease;
-}
-
 
