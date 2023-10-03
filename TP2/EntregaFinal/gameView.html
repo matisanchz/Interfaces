@@ -3,35 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameName</title>
+    <title>4 en Linea - CS-GO</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <header>
-        <a href=""><img src="images/burger.png"></a>
-        <a href="index.html"><img src="images/logo.png"></a>
-        <input type="text" value="¿QUÉ JUGAMOS?">
-        <a href=""><img src="images/cart.png"></a>
-        <a href=""><img src="images/user.png"></a>
+        <div>
+            <img src="media/iconos/burger.png" id="burger">
+            <a href="index.html"><img src="media/imagenes/logo-header.png" id="logo"></a>
+        </div>
+        <div>
+            <input type="text" placeholder="¿QUÉ JUGAMOS?">
+        </div>
+        <div>
+            <img src="media/iconos/cart.png" id="cart">
+            <img src="media/iconos/user.png" id="user">
+        </div>
     </header>
 
+    <nav class ="menu">
+        <div class="option">
+            <img src="media/iconos/inicio.png">
+            <h3>Inicio</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/juegos.png">
+            <h3>Mis Juegos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/recientes.png">
+            <h3>Recientes</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/tendencia.png">
+            <h3>Tendencia</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/favoritos.png">
+            <h3>Favoritos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/multijugador.png">
+            <h3>Multijugador</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/aventura.png">
+            <h3>Aventura</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/autos.png">
+            <h3>Autos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/armas.png">
+            <h3>Armas</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/accion.png">
+            <h3>Accion</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/terror.png">
+            <h3>Terror</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/estrategia.png">
+            <h3>Estrategia</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/clasicos.png">
+            <h3>Clásicos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/puzzle.png">
+            <h3>Puzzle</h3>
+        </div>
+    </nav>
+
+    <nav class ="menu-user">
+        <div class="option">
+            <img src="media/iconos/account.png">
+            <h3>Perfil</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/settings.png">
+            <h3>Ajustes</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/purchase.png">
+            <h3>Mis compras</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/out.png">
+            <h3>Cerrar Sesión</h3>
+        </div>
+    </nav>
+
+    <nav class ="menu-cart">
+        <div class="item">
+            <div class="item-container">
+                <h3>Counter Strike</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item1.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h3>God of War</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item2.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h3>Starcraft II</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item3.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h2>Total:</h2>
+                <h2>$5,80</h2>
+            </div>
+            <input type="button" value="COMPRAR">
+        </div>
+    </nav>
+
+    <div class="container">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Inicio > </a></li>
+          <li class="breadcrumb-item"><a href="index.html">Puzzle > </a></li>
+          <li class="breadcrumb-item active">4 en Linea: CS GO</li>
+        </ol>
+      </div>
+    
     <div class="game">
         <canvas></canvas>
     </div>   
-
-
-
-
-
-
-
 
     <footer>
     
         <div class="logo-footer">
             <a class="logo" href="index.html">
-                <img src="media/imagenes/logo-header.png" alt="logo pocket games">
+                <img src="media/imagenes/logo-footer.png" alt="logo pocket games">
             </a>
         </div>
 
