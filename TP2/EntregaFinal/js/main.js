@@ -1,3 +1,5 @@
+"use strict";
+
 let cards = document.querySelectorAll(".card-img");
 
 let cards_payable = document.querySelectorAll(".card-payable");
@@ -193,7 +195,7 @@ cards.forEach(function(card){
 
 });
 
-let burguerToggle = document.getElementById("burguer");
+let burgerToggle = document.getElementById("burger");
 let userToggle = document.getElementById("user");
 let cartToggle = document.getElementById("cart");
 
@@ -201,7 +203,7 @@ let menu = document.querySelector(".menu");
 let menuUser = document.querySelector(".menu-user");
 let menuCart = document.querySelector(".menu-cart");
 
-burguerToggle.addEventListener('click', () => {
+burgerToggle.addEventListener('click', () => {
     menu.classList.toggle('open-left');
     menu.classList.toggle('closed-menu');
 });

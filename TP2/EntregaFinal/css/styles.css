@@ -17,7 +17,7 @@
     --primary-light3: #EAE3FC;
     --primary-dark1: #7C569A;
     --primary-dark2: #483A62;
-    --primary-dark1: #2C2436;
+    --primary-dark3: #2C2436;
     --secondary: #C1B87E;
     --secondary-light1: #D2CB9E;
     --secondary-light2: #E6E1C0;
@@ -54,19 +54,39 @@ main{
 header{
     display:flex;
     justify-content: space-between;
-    width: auto;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+   /* position:fixed;*/
+    z-index: 99;
+    background-color: var(--primary-dark3);
+}
+
+header img{
+    cursor: pointer;
+}
+
+h1, h2, h3{
+    font-family: var(--font);
+}
+
+h1{
+    font-size: var(--heading);
+    font-weight: var(--style1);
+}
+
+h2{
+    font-size: var(--subtitle);
+    font-weight: var(--style1);
 }
 
 h3{
-    font-family: var(--font);
     font-size: var(--third-title);
     font-weight: var(--style2);
 }
 
-h2{
-    font-family: var(--font);
-    font-size: var(--subtitle);
-    font-weight: var(--style1);
+#burger{
+    margin-left: 23px;
 }
 
 .carrusel{
@@ -288,8 +308,19 @@ nav{
 
 .item{
     display: flex;
+    justify-content: space-between;
     width: 284px;
     height: 96px;
     align-items: center;
     background-color: var(--primary-dark2);
+}
+
+.item-container div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.big{
+    width: 433px;
+    height: 249px;
 }

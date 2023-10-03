@@ -10,7 +10,7 @@
 
     <header>
         <div>
-            <img src="media/iconos/burger.png" id="burguer">
+            <img src="media/iconos/burger.png" id="burger">
             <a href="index.html"><img src="media/iconos/user.png"></a>
         </div>
         <input type="text" value="¿QUÉ JUGAMOS?">
@@ -100,26 +100,40 @@
 
     <nav class ="menu-cart">
         <div class="item">
-            <img src="media/iconos/delete.png">
-            <h3>Counter Strike</h3>
-            <img src="media/imagenes/items/item3.png">
-            <h2>$1,50</h2>
-        </div>
-        <div class="item">
-            <img src="media/iconos/delete.png">
-            <h3>God of War</h3>
-            <img src="media/imagenes/items/item2.png">
-            <h2>$1,50</h2>
-        </div>
-        <div class="item">
-            <img src="media/iconos/delete.png">
-            <h3>Starcraft II</h3>
+            <div class="item-container">
+                <h3>Counter Strike</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
             <img src="media/imagenes/items/item1.png">
-            <h2>$1,50</h2>
         </div>
         <div class="item">
-            <h3>Total:</h3>
-            <h2>$5,80</h2>
+            <div class="item-container">
+                <h3>God of War</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item2.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h3>Starcraft II</h3>
+                <div>
+                    <img src="media/iconos/delete.png">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item3.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h2>Total:</h2>
+                <h2>$5,80</h2>
+            </div>
             <input type="button" value="COMPRAR">
         </div>
     </nav>
@@ -127,7 +141,53 @@
     <main>
 
         <section>
-            <!-- CARRUSEL TENDENCIAS -->
+            <h1>Tendencias</h1>
+            <div class="carrusel">
+                <div class="card">
+                    <img src="media/imagenes/puzzle/4linea.png" alt="" class="card-img card-primary big">
+                    <h3 class="none">4 en Linea: CS GO</h3>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/fire-water.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Fireboy & Watergirl</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/accion/1v1.png" alt="" class="card-img card-primary">
+                        <h3 class="none">1v1 Battle</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/armas/death-shot.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Dead Shot</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/estrategia/pz3.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Plants vs Zombie 3</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/armas/cs.png" alt="" class="card-img card-primary big">
+                    <h3 class="none">Counter Strike 1.6</h3>
+                </div>
+                <div>
+                    <div class="card">
+                        <img src="media/imagenes/terror/perdita.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Perdita</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/estrategia/kiomet.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Kiomet</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/autos/death-chase.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Death Chase</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/clasicos/street-fighter.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Street Fighter</h3>
+                    </div>
+                </div>
+            </div>
             <a href="gameView.html">JUGAAAAR</a>
         </section>
     
