@@ -57,13 +57,24 @@ header{
     width: auto;
 }
 
+h3{
+    font-family: var(--font);
+    font-size: var(--third-title);
+    font-weight: var(--style2);
+}
+
+h2{
+    font-family: var(--font);
+    font-size: var(--subtitle);
+    font-weight: var(--style1);
+}
+
 .carrusel{
     display: flex;
     flex-wrap: nowrap;
     size: auto;
     overflow: hidden;
     white-space: nowrap;
-    
 }
 
 .card{
@@ -214,9 +225,6 @@ footer p{
 }
 
 .option h3{
-    font-family: var(--font);
-    font-size: var(--third-title);
-    font-weight: var(--style2);
     padding-left: 36px;
 }
 
@@ -228,6 +236,7 @@ footer p{
 nav{
     position: fixed;
     z-index: 99;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 .menu{
@@ -236,14 +245,16 @@ nav{
 }
 
 .menu-user{
-    position: absolute;
+    position: fixed;
     right: 0;
     right: -238px;
     transition: right 0.3s ease;
 }
 
 .menu-cart{
-    left: -284px;
+    position: fixed;
+    right: 0;
+    right: -284px;
     transition: right 0.3s ease;
 }
 
@@ -255,6 +266,10 @@ nav{
     right: -238px;
 }
 
+.closed-cart {
+    right: -284px;
+}
+
 .open-left {
     left: 0;
 }
@@ -263,3 +278,18 @@ nav{
     right: 0;
 }
 
+.selected{
+    background-color: var(--primary);
+}
+
+.selected-h3{
+    transform: translateX(12px);
+}
+
+.item{
+    display: flex;
+    width: 284px;
+    height: 96px;
+    align-items: center;
+    background-color: var(--primary-dark2);
+}

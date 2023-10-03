@@ -194,21 +194,47 @@ cards.forEach(function(card){
 });
 
 let burguerToggle = document.getElementById("burguer");
-let UserToggle = document.getElementById("user");
+let userToggle = document.getElementById("user");
+let cartToggle = document.getElementById("cart");
 
 let menu = document.querySelector(".menu");
-let user = document.querySelector(".menu-user");
+let menuUser = document.querySelector(".menu-user");
+let menuCart = document.querySelector(".menu-cart");
 
 burguerToggle.addEventListener('click', () => {
     menu.classList.toggle('open-left');
     menu.classList.toggle('closed-menu');
 });
 
-UserToggle.addEventListener('click', () => {
-    user.classList.toggle('open-right');
-    user.classList.toggle('closed-user');
+userToggle.addEventListener('click', () => {
+    menuUser.classList.toggle('open-right');
+    menuUser.classList.toggle('closed-user');
 });
 
+cartToggle.addEventListener('click', () => {
+    menuCart.classList.toggle('open-right');
+    menuCart.classList.toggle('closed-cart');
+});
+
+let options = document.querySelectorAll(".option");
+
+options.forEach(function(option){
+
+    option.addEventListener("mouseover", function(){
+        option.classList.add('selected');
+        let h3 = this.children[1];
+        h3.classList.add('selected-h3');
+    });
+
+    option.addEventListener("mouseout", function(){
+        option.classList.remove('selected');
+        let h3 = this.children[1];
+        h3.classList.remove('selected-h3');
+    });
+
+
+
+});
 
 
 
