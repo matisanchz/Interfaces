@@ -339,6 +339,6 @@ div.container a{
 li.active{
     color: var(--accent) !important;
 }
-#logo{
+#logo-header{
     mix-blend-mode:exclusion;
 }
