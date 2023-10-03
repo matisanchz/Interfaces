@@ -232,8 +232,6 @@ options.forEach(function(option){
         h3.classList.remove('selected-h3');
     });
 
-
-
 });
 
 
