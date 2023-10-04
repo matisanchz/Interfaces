@@ -264,3 +264,26 @@ options.forEach(function(option){
     });
 
 });
+
+let tamanio = 214;
+
+let lefts = document.querySelectorAll(".left");
+
+lefts.forEach(function(left){
+
+    left.addEventListener("click", function(){
+        this.nextElementSibling.scrollLeft -= tamanio;
+    })
+
+});
+
+let rights = document.querySelectorAll(".right");
+
+rights.forEach(function(right){
+
+    right.addEventListener("click", function(){
+        console.log(this.previousElementSibling);
+        this.previousElementSibling.scrollLeft += tamanio;
+    })
+
+});

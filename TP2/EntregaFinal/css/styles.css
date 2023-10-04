@@ -48,7 +48,7 @@ body{
 main{
     margin-left: 33px;
     margin-right: 33px;
-    max-width: 1440px;
+    width: auto;
     padding-top: 100px;
 }
 
@@ -377,8 +377,7 @@ li.active{
 .right{
     z-index: 5;
     position: absolute;
-    transform: translateY(50px);
-    translate: 1416px;
-    /*transform: translate(-50%, -50%);*/
+    right: 25px;
+    transform: translateY(-130px);
 }
 
