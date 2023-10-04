@@ -4,6 +4,8 @@ let cards = document.querySelectorAll(".card-img");
 
 let cards_payable = document.querySelectorAll(".card-payable");
 
+let cards_bought = document.querySelectorAll(".card-bought");
+
 const juegos=[
     {'nombre' : 'shell-shockers', 
     'valor' : '$ 0.95'},
@@ -77,6 +79,14 @@ cards_payable.forEach(function(card){
     card.insertAdjacentElement("afterend", price);
 });
 
+cards_bought.forEach(function(card){
+    let basket = document.createElement("img");
+    basket.src =  "media/iconos/bought.png";
+    basket.className = "icon-cart basket";
+    
+    card.insertAdjacentElement("afterend", basket);
+});
+
 let carts = document.querySelectorAll(".icon-cart");
 
 carts.forEach(function(cart){
@@ -144,6 +154,16 @@ cards.forEach(function(card){
 
             paid.classList.add("none");
         }
+
+        if(clasesArray.includes("card-bought")){
+
+            let basket = card.nextElementSibling.nextElementSibling;
+
+            basket.src = "media/iconos/unlock.png";
+
+        }
+
+
     });
     
     //Deshago cambios del hover, al salir del hover -> cambio gif a imagen
@@ -191,6 +211,14 @@ cards.forEach(function(card){
             paid.classList.remove("none");
 
         }
+
+        if(clasesArray.includes("card-bought")){
+            
+            let basket = card.nextElementSibling;
+
+            basket.src = "media/iconos/bought.png";
+
+        }
     });
 
 });
@@ -206,6 +234,7 @@ let menuCart = document.querySelector(".menu-cart");
 burgerToggle.addEventListener('click', () => {
     menu.classList.toggle('open-left');
     menu.classList.toggle('closed-menu');
+    burgerToggle.classList.toggle('rotate');
 });
 
 userToggle.addEventListener('click', () => {
@@ -235,7 +264,3 @@ options.forEach(function(option){
     });
 
 });
-
-
-
-
