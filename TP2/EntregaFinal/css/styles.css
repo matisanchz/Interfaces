@@ -372,14 +372,14 @@ li.active{
 .left{
     z-index: 5;
     position: absolute;
+    left: 25px;
     transform: translateY(50px);
-    /*transform: translate(-50%, -50%);*/
 }
 
 .right{
     z-index: 5;
     position: absolute;
-    right: 25px;
+    right: 20px;
     transform: translateY(-130px);
 }
 

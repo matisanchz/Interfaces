@@ -265,14 +265,43 @@ options.forEach(function(option){
 
 });
 
-let tamanio = 214;
+let carruseles = document.querySelectorAll(".carrusel");
+
+carruseles.forEach(function(carrusel){
+    let card = carrusel.firstElementChild;
+
+    card.style = "padding-left: 0px";
+
+})
+
+const tamanio = 229.2;
 
 let lefts = document.querySelectorAll(".left");
 
 lefts.forEach(function(left){
 
+    
+
     left.addEventListener("click", function(){
-        this.nextElementSibling.scrollLeft -= tamanio;
+
+        let carrusel = this.nextElementSibling;
+
+        carrusel.scrollLeft -= tamanio;
+
+        let btn = carrusel.nextElementSibling;
+
+        let classArray =  Array.from(btn.classList);
+    
+        if(classArray.includes("none")){
+            btn.classList.remove("none");
+        }
+
+        let scroll = carrusel.scrollLeft;
+
+        if(scroll===0){
+            left.classList.add("none");
+        }
+
     })
 
 });
@@ -282,8 +311,40 @@ let rights = document.querySelectorAll(".right");
 rights.forEach(function(right){
 
     right.addEventListener("click", function(){
-        console.log(this.previousElementSibling);
-        this.previousElementSibling.scrollLeft += tamanio;
+
+        let carrusel = this.previousElementSibling;
+
+        carrusel.scrollLeft += tamanio;
+
+        let btn = carrusel.previousElementSibling;
+
+        let classArray =  Array.from(btn.classList);
+    
+        if(classArray.includes("none")){
+            btn.classList.remove("none");
+        }
+
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+
+        let scroll = carrusel.scrollLeft;
+
+        if(scroll===maxScroll){
+            right.classList.add("none");
+        }
+        
+
     })
 
+    
+
 });
+
+function isInicioOrFinal(posicion, maxScroll, btn){
+    if (posicion === 0) {
+        btn.classList.toggle("none");
+    } else if (posicion === maxScroll) {
+        console.log("Estás al final del elemento horizontalmente.");
+    } else {
+        console.log("Estás en una posición intermedia horizontalmente.");
+    }
+}
