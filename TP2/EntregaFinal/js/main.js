@@ -99,7 +99,17 @@ carts.forEach(function(cart){
         }
         this.src = source;
     });
+
+    cart.addEventListener("mouseover", () => {
+        cart.classList.add("rotating");
+    });
+
+    cart.addEventListener("mouseout", () => {
+        cart.classList.remove("rotating");
+    });
 });
+
+
 
 //Por cada card
 cards.forEach(function(card){
@@ -265,14 +275,10 @@ options.forEach(function(option){
 
 });
 
-let carruseles = document.querySelectorAll(".carrusel");
-
-carruseles.forEach(function(carrusel){
+document.querySelectorAll(".carrusel").forEach(function(carrusel){
     let card = carrusel.firstElementChild;
-
     card.style = "padding-left: 0px";
-
-})
+});
 
 const tamanio = 229.2;
 
@@ -328,23 +334,11 @@ rights.forEach(function(right){
 
         let scroll = carrusel.scrollLeft;
 
+        console.log(maxScroll);
+        console.log(scroll);
+
         if(scroll===maxScroll){
             right.classList.add("none");
         }
-        
-
-    })
-
-    
-
+    });
 });
-
-function isInicioOrFinal(posicion, maxScroll, btn){
-    if (posicion === 0) {
-        btn.classList.toggle("none");
-    } else if (posicion === maxScroll) {
-        console.log("Estás al final del elemento horizontalmente.");
-    } else {
-        console.log("Estás en una posición intermedia horizontalmente.");
-    }
-}

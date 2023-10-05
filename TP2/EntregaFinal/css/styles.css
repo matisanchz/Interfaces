@@ -162,6 +162,7 @@ h3{
     position: absolute;
     bottom: 15%;
     right: 8%;
+    transition: transform 0.5s;
 }
 
 .none{
@@ -171,7 +172,7 @@ h3{
 .label{
     position: absolute;
     bottom: 17%;
-    left: 5%;
+    left: 4.5%;
     z-index: 1;
 }
 
@@ -179,8 +180,8 @@ h3{
     color: var(--neutral-light);
     font-family: 'Lato', sans-serif;
     position: absolute;
-    bottom: 19%;
-    left: 6%;
+    bottom: 20%;
+    left: 5%;
     z-index: 2;
 }
 
@@ -414,4 +415,21 @@ hr{
 .coments{
     color: var(--neutral-light);
     font-family: 'Urbanist';
+}
+
+.last{
+    padding-right: 0px;
+}
+
+.icon-cart.rotating {
+    animation: rotate 0.2s infinite alternate; /* Animación de rotación */
+  }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
 }
