@@ -337,7 +337,7 @@ rights.forEach(function(right){
         console.log(maxScroll);
         console.log(scroll);
 
-        if(scroll===maxScroll){
+        if(maxScroll-scroll < 1){
             right.classList.add("none");
         }
     });
