@@ -161,12 +161,29 @@
                 </div>
                 <div class="game-icons">
                     <img src="media/iconos/heart.svg" alt="">
-                    <img src="media/iconos/share.svg" alt="">
+                    <button class="ripple-button" id="share">
+                        <img src="media/iconos/share.svg" alt="">
+                    </button>
                     <img src="media/iconos/like.svg" alt="">
                     <img src="media/iconos/dislike.svg" alt="">
                     <img src="media/iconos/fullscreen.svg" alt="">
                 </div>
             </div>
+
+            <!-- Contenedor del pop-up -->
+            <div id="popup-overlay" class="popup-overlay">
+                <div id="popup-content" class="popup-content">
+                    <h2>Compartir este contenido</h2>
+                    <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                    <button id="close-popup">Cerrar</button>
+                </div>
+            </div>
+
         </section>   
     
         <section class="similares">
