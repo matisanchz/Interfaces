@@ -49,15 +49,15 @@ const juegos=[
 
 cards_payable.forEach(function(card){
     let cart = document.createElement("img");
-    cart.src =  "media/iconos/card-cart.png";
+    cart.src =  "media/iconos/card-cart.svg";
     cart.className = "icon-cart";
 
     let paid = document.createElement("img");
-    paid.src =  "media/iconos/paid.png";
+    paid.src =  "media/iconos/paid.svg";
     paid.className = "icon-paid";
 
     let label = document.createElement("img");
-    label.src =  "media/iconos/label.png";
+    label.src =  "media/iconos/label.svg";
     label.className = "label none";
     
     let path = card.src;
@@ -81,7 +81,7 @@ cards_payable.forEach(function(card){
 
 cards_bought.forEach(function(card){
     let basket = document.createElement("img");
-    basket.src =  "media/iconos/bought.png";
+    basket.src =  "media/iconos/bought.svg";
     basket.className = "icon-cart basket";
     
     card.insertAdjacentElement("afterend", basket);
@@ -129,9 +129,9 @@ cards.forEach(function(card){
         let clasesArray = Array.from(clases);
 
         if(clasesArray.includes("card-primary")){
-            nodoImg.src =  "media/iconos/play.png";
+            nodoImg.src =  "media/iconos/play.svg";
         }else{
-            nodoImg.src =  "media/iconos/lock.png";
+            nodoImg.src =  "media/iconos/lock.svg";
         }
 
         nodoImg.className = "icon-medium";
@@ -169,7 +169,7 @@ cards.forEach(function(card){
 
             let basket = card.nextElementSibling.nextElementSibling;
 
-            basket.src = "media/iconos/unlock.png";
+            basket.src = "media/iconos/unlock.svg";
 
         }
 
@@ -226,7 +226,7 @@ cards.forEach(function(card){
             
             let basket = card.nextElementSibling;
 
-            basket.src = "media/iconos/bought.png";
+            basket.src = "media/iconos/bought.svg";
 
         }
     });
