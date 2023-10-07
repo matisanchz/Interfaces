@@ -4,17 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
+    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
 
-    <form action="index.html">
+    <header>
+        <div class="login-header">
+            <img src="media/imagenes/logo.svg" alt="Poker Games" width="200px">
+        </div>
+    </header>
+    <form action="" class="form-login">
+        <h1>Iniciá Sesión</h1>
+        <label>Usuario</label>
         <input type="text">
+        <label>Clave</label>
         <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+
+        <button>Ingresar</button>
+        <button>Acceder con Google</button>
+        <button>Acceder con Facebook</button>
+        
+        <p>Si aún no eres gamer <span>Registrate aquí</span></p>
+        <span>Bloqueeé u olvidé mi usuario y/o clave</span>
     </form>
+
+
+    
+    <form action="" class="form-register">
+        <h1>Ingresá tus datos</h1>
+        <label>Nombre y Apellido<span>*</span></label>
+        <input type="text">
+        <label>Nickname</label>
+        <input type="text">
+        <label>Email<span>*</span></label>
+        <input type="text">
+        <label>Fecha de Nacimiento<span>*</span></label>
+        <input type="text" value="dd/mm/aa">
+        <label>Clave<span>*</span></label>
+        <input type="text">
+        <label>Repetir Clave</label>
+        <input type="text">
+
+        <img src="captcha" alt="">
+
+        <button>Registrar</button>
+        
+        <img src="flechita" alt="">
+    </form>
+
+    <script src="js/forms.js"></script>
     
 </body>
 </html>

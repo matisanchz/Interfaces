@@ -753,3 +753,9 @@ a .card{
     text-decoration: none;
     color: #0077ff;
 }
+
+#logo-header{
+    width: 324px;
+    margin-left: 15px;
+    padding-top: 4px;
+}
