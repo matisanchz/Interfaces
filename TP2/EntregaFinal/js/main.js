@@ -402,9 +402,6 @@ rights.forEach(function(right){
 
         let scroll = carrusel.scrollLeft;
 
-        console.log(maxScroll);
-        console.log(scroll);
-
         if(maxScroll-scroll < tamanio || maxScroll === 0){
             right.classList.add("none");
         }
