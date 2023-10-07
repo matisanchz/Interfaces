@@ -919,7 +919,7 @@ form h1{
     overflow: hidden;
 }
 
-.preloader{
+.container-preloader{
     position: fixed;
     top: 0;
     left: 0;
@@ -927,10 +927,18 @@ form h1{
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-direction: column;
     background-color: var(--neutral-dark);
     opacity: 0.95;
     height: 120vh;
     width: 100%;
+}
+
+.ring-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .ring{
@@ -952,7 +960,7 @@ form h1{
     box-shadow: 0 0 5px rgba(255,255,255,.3);
 }
 
-.preloader span{
+.ring-box span{
     color: var(--neutral);
     letter-spacing: 1px;
     line-height: 200px;
@@ -1003,4 +1011,34 @@ form h1{
         transform: rotate(360deg);
         box-shadow: 1px 5px 2px var(--secondary-light1);
     }
+}
+
+.line-box{
+    display:flex;
+    align-items: center;
+    padding: 2px;
+    width: 200px;
+    height: 20px;
+    border: 2px solid var(--neutral);
+    border-radius: 20px;
+}
+
+.charger{
+    height: 20px;
+    border-radius: 20px;
+    background-color: var(--neutral);
+    animation: loading 5s forwards cubic-bezier(0,0,0,0);
+}
+
+@keyframes loading{
+    0%{
+        width:0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+.charger-box{
+    margin-top: 20px;
 }

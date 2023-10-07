@@ -24,26 +24,51 @@ document.addEventListener('DOMContentLoaded', loadPage);
 
 function loadPage() {
 
-    let preloader = document.createElement("div");
+    let container = document.createElement("div");
+    let chargerBox = document.createElement("div");
+    let ringBox = document.createElement("div");
+
     let ring = document.createElement("div");
     let loading = document.createElement("span");
     let percentage = document.createElement("span");
+    let box = document.createElement("div");
+    let charger = document.createElement("div");
 
     formLogin.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        preloader.classList.add("preloader");
+        /*Contenedor principal*/
+        container.classList.add("container-preloader")
+
+        /*Contenedor para el charger*/
+        chargerBox.classList.add("charger-box")
+
+        /*Contenedor para el aro animado*/
+        ringBox.classList.add("ring-box");
+
+        /*Aro*/
         ring.classList.add("ring");
+        /*Porcentaje*/
         percentage.classList.add("status");
+        /*Span*/
         loading.textContent = "Cargando...";
+        /*Cargador*/
+        charger.classList.add("charger");
+        box.classList.add("line-box");
 
-        percentage.appendChild(document.createTextNode("0%"));
+        box.appendChild(charger);
+        chargerBox.appendChild(box);
 
-        preloader.appendChild(ring);
-        preloader.appendChild(loading);
-        preloader.appendChild(percentage);
+        percentage.textContent = "0%";
+        
+        ringBox.appendChild(ring);
+        ringBox.appendChild(loading);
+        ringBox.appendChild(percentage);
 
-        document.querySelector("body").appendChild(preloader);
+        container.appendChild(ringBox);
+        container.appendChild(chargerBox);
+
+        document.querySelector("body").appendChild(container);
 
         activatePreloader();
     });
