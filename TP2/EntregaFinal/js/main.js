@@ -250,19 +250,67 @@ let menuUser = document.querySelector(".menu-user");
 let menuCart = document.querySelector(".menu-cart");
 
 burgerToggle.addEventListener('click', () => {
+    toggleMenu();
+});
+
+function toggleMenu(){
     menu.classList.toggle('open-left');
     menu.classList.toggle('closed-menu');
     burgerToggle.classList.toggle('rotate');
+}
+
+function closeMenu() {
+    if (menu.classList.contains('open-left')) {
+        toggleMenu();
+    }
+}
+
+document.addEventListener('click', (event)=>{
+    if (!menu.contains(event.target) && event.target !== burgerToggle) {
+        closeMenu();
+    }
 });
 
 userToggle.addEventListener('click', () => {
+    toggleMenuUser();
+});
+
+function toggleMenuUser(){
     menuUser.classList.toggle('open-right');
     menuUser.classList.toggle('closed-user');
+}
+
+function closeMenuUser() {
+    if (menuUser.classList.contains('open-right')) {
+        toggleMenuUser();
+    }
+}
+
+document.addEventListener("click", function(event){
+    if (!menuUser.contains(event.target) && event.target !== userToggle) {
+        closeMenuUser();
+    }
 });
 
 cartToggle.addEventListener('click', () => {
+    toggleMenuCart();
+});
+
+function toggleMenuCart(){
     menuCart.classList.toggle('open-right');
     menuCart.classList.toggle('closed-cart');
+}
+
+function closeMenuCart() {
+    if (menuCart.classList.contains('open-right')) {
+        toggleMenuCart();
+    }
+}
+
+document.addEventListener("click", function(event){
+    if (!menuCart.contains(event.target) && event.target !== cartToggle) {
+        closeMenuCart();
+    }
 });
 
 let options = document.querySelectorAll(".option");
@@ -340,7 +388,7 @@ rights.forEach(function(right){
 
         setTimeout(function() {
             carrusel.classList.remove("skew-right");
-        }, 100);
+        }, 200);
 
         let btn = carrusel.previousElementSibling;
 
