@@ -91,6 +91,13 @@ let carts = document.querySelectorAll(".icon-cart");
 
 carts.forEach(function(cart){
     cart.addEventListener("click", function() {
+
+        cart.classList.add("giro");
+
+        cart.addEventListener("animationend", () =>{
+            cart.classList.remove("giro");
+        });
+
         let source = this.src;
         if(source.includes("card-cart")){
             source = source.replace("card-cart", "card-added");
@@ -101,7 +108,11 @@ carts.forEach(function(cart){
     });
 
     cart.addEventListener("mouseover", () => {
-        cart.classList.add("rotating");
+        let source = cart.src;
+
+        if(source.includes("card-cart")){
+            cart.classList.add("rotating");
+        }
     });
 
     cart.addEventListener("mouseout", () => {
@@ -294,6 +305,12 @@ lefts.forEach(function(left){
 
         carrusel.scrollLeft -= tamanio;
 
+        carrusel.classList.add("skew-left");
+
+        setTimeout(function() {
+            carrusel.classList.remove("skew-left");
+        }, 100);
+
         let btn = carrusel.nextElementSibling;
 
         let classArray =  Array.from(btn.classList);
@@ -321,6 +338,12 @@ rights.forEach(function(right){
         let carrusel = this.previousElementSibling;
 
         carrusel.scrollLeft += tamanio;
+
+        carrusel.classList.add("skew-right");
+
+        setTimeout(function() {
+            carrusel.classList.remove("skew-right");
+        }, 100);
 
         let btn = carrusel.previousElementSibling;
 
