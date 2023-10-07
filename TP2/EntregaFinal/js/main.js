@@ -405,10 +405,34 @@ rights.forEach(function(right){
         console.log(maxScroll);
         console.log(scroll);
 
-        if(maxScroll-scroll < 1){
+        if(maxScroll-scroll < tamanio || maxScroll === 0){
             right.classList.add("none");
         }
+   
     });
+
+    document.addEventListener('DOMContentLoaded', function(){
+        let carrusel = right.previousElementSibling;
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+        if(maxScroll === 0){
+            right.classList.add("none");
+        }
+    })
+
+    window.addEventListener('resize', () => {
+        let carrusel = right.previousElementSibling;
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+        let classes = Array(right.classList);
+        if(maxScroll === 0){
+            if(!classes.includes("none")){
+                right.classList.add("none");
+            }
+        }else{
+            right.classList.remove("none");
+        }
+    });
+
+    
 });
 
 document.querySelector(".home").addEventListener("click", function(){

@@ -395,11 +395,20 @@ li.active{
     transform: translateY(50px);
 }
 
+.left.tend{
+    transform: translateY(120px);
+    left: 15px;
+}
+
 .right{
     z-index: 5;
     position: absolute;
     right: 20px;
     transform: translateY(-130px);
+}
+
+.right.tend{
+    transform: translateY(-200px);
 }
 
 hr{
