@@ -92,17 +92,16 @@ let carts = document.querySelectorAll(".icon-cart");
 carts.forEach(function(cart){
     cart.addEventListener("click", function() {
 
-        cart.classList.add("giro");
-
-        cart.addEventListener("animationend", () =>{
-            cart.classList.remove("giro");
-        });
-
         let source = this.src;
         if(source.includes("card-cart")){
             source = source.replace("card-cart", "card-added");
         }else{
             source = source.replace("card-added", "card-cart");
+            cart.classList.add("giro");
+
+            cart.addEventListener("animationend", () =>{
+                cart.classList.remove("giro");
+            });
         }
         this.src = source;
     });
@@ -119,8 +118,6 @@ carts.forEach(function(cart){
         cart.classList.remove("rotating");
     });
 });
-
-
 
 //Por cada card
 cards.forEach(function(card){
@@ -253,19 +250,67 @@ let menuUser = document.querySelector(".menu-user");
 let menuCart = document.querySelector(".menu-cart");
 
 burgerToggle.addEventListener('click', () => {
+    toggleMenu();
+});
+
+function toggleMenu(){
     menu.classList.toggle('open-left');
     menu.classList.toggle('closed-menu');
     burgerToggle.classList.toggle('rotate');
+}
+
+function closeMenu() {
+    if (menu.classList.contains('open-left')) {
+        toggleMenu();
+    }
+}
+
+document.addEventListener('click', (event)=>{
+    if (!menu.contains(event.target) && event.target !== burgerToggle) {
+        closeMenu();
+    }
 });
 
 userToggle.addEventListener('click', () => {
+    toggleMenuUser();
+});
+
+function toggleMenuUser(){
     menuUser.classList.toggle('open-right');
     menuUser.classList.toggle('closed-user');
+}
+
+function closeMenuUser() {
+    if (menuUser.classList.contains('open-right')) {
+        toggleMenuUser();
+    }
+}
+
+document.addEventListener("click", function(event){
+    if (!menuUser.contains(event.target) && event.target !== userToggle) {
+        closeMenuUser();
+    }
 });
 
 cartToggle.addEventListener('click', () => {
+    toggleMenuCart();
+});
+
+function toggleMenuCart(){
     menuCart.classList.toggle('open-right');
     menuCart.classList.toggle('closed-cart');
+}
+
+function closeMenuCart() {
+    if (menuCart.classList.contains('open-right')) {
+        toggleMenuCart();
+    }
+}
+
+document.addEventListener("click", function(event){
+    if (!menuCart.contains(event.target) && event.target !== cartToggle) {
+        closeMenuCart();
+    }
 });
 
 let options = document.querySelectorAll(".option");
@@ -343,7 +388,7 @@ rights.forEach(function(right){
 
         setTimeout(function() {
             carrusel.classList.remove("skew-right");
-        }, 100);
+        }, 200);
 
         let btn = carrusel.previousElementSibling;
 
@@ -357,11 +402,41 @@ rights.forEach(function(right){
 
         let scroll = carrusel.scrollLeft;
 
-        console.log(maxScroll);
-        console.log(scroll);
-
-        if(maxScroll-scroll < 1){
+        if(maxScroll-scroll < tamanio || maxScroll === 0){
             right.classList.add("none");
         }
+   
     });
+
+    document.addEventListener('DOMContentLoaded', function(){
+        let carrusel = right.previousElementSibling;
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+        if(maxScroll === 0){
+            right.classList.add("none");
+        }
+    })
+
+    window.addEventListener('resize', () => {
+        let carrusel = right.previousElementSibling;
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+        let classes = Array(right.classList);
+        if(maxScroll === 0){
+            if(!classes.includes("none")){
+                right.classList.add("none");
+            }
+        }else{
+            right.classList.remove("none");
+        }
+    });
+
+    
 });
+
+document.querySelector(".home").addEventListener("click", function(){
+    window.location.replace("home.html");
+});
+
+document.querySelector(".close").addEventListener("click", function(){
+    window.location.replace("index.html");
+});
+
