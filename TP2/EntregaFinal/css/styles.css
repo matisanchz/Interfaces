@@ -1042,3 +1042,7 @@ form h1{
 .charger-box{
     margin-top: 20px;
 }
+
+.home, .close{
+    cursor: pointer;
+}

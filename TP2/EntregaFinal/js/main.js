@@ -362,3 +362,12 @@ rights.forEach(function(right){
         }
     });
 });
+
+document.querySelector(".home").addEventListener("click", function(){
+    window.location.replace("home.html");
+});
+
+document.querySelector(".close").addEventListener("click", function(){
+    window.location.replace("index.html");
+});
+
