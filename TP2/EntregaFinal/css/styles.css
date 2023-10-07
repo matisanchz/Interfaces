@@ -107,6 +107,7 @@ h3{
     overflow: hidden;
     white-space: nowrap;
     padding-bottom: 35px;
+    scroll-behavior: smooth;
 }
 
 .card{
@@ -555,11 +556,13 @@ hr{
 }
 
 .btn-1:hover{
-    transform: translate(-12px, -12px);
+    transform: translate(-9px, -9px);
+    box-shadow: 3px 3px 3px 0px var(--neutral-dark);
 }
 
 .btn-1:hover::after{
     transform: translate(6px, 6px);
+    box-shadow: 3px 3px 3px 0px var(--neutral-dark);
 }
 
 .btn-1:hover::before{
@@ -743,20 +746,31 @@ a .card{
 }
 
 .forms{
-    padding-top: 100px;
+    padding: 100px;
     display: flex;
     justify-content: center;
 }
 
-.form-login{
+form{
     background-color: var(--primary-dark2);
-    width: 720px;
-    height: 552px;
     border-radius: 64px;
+    width: 720px;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.form-login{
+    height: 552px;
+}
+
+.form-register{
+    height: 982px;
+}
+
+.form-register .btn-primary{
+    margin-bottom: 10px;
 }
 
 header.login-header{
@@ -777,11 +791,18 @@ form button{
     width: 377.62px;
     height: 39px;
     border-radius: 20px;
+    font-family:var(--font-btn);
+    font-weight: normal;
+    letter-spacing: 1px;
 }
 
 .btn-primary{
     background-color: var(--primary);
     color: var(--secondary-light2);
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-dark1);
 }
 
 .btn-google{
@@ -814,6 +835,14 @@ form span{
     letter-spacing: 1px;
 }
 
+.form-register span{
+    color: var(--secondary);
+    font-size: var(--subtitle);
+    font-family: var(--font);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
 form h1{
     margin-top: 20px;
 }
@@ -834,4 +863,50 @@ form h1{
 .rules-images{
     display: flex;
     justify-content: center;
+}
+
+.captcha{
+    width: 400px;
+    height: 100px;
+    background-color: var(--neutral-light);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tic{
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--neutral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tic img{
+    width: 35px;
+    height: 35px;
+}
+
+.container-captcha{
+    display:flex;
+    align-items: center;
+}
+
+.captcha p{
+    color: var(--neutral-dark);
+    font-family: var(--font-btn);
+    font-size: var(--btn-size);
+    font-weight: var(--style2);
+    margin-left: 20px;
+}
+
+.return{
+    position: absolute;
+    transform: translate(-260px, 450px);
+}
+
+.registro{
+    cursor: pointer;
 }
