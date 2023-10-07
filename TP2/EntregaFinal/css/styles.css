@@ -34,11 +34,14 @@
     --success: #37DE8E;
     --warning: #F8E220;
     --cancel: rgba(183, 49, 49, 0.76);
+    /*Fuentes*/
     --font: 'Roboto', sans-serif;
     --font-btn: 'Ubuntu', sans-serif;
     --font-link: 'Aldrich', sans-serif;
+    /*Estilos*/
     --style1: normal;
     --style2: bold;
+    /*Tamaños*/
     --heading: 40px;
     --subtitle: 32px;
     --third-title: 18px;
@@ -909,4 +912,95 @@ form h1{
 
 .registro{
     cursor: pointer;
+}
+
+.form-hide{
+    height: 100vh !important;
+    overflow: hidden;
+}
+
+.preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--neutral-dark);
+    opacity: 0.95;
+    height: 120vh;
+    width: 100%;
+}
+
+.ring{
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: ring 2s linear infinite;
+}
+
+.ring:before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.preloader span{
+    color: var(--neutral);
+    letter-spacing: 1px;
+    line-height: 200px;
+}
+
+@keyframes ring{
+    0%{
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px var(--secondary-light3);
+    }
+    10%{
+        transform: rotate(36deg);
+        box-shadow: 1px 5px 2px var(--secondary-light2);
+    }
+    20%{
+        transform: rotate(72deg);
+        box-shadow: 1px 5px 2px var(--secondary-light1);
+    }
+    30%{
+        transform: rotate(108deg);
+        box-shadow: 1px 5px 2px var(--secondary);
+    }
+    40%{
+        transform: rotate(144deg);
+        box-shadow: 1px 5px 2px var(--secondary-dark1);
+    }
+    50%{
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px var(--secondary-dark2);
+    }
+    60%{
+        transform: rotate(216deg);
+        box-shadow: 1px 5px 2px var(--secondary-dark3);
+    }
+    70%{
+        transform: rotate(252deg);
+        box-shadow: 1px 5px 2px var(--secondary-dark2);
+    }
+    80%{
+        transform: rotate(288deg);
+        box-shadow: 1px 5px 2px var(--secondary-dark1);
+    }
+    90%{
+        transform: rotate(324deg);
+        box-shadow: 1px 5px 2px var(--secondary);
+    }
+    100%{
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px var(--secondary-light1);
+    }
 }
