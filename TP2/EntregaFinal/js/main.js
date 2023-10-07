@@ -1,23 +1,77 @@
+"use strict";
+
 let cards = document.querySelectorAll(".card-img");
 
 let cards_payable = document.querySelectorAll(".card-payable");
 
+let cards_bought = document.querySelectorAll(".card-bought");
+
+const juegos=[
+    {'nombre' : 'shell-shockers', 
+    'valor' : '$ 0.95'},
+    {'nombre' : 'air-wars3', 
+    'valor' : '$ 0.95'},
+    {'nombre' : 'bad-egg', 
+    'valor' : '$ 1.00'},
+    {'nombre' : 'metal-slug', 
+    'valor' : '$ 0.50'},
+    {'nombre' : 'ratchet-clank', 
+    'valor' : '$ 2.50'},
+    {'nombre' : 'zelda', 
+    'valor' : '$ 1.50'},
+    {'nombre' : 'force', 
+    'valor' : '$ 1.00'},
+    {'nombre' : 'forward-assault', 
+    'valor' : '$ 1.20'},
+    {'nombre' : 'crazy-speed', 
+    'valor' : '$ 1.00'},
+    {'nombre' : 'rally-point3', 
+    'valor' : '$ 1.00'},
+    {'nombre' : 'resident-evil4', 
+    'valor' : '$ 2.00'},
+    {'nombre' : 'saw', 
+    'valor' : '$ 1.50'},
+    {'nombre' : 'silent-hill2', 
+    'valor' : '$ 1.50'},
+    {'nombre' : 'tower-defense', 
+    'valor' : '$ 0.50'},
+    {'nombre' : 'w2100', 
+    'valor' : '$ 0.50'},
+    {'nombre' : 'starcraft', 
+    'valor' : '$ 1.80'},
+    {'nombre' : 'tomb-rider', 
+    'valor' : '$ 0.50'},
+    {'nombre' : 'mah', 
+    'valor' : '$ 0.50'},
+    {'nombre' : 'candy', 
+    'valor' : '$ 0.50'}
+];
+
 cards_payable.forEach(function(card){
     let cart = document.createElement("img");
-    cart.src =  "media/iconos/card-cart.png";
+    cart.src =  "media/iconos/card-cart.svg";
     cart.className = "icon-cart";
 
     let paid = document.createElement("img");
-    paid.src =  "media/iconos/paid.png";
+    paid.src =  "media/iconos/paid.svg";
     paid.className = "icon-paid";
 
     let label = document.createElement("img");
-    label.src =  "media/iconos/label.png";
-    label.className = "label";
+    label.src =  "media/iconos/label.svg";
+    label.className = "label none";
     
+    let path = card.src;
+
+    let partes = path.split("/");
+    
+    let archivo = partes[partes.length - 1].split(".")[0];
+
+    let objeto = juegos.find(juego => juego.nombre === archivo);
+
     let price = document.createElement("p");
-    price.textContent = "$0,95";
-    price.className = "price";
+
+    price.textContent = objeto.valor;
+    price.className = "price none";
     
     card.insertAdjacentElement("afterend", cart);
     card.insertAdjacentElement("afterend", paid);
@@ -25,10 +79,25 @@ cards_payable.forEach(function(card){
     card.insertAdjacentElement("afterend", price);
 });
 
+cards_bought.forEach(function(card){
+    let basket = document.createElement("img");
+    basket.src =  "media/iconos/bought.svg";
+    basket.className = "icon-cart basket";
+    
+    card.insertAdjacentElement("afterend", basket);
+});
+
 let carts = document.querySelectorAll(".icon-cart");
 
 carts.forEach(function(cart){
     cart.addEventListener("click", function() {
+
+        cart.classList.add("giro");
+
+        cart.addEventListener("animationend", () =>{
+            cart.classList.remove("giro");
+        });
+
         let source = this.src;
         if(source.includes("card-cart")){
             source = source.replace("card-cart", "card-added");
@@ -37,7 +106,21 @@ carts.forEach(function(cart){
         }
         this.src = source;
     });
+
+    cart.addEventListener("mouseover", () => {
+        let source = cart.src;
+
+        if(source.includes("card-cart")){
+            cart.classList.add("rotating");
+        }
+    });
+
+    cart.addEventListener("mouseout", () => {
+        cart.classList.remove("rotating");
+    });
 });
+
+
 
 //Por cada card
 cards.forEach(function(card){
@@ -57,40 +140,51 @@ cards.forEach(function(card){
         let clasesArray = Array.from(clases);
 
         if(clasesArray.includes("card-primary")){
-            nodoImg.src =  "media/iconos/play.png";
+            nodoImg.src =  "media/iconos/play.svg";
         }else{
-            nodoImg.src =  "media/iconos/lock.png";
+            nodoImg.src =  "media/iconos/lock.svg";
         }
 
         nodoImg.className = "icon-medium";
 
         card.insertAdjacentElement("afterend", nodoImg);
-        
-        if(clasesArray.includes("card-payable")){
-
-            let paid = card.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
-
-            console.log(paid);
-
-            let clases = paid.classList;
-
-            let clasesArray = Array.from(clases);
-
-            if(clasesArray.includes("icon-paid")){
-                paid.classList.add("none")
-            }
-        }
 
         let texto = card.nextElementSibling;
 
         while (texto) {
             if (texto.tagName === "H3") {
-                console.log(texto);
                 texto.classList.remove("none");
                 break; 
             }
             texto = texto.nextElementSibling;
         }
+        
+        if(clasesArray.includes("card-payable")){
+
+            // LOCK, P, LABEL, PAID
+
+            let label = card.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            label.classList.remove("none");
+
+            let price = card.nextElementSibling.nextElementSibling;
+
+            price.classList.remove("none");
+
+            let paid = card.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling;
+
+            paid.classList.add("none");
+        }
+
+        if(clasesArray.includes("card-bought")){
+
+            let basket = card.nextElementSibling.nextElementSibling;
+
+            basket.src = "media/iconos/unlock.svg";
+
+        }
+
+
     });
     
     //Deshago cambios del hover, al salir del hover -> cambio gif a imagen
@@ -111,35 +205,163 @@ cards.forEach(function(card){
 
         let clasesArray = Array.from(clases);
 
-        if(clasesArray.includes("card-payable")){
-
-            let paid = card.nextElementSibling.nextElementSibling.nextElementSibling;
-
-            console.log(paid);
-
-            let clases = paid.classList;
-
-            let clasesArray = Array.from(clases);
-
-            if(clasesArray.includes("icon-paid")){
-                paid.classList.remove("none");
-            }
-        }
-
         let texto = card.nextElementSibling;
 
         while (texto) {
             if (texto.tagName === "H3") {
-                console.log(texto);
                 texto.classList.add("none");
                 break; 
             }
             texto = texto.nextElementSibling;
         }
 
+        if(clasesArray.includes("card-payable")){
+
+            //P, LABEL, PAID, CARD-CART
+
+            let price = card.nextElementSibling;
+
+            price.classList.add("none");
+
+            let label = price.nextElementSibling;
+
+            label.classList.add("none");
+
+            let paid = label.nextElementSibling;
+
+            paid.classList.remove("none");
+
+        }
+
+        if(clasesArray.includes("card-bought")){
+            
+            let basket = card.nextElementSibling;
+
+            basket.src = "media/iconos/bought.svg";
+
+        }
     });
 
 });
 
+let burgerToggle = document.getElementById("burger");
+let userToggle = document.getElementById("user");
+let cartToggle = document.getElementById("cart");
 
+let menu = document.querySelector(".menu");
+let menuUser = document.querySelector(".menu-user");
+let menuCart = document.querySelector(".menu-cart");
 
+burgerToggle.addEventListener('click', () => {
+    menu.classList.toggle('open-left');
+    menu.classList.toggle('closed-menu');
+    burgerToggle.classList.toggle('rotate');
+});
+
+userToggle.addEventListener('click', () => {
+    menuUser.classList.toggle('open-right');
+    menuUser.classList.toggle('closed-user');
+});
+
+cartToggle.addEventListener('click', () => {
+    menuCart.classList.toggle('open-right');
+    menuCart.classList.toggle('closed-cart');
+});
+
+let options = document.querySelectorAll(".option");
+
+options.forEach(function(option){
+
+    option.addEventListener("mouseover", function(){
+        option.classList.add('selected');
+        let h3 = this.children[1];
+        h3.classList.add('selected-h3');
+    });
+
+    option.addEventListener("mouseout", function(){
+        option.classList.remove('selected');
+        let h3 = this.children[1];
+        h3.classList.remove('selected-h3');
+    });
+
+});
+
+document.querySelectorAll(".carrusel").forEach(function(carrusel){
+    let card = carrusel.firstElementChild;
+    card.style = "padding-left: 0px";
+});
+
+const tamanio = 229.2;
+
+let lefts = document.querySelectorAll(".left");
+
+lefts.forEach(function(left){
+
+    
+
+    left.addEventListener("click", function(){
+
+        let carrusel = this.nextElementSibling;
+
+        carrusel.scrollLeft -= tamanio;
+
+        carrusel.classList.add("skew-left");
+
+        setTimeout(function() {
+            carrusel.classList.remove("skew-left");
+        }, 100);
+
+        let btn = carrusel.nextElementSibling;
+
+        let classArray =  Array.from(btn.classList);
+    
+        if(classArray.includes("none")){
+            btn.classList.remove("none");
+        }
+
+        let scroll = carrusel.scrollLeft;
+
+        if(scroll===0){
+            left.classList.add("none");
+        }
+
+    })
+
+});
+
+let rights = document.querySelectorAll(".right");
+
+rights.forEach(function(right){
+
+    right.addEventListener("click", function(){
+
+        let carrusel = this.previousElementSibling;
+
+        carrusel.scrollLeft += tamanio;
+
+        carrusel.classList.add("skew-right");
+
+        setTimeout(function() {
+            carrusel.classList.remove("skew-right");
+        }, 100);
+
+        let btn = carrusel.previousElementSibling;
+
+        let classArray =  Array.from(btn.classList);
+    
+        if(classArray.includes("none")){
+            btn.classList.remove("none");
+        }
+
+        let maxScroll = carrusel.scrollWidth - carrusel.clientWidth;
+
+        let scroll = carrusel.scrollLeft;
+
+        console.log(maxScroll);
+        console.log(scroll);
+
+        if(maxScroll-scroll < 1){
+            right.classList.add("none");
+        }
+    });
+});

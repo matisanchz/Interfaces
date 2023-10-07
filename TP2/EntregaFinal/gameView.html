@@ -3,31 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameName</title>
+    <title>4 en Linea - CS-GO</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
     <header>
-        <a href=""><img src="images/burger.png"></a>
-        <a href="index.html"><img src="images/logo.png"></a>
-        <input type="text" value="¿QUÉ JUGAMOS?">
-        <a href=""><img src="images/cart.png"></a>
-        <a href=""><img src="images/user.png"></a>
+        <div>
+            <img src="media/iconos/burger.svg" id="burger">
+            <a href="home.html"><img src="media/imagenes/logo.svg" id="logo-header"></a>
+        </div>
+        <div>
+            <input type="text" placeholder="¿QUÉ JUGAMOS?" class="buscar">
+            <img src="media/iconos/lupa.svg" alt="" class="lupa">
+        </div>
+        <div>
+            <img src="media/iconos/cart.svg" id="cart">
+            <img src="media/iconos/user.svg" id="user">
+        </div>
     </header>
+
+    <nav class ="menu">
+        <div class="option">
+            <img src="media/iconos/inicio.svg">
+            <h3>Inicio</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/juegos.svg">
+            <h3>Mis Juegos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/recientes.svg">
+            <h3>Recientes</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/tendencias.svg">
+            <h3>Tendencias</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/favoritos.svg">
+            <h3>Favoritos</h3>
+        </div>
+        <div class="option line">
+            <img src="media/iconos/multijugador.svg">
+            <h3>Multijugador</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/aventura.svg">
+            <h3>Aventura</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/autos.svg">
+            <h3>Autos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/armas.svg">
+            <h3>Armas</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/accion.svg">
+            <h3>Accion</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/terror.svg">
+            <h3>Terror</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/estrategia.svg">
+            <h3>Estrategia</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/clasicos.svg">
+            <h3>Clásicos</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/puzzle.svg">
+            <h3>Puzzle</h3>
+        </div>
+    </nav>
+
+    <nav class ="menu-user">
+        <div class="option">
+            <img src="media/iconos/account.svg">
+            <h3>Perfil</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/settings.svg">
+            <h3>Ajustes</h3>
+        </div>
+        <div class="option">
+            <img src="media/iconos/purchase.svg">
+            <h3>Mis compras</h3>
+        </div>
+        <div class="option line">
+            <img src="media/iconos/out.svg">
+            <h3>Cerrar Sesión</h3>
+        </div>
+    </nav>
+
+    <nav class ="menu-cart">
+        <div class="item">
+            <div class="item-container">
+                <h3>Counter Strike</h3>
+                <div>
+                    <img src="media/iconos/delete.svg">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item1.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h3>God of War</h3>
+                <div>
+                    <img src="media/iconos/delete.svg">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item2.png">
+        </div>
+        <div class="item">
+            <div class="item-container">
+                <h3>Starcraft II</h3>
+                <div>
+                    <img src="media/iconos/delete.svg">
+                    <h2>$1,50</h2>
+                </div>
+            </div>
+            <img src="media/imagenes/items/item3.png">
+        </div>
+        <div class="item total">
+            <div class="item-container">
+                <h2>Total:</h2>
+                <h2>$5,80</h2>
+            </div>
+            <div class="container">
+                <div class="buttons">
+                    <a href="#" class="btn btn-1">COMPRAR</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     
-<canvas>
+    <main>
 
-</canvas>
+        <div class="container">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="home.html">Inicio > </a></li>
+              <li class="breadcrumb-item"><a href="home.html">Puzzle > </a></li>
+              <li class="breadcrumb-item active">4 en Linea: CS GO</li>
+            </ol>
+          </div>
+        
+        <section class="game">
 
+            <canvas></canvas>
 
+            <div class="control-bar">
+                <div class="logo-game-view">
+                    <img src="media/iconos/logo-pocket.svg" alt="" id="logo-game-view">
+                    <h2>4 en Linea: CS GO</h2>
+                </div>
+                <div class="game-icons">
+                    <img src="media/iconos/heart.svg" alt="">
+                    <button class="ripple-button" id="share">
+                        <img src="media/iconos/share.svg" alt="">
+                    </button>
+                    <img src="media/iconos/like.svg" alt="">
+                    <img src="media/iconos/dislike.svg" alt="">
+                    <img src="media/iconos/fullscreen.svg" alt="">
+                </div>
+            </div>
 
+            <!-- Contenedor del pop-up -->
+            <div id="popup-overlay" class="popup-overlay">
+                <div id="popup-content" class="popup-content">
+                    <h2>Compartir este contenido</h2>
+                    <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
+                    <div class="social-links">
+                        <a href="#">
+                            <img src="media/iconos/insta.svg" alt="instagram">
+                        </a>
+                        <a href="#">
+                            <img src="media/iconos/wasap.svg" alt="wasap">
+                        </a>
+                        <a href="#">
+                            <img src="media/iconos/face.svg" alt="facebook">
+                        </a>
+                        <a href="#">
+                            <img src="media/iconos/tik.svg" alt="tiktok">
+                        </a>
+                        <a href="#">
+                            <img src="media/iconos/redit.svg" alt="redit">
+                        </a>
+                        <a href="#">
+                            <img src="media/iconos/twiter.svg" alt="twiter">
+                        </a>
+                    </div>
+                    <button id="close-popup">Cerrar</button>
+                </div>
+            </div>
 
+        </section>   
+    
+        <section class="similares">
+            <h2>Juegos Similares</h2>
+                <div class="carrusel">
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/fire-water.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Fireboy & Watergirl</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/shell-shockers.png" alt="" class="card-img card-payable">
+                        <h3 class="none">Shell Shockers</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/among-us.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Among US</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/bomb-it.png" alt="" class="card-img card-primary">
+                        <h3 class="none">BOMB IT!</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/evowars-io.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Evowars.io</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/holey-io.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Holey.io</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/gulper-io.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Gulper.io</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/build-royale.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Build Royale</h3>
+                    </div>
+                    <div class="card">
+                        <img src="media/imagenes/multiplayer/highway-racer.png" alt="" class="card-img card-primary">
+                        <h3 class="none">Highway Race</h3>
+                    </div>
+                </div>
+        </section>
+    
+        <section class="game-related">
+            <article class="game-insights">
 
+                <div class="about-game">
+                    <img src="media/iconos/control.svg" alt="arrow-logo">
+                    <h2>Acerca del Juego</h2>
+                </div>
 
+                <hr id="break-line1">
+
+                <div class="description">
+                    <p><strong><span>Descripcion:</span></strong> El objetivo del juego es conectar cuatro fichas de tu color en la misma línea (vertical, horizontal o diagonal). 
+                        Las fichas o discos siempre caen desde arriba hacia abajo, como consecuencia de la fuerza de la gravedad. Conecta 4 fichas en línea y ganarás la partida.
+                    </p>
+                    <p><strong><span>Tematica:</span></strong> Orientado al clásico juego de armas 'Counter Strike: Global Offensive'. Elegirás un bando, entre Counter Terrorist y Terrorist; 
+                        cada uno tendrá su ficha personalizada .
+                    </p>
+                    <p><strong><span>Calificacion:</span></strong> 8,5 PocketPoints</p>
+                    <p><strong><span>Desarrollador:</span></strong> Pocket Games</p>
+                    <p><strong><span>Publicacion:</span></strong> Junio 2023</p>
+                    <p><strong><span>Plataformas:</span></strong> Browser (desktop, mobile, tablet), iOS, Android.</p>
+                </div>
+
+                <div class="rules">
+                    <img src="media/iconos/control.svg" alt="arrow-logo">
+                    <h2>Reglas</h2>
+                </div>
+
+                <hr id="break-line2">
+
+                <div class="rules-images">
+                    <img src="media/imagenes/descripcion.svg" alt="reglas" id="reglas">
+                </div>
+            </article>
+    
+            <article class="highlights">
+                
+                <div id="video1">
+                    <img src="media/imagenes/video1.svg" alt="">
+                </div>
+                <div id="video2">
+                    <img src="media/imagenes/video2.svg" alt="">
+                </div>
+            </article>
+    
+        </section>
+
+        <section class="coments">
+
+            <div class="comentarios">
+                <img src="media/iconos/coment.svg" alt="message-logo">
+                <h2>Comentarios</h2>
+            </div>
+
+            <hr id="break-line3">
+
+            <div class="coment-box">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/profile-dark.svg" alt="perfil-coment-icon">
+                        <p><strong>Tu</strong></p>
+                    </div>
+                    <div class="coment-max">
+                        <p>Maximo 100 caracteres</p>
+                    </div>
+                </div>
+                <div class="bot">
+                    <p>¿Que piensas de este juego?</p>
+                    <img src="media/iconos/pencil.svg" alt="write-icon" id="pencil">
+                </div>
+            </div>
+
+            <hr id="break-line4">
+
+            <div class="coment-post">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/user-coment.svg" alt="perfil-coment-icon">
+                        <p><strong>elXocas</strong></p>
+                    </div>
+                    <div class="coment-like">
+                        <p>2 me gusta</p>
+                        <img src="media/iconos/fill-like.svg" alt="like-icon">
+                    </div>
+                </div>
+                <div class="mid">
+                    <p><strong>
+                        Este juego es una obra maestra! La jugabilidad es increible y los graficos ni te cuento.
+                        No puedo parar tio!! Os lo recomiendo 100%!
+                    </strong></p>
+                </div>
+                <div class="bot-post">
+                    <p>02 de septiembre de 2023</p>
+                </div>
+            </div>
+            <div class="coment-post">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/user-coment.svg" alt="perfil-coment-icon">
+                        <p><strong>KataraFanatic</strong></p>
+                    </div>
+                    <div class="coment-like">
+                        <p></p>
+                        <img src="media/iconos/fill-like.svg" alt="like-icon">
+                    </div>
+                </div>
+                <div class="mid">
+                    <p><strong>
+                        Me decepcionó mucho este juego. 
+                        Esperaba mucho más en términos de historia y desafío. Además, los errores técnicos arruinan la experiencia.
+                    </strong></p>
+                </div>
+                <div class="bot-post">
+                    <p>26 de agosto de 2023</p>
+                </div>
+            </div>
+            <div class="coment-post">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/user-coment.svg" alt="perfil-coment-icon">
+                        <p><strong>EarthWarrior123</strong></p>
+                    </div>
+                    <div class="coment-like">
+                        <p>6 me gusta</p>
+                        <img src="media/iconos/fill-like.svg" alt="like-icon">
+                    </div>
+                </div>
+                <div class="mid">
+                    <p><strong>
+                        ¡Increíblemente adictivo! Pasé horas y horas jugando sin darme cuenta. 
+                        Los desarrolladores realmente se lucieron con este título.
+                    </strong></p>
+                </div>
+                <div class="bot-post">
+                    <p>12 de agosto de 2023</p>
+                </div>
+            </div>
+            <div class="coment-post">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/user-coment.svg" alt="perfil-coment-icon">
+                        <p><strong>FireBenderMaster</strong></p>
+                    </div>
+                    <div class="coment-like">
+                        <p></p>
+                        <img src="media/iconos/fill-like.svg" alt="like-icon">
+                    </div>
+                </div>
+                <div class="mid">
+                    <p><strong>
+                        No entiendo por qué tanta gente habla bien de este juego. La trama es aburrida, y los controles son confusos. 
+                        No lo recomendaría en absoluto.
+                    </strong></p>
+                </div>
+                <div class="bot-post">
+                    <p>17 de julio de 2023</p>
+                </div>
+            </div>
+            <div class="coment-post">
+                <div class="top">
+                    <div class="coment-profile">
+                        <img src="media/iconos/user-coment.svg" alt="perfil-coment-icon">
+                        <p><strong>ZukoFirePrince</strong></p>
+                    </div>
+                    <div class="coment-like">
+                        <p>1 me gusta</p>
+                        <img src="media/iconos/fill-like.svg" alt="like-icon">
+                    </div>
+                </div>
+                <div class="mid">
+                    <p><strong>
+                        Este juego me dejó sin palabras. La música, el diseño de nivel y la narrativa 
+                        se combinan para crear una experiencia única. 
+                    </strong></p>
+                </div>
+                <div class="bot-post">
+                    <p>09 de julio de 2023</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <!-- FOOTER -->
+    
+        <div class="logo-footer">
+            <a class="logo" href="home.html">
+                <img src="media/imagenes/logo-footer.png" alt="logo pocket games">
+            </a>
+        </div>
+
+        <div class="links-footer">
+            <section class="section-footer">
+                <h2>Links de Interes</h2>
+                <a href="">Blog</a>
+                <a href="">Download</a>
+                <a href="">FAQ</a>
+            </section>
+
+            <section class="section-footer">
+                <h2>Legales</h2>
+                <a href="">Licencia</a>
+                <a href="">Aviso legal</a>
+                <a href="">Privacidad</a>
+                <a href="">Politica de cookies</a>
+            </section>
+
+            <section class="section-footer">
+                <h2>Comunidad</h2>
+                <a href="">Soporte</a>
+                <a href="">Contribuir</a>
+                <a href="">Discord</a>
+                <a href="">Politicas de inclusion</a>
+            </section>
+
+            <section class="section-footer">
+                <h2>Quienes somos?</h2>
+                <a href="">Contacto</a>
+                <a href="">Sponsors</a>
+                <a href="">Equipo</a>
+            </section>
+        </div>
+
+        <div class="social-footer">
+            <a class="insta" href="">
+                <img src="media/iconos/insta.svg" alt="instagram">
+            </a>
+            <a class="face" href="">
+                <img src="media/iconos/face.svg" alt="facebook">
+            </a>
+            <a class="tik" href="">
+                <img src="media/iconos/tik.svg" alt="tiktok">
+            </a>
+            <a class="tube" href="">
+                <img src="media/iconos/tube.svg" alt="youtube">
+            </a>
+        </div>
+
+        <div class="text-footer">
+            <p><span><img src="media/iconos/Copy.svg" alt="copyright"></span>2023 PocketGames SA</p>
+            <p>Todos los derechos reservados</p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>

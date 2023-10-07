@@ -3,393 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
 
-    <header>
-        <a href=""><img src="images/burger.png"></a>
-        <a href="index.html"><img src="images/logo.png"></a>
-        <input type="text" value="¿QUÉ JUGAMOS?">
-        <a href=""><img src="images/cart.png"></a>
-        <a href=""><img src="images/user.png"></a>
+    <header class="login-header">
+        <div>
+            <img src="media/imagenes/logo.svg" alt="PokerGames" id="logo-form">
+        </div>
     </header>
 
+    <section class="forms">
+        <form action="home.html" class="form-login">
+            <h1>Iniciá Sesión</h1>
+            <label>Usuario</label>
+            <input type="text" class="input-txt">
+            <label>Clave</label>
+            <input type="text" class="input-txt">
+    
+            <button type="submit" class="btn-primary">Ingresar</button>
+            <button class="btn-google">Acceder con Google</button>
+            <button class="btn-fb">Acceder con Facebook</button>
+            
+            <p>Si aún no eres gamer <a><span class="registro">Registrate aquí</span></a></p>
+            <span>Bloqueeé u olvidé mi usuario y/o clave</span>
+        </form>
 
-    <section>
-        <!-- CARRUSEL TENDENCIAS -->
-        <a href="gameView.html">JUGAAAAR</a>
+        <form action="" class="form-register none">
+            <h1>Ingresá tus datos</h1>
+            <label>Nombre y Apellido<span>*</span></label>
+            <input type="text" class="input-txt">
+            <label>Nickname</label>
+            <input type="text" class="input-txt">
+            <label>Email<span>*</span></label>
+            <input type="text" class="input-txt">
+            <label>Fecha de Nacimiento<span>*</span></label>
+            <input type="text" value="dd/mm/aa" class="input-txt">
+            <label>Clave<span>*</span></label>
+            <input type="text" class="input-txt">
+            <label>Repetir Clave</label>
+            <input type="text" class="input-txt">
+    
+            <div class="captcha">
+                <div class="container-captcha">
+                    <div class="tic">
+                        <img src="media/iconos/tic.svg" alt="" class="none">
+                    </div>
+                    <p>No soy un robot</p>
+                </div>
+                <img src="media/iconos/captcha.svg" alt="">
+            </div>
+    
+            <button class="btn-primary">Registrar</button>
+            
+            <img src="media/iconos/return.svg" alt="Return" class="return">
+        </form>
+
     </section>
 
-    <h1>Categorias</h1>
-
-    <section>
-        <h2>Juegos de Multijugador</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/multiplayer/fire-water.png" alt="" class="card-img card-primary">
-                <h3 class="none">Fireboy & Watergirl</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/shell-shockers.png" alt="" class="card-img card-payable">
-                <h3 class="none">Shell Shockers</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/among-us.png" alt="" class="card-img card-primary">
-                <h3 class="none">Among US</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/bomb-it.png" alt="" class="card-img card-primary">
-                <h3 class="none">BOMB IT!</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/evowars-io.png" alt="" class="card-img card-primary">
-                <h3 class="none">Evowars.io</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/holey-io.png" alt="" class="card-img card-primary">
-                <h3 class="none">Holey.io</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/gulper-io.png" alt="" class="card-img card-primary">
-                <h3 class="none">Gulper.io</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/build-royale.png" alt="" class="card-img card-primary">
-                <h3 class="none">Build Royale</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/multiplayer/highway-racer.png" alt="" class="card-img card-primary">
-                <h3 class="none">Highway Race</h3>
-            </div>
-        </div>
-
-        <h2>Juegos de Aventura</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/aventura/ratchet-clank.png" alt="" class="card-img card-payable">
-                <h3 class="none">Ratchet & Clank</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/zelda.png" alt="" class="card-img card-payable">
-                <h3 class="none">Zelda</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/evoland.png" alt="" class="card-img card-primary">
-                <h3 class="none">Evoland</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/minecraft.png" alt="" class="card-img card-primary">
-                <h3 class="none">Minecraft</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/hero-wars.png" alt="" class="card-img card-primary">
-                <h3 class="none">Hero Wars</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/skillfit-io.png" alt="" class="card-img card-primary">
-                <h3 class="none">SkillFit.io</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/terraria.png" alt="" class="card-img card-primary">
-                <h3 class="none">Terraria</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/senya-oscar.png" alt="" class="card-img card-primary">
-                <h3 class="none">Senya & Oscar 2</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/aventura/gm.png" alt="" class="card-img card-primary">
-                <h3 class="none">Gabmeister</h3>
-            </div>
-        </div>
-
-        <h2>Juegos de Autos</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/autos/crazy-drift.png" alt="" class="card-img card-primary">
-                <h3 class="none">Crazy Drift</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/death-chase.png" alt="" class="card-img card-primary">
-                <h3 class="none">Death Chase</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/sand-city.png" alt="" class="card-img card-primary">
-                <h3 class="none">Sandbox</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/crazy-speed.png" alt="" class="card-img card-payable">
-                <h3 class="none">Crazy for Speed</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/rally-point3.png" alt="" class="card-img card-payable">
-                <h3 class="none">Rally Point 3</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/drift-boss.png" alt="" class="card-img card-primary">
-                <h3 class="none">Drift Boss</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/high-race2.png" alt="" class="card-img card-primary">
-                <h3 class="none">Highway Racer 2</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/sky-riders.png" alt="" class="card-img card-primary">
-                <h3 class="none">Sky Riders</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/autos/super-star-car.png" alt="" class="card-img card-primary">
-                <h3 class="none">Superstar Car</h3>
-            </div>
-        </div>
+    <script src="js/form.js"></script>
     
-        <h2>Juegos de Armas</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/armas/sniper.png" alt="" class="card-img card-primary">
-                <h3 class="none">Sniper</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/air-wars3.png" alt="" class="card-img card-payable">
-                <h3 class="none">Air Wars 3</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/air-wars2.png" alt="" class="card-img card-primary">
-                <h3 class="none">Air Wars 2</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/forward-assault.png" alt="" class="card-img card-payable">
-                <h3 class="none">Forward Assault</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/death-shot.png" alt="" class="card-img card-primary">
-                <h3 class="none">Dead Shot</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/skibidi-toilet.png" alt="" class="card-img card-primary">
-                <h3 class="none">Skibidi Toilet</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/downtown.png" alt="" class="card-img card-primary">
-                <h3 class="none">DownTown 1930</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/kirka.png" alt="" class="card-img card-primary">
-                <h3 class="none">Kirka</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/armas/force.png" alt="" class="card-img card-payable">
-                <h3 class="none">Bullet Force</h3>
-            </div>
-        </div>
-
-        <h2>Juegos de Acción</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/accion/1v1.png" alt="" class="card-img card-primary">
-                <h3 class="none">1v1 Battle</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/bad-egg.png" alt="" class="card-img card-payable">
-                <h3 class="none">Bad Egg</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/gato-bross.png" alt="" class="card-img card-primary">
-                <h3 class="none">Gato Bross</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/getaway.png" alt="" class="card-img card-primary">
-                <h3 class="none">Get Away Shoot</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/i-wanna.png" alt="" class="card-img card-primary">
-                <h3 class="none">I Wanna Be The Guy</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/puppet-fight.png" alt="" class="card-img card-primary">
-                <h3 class="none">Puppet Fighter</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/metal-slug.png" alt="" class="card-img card-payable">
-                <h3 class="none">Metal Slug</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/professor.png" alt="" class="card-img card-primary">
-                <h3 class="none">Professor Strange</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/accion/tank-arena.png" alt="" class="card-img card-primary">
-                <h3 class="none">Tank Arena</h3>
-            </div>
-        </div>
-    
-        <h2>Juegos de Terror</h2>
-        <div class="carrusel">
-                <div class="card">
-                    <img src="media/imagenes/terror/outlast.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Outlast</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/dark-night.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Dark Night</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/resident-evil4.png" alt="" class="card-img card-payable">
-                    <h3 class="none">Resident Evil 4</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/saw.png" alt="" class="card-img card-payable">
-                    <h3 class="none">Saw</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/amnesia.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Amnesia</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/silent-hill2.png" alt="" class="card-img card-payable">
-                    <h3 class="none">Silent Hill 2</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/horror-legends.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Horror Legends</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/perdita.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Perdita</h3>
-                </div>
-                <div class="card">
-                    <img src="media/imagenes/terror/psycho-hunt.png" alt="" class="card-img card-primary">
-                    <h3 class="none">Psychopath</h3>
-                </div>
-        </div>
-    
-        <h2>Juegos de Estrategia</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/estrategia/dayt.png" alt="" class="card-img card-primary">
-                <h3 class="none">Day Tower</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/dual.png" alt="" class="card-img card-primary">
-                <h3 class="none">Dual Force</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/tower-defense.png" alt="" class="card-img card-payable">
-                <h3 class="none">Tower Defense</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/w2100.png" alt="" class="card-img card-payable">
-                <h3 class="none">Warzone 2100</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/kiomet.png" alt="" class="card-img card-primary">
-                <h3 class="none">Kiomet</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/starcraft.png" alt="" class="card-img card-payable">
-                <h3 class="none">StarCraft</h3></div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/merge.png" alt="" class="card-img card-primary">
-                <h3 class="none">Merge Cannon</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/pz3.png" alt="" class="card-img card-primary">
-                <h3 class="none">Plants vs Zombie 3</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/estrategia/tower-swap.png" alt="" class="card-img card-primary">
-                <h3 class="none">Tower Swap</h3>
-            </div>
-        </div>
-
-        <h2>Juegos Clásicos</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/clasicos/contra.png" alt="" class="card-img card-primary">
-                <h3 class="none">Contra</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/mario-kart.png" alt="" class="card-img card-primary">
-                <h3 class="none">Mario Kart</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/tomb-rider.png" alt="" class="card-img card-payable">
-                <h3 class="none">Tomb Rider</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/crash.png" alt="" class="card-img card-primary">
-                <h3 class="none">Crash</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/sonic.png" alt="" class="card-img card-primary">
-                <h3 class="none">Sonic</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/pacman.png" alt="" class="card-img card-primary">
-                <h3 class="none">Pacman</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/zelda.png" alt="" class="card-img card-primary">
-                <h3 class="none">Zelda</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/street-fighter.png" alt="" class="card-img card-primary">
-                <h3 class="none">Street Fighter</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/clasicos/mario-bros.png" alt="" class="card-img card-primary">
-                <h3 class="none">Super Mario Bros</h3>
-            </div>
-        </div>
-    
-        <h2>Juegos de Puzzle</h2>
-        <div class="carrusel">
-            <div class="card">
-                <img src="media/imagenes/puzzle/4linea.png" alt="" class="card-img card-primary">
-                <h3 class="none">4 en linea: CS GO</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/mah.png" alt="" class="card-img card-payable">
-                <h3 class="none">Mahjong</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/candy.png" alt="" class="card-img card-payable">
-                <h3 class="none">Candy Crush</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/ajedrez.png" alt="" class="card-img card-primary">
-                <h3 class="none">Ajedrez</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/buscaminas.png" alt="" class="card-img card-primary">
-                <h3 class="none">Buscaminas</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/damas.png" alt="" class="card-img card-primary">
-                <h3 class="none">Damas</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/jigsaw.png" alt="" iclassd="card-img card-primary">
-                <h3 class="none">Jigsaw</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/sudoku.png" alt="" class="card-img card-primary">
-                <h3 class="none">Sudoku</h3>
-            </div>
-            <div class="card">
-                <img src="media/imagenes/puzzle/ludo.png" alt="" class="card-img card-primary">
-                <h3 class="none">Ludo</h3>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <!-- FOOTER -->
-    </footer>
-
-    <script src="js/main.js"></script>
-
 </body>
 </html>
