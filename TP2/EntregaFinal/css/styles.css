@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Urbanist');
+@import url('https://fonts.googleapis.com/css?family=Aldrich');
 
 *{
     margin: 0;
@@ -35,6 +36,7 @@
     --cancel: rgba(183, 49, 49, 0.76);
     --font: 'Roboto', sans-serif;
     --font-btn: 'Ubuntu', sans-serif;
+    --font-link: 'Aldrich', sans-serif;
     --style1: normal;
     --style2: bold;
     --heading: 40px;
@@ -187,7 +189,7 @@ h3{
     z-index: 2;
 }
 
-h1,h2,h3{
+h1,h2,h3, label{
     color: var(--neutral-light);
 }
 
@@ -360,7 +362,7 @@ div.container a{
 li.active{
     color: var(--accent) !important;
 }
-#logo-header, #logo-game-view{
+#logo-header, #logo-game-view, #logo-form{
     mix-blend-mode:exclusion;
 }
 
@@ -479,7 +481,7 @@ hr{
     transform: translateX(23px);
 }
 
-.buscar{
+.search{
     background-color: var(--neutral-light);
     color: var(--neutral);
     width: 254px;
@@ -758,4 +760,86 @@ a .card{
     width: 324px;
     margin-left: 15px;
     padding-top: 4px;
+}
+
+.login-header{
+    background-color: var(--neutral-dark);
+    display: flex;
+    justify-content: center;
+}
+
+.forms{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-login{
+    background-color: var(--primary-dark2);
+    width: 720px;
+    height: 552px;
+    border-radius: 64px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header.login-header{
+    position:static;
+    margin-top: 100px;
+}
+
+.input-txt{
+    background-color: var(--neutral-light);
+    color: var(--neutral);
+    width: 535px;
+    height: 44px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+form button{
+    width: 377.62px;
+    height: 39px;
+    border-radius: 20px;
+}
+
+.btn-primary{
+    background-color: var(--primary);
+    color: var(--secondary-light2);
+}
+
+.btn-google{
+    background-color: var(--neutral-light);
+    color: var(--neutral-dark);
+}
+
+.btn-fb{
+    background-color: rgba(30, 88, 235, 1);
+    color: var(--neutral-light);
+}
+
+form label{
+    font-family: var(--font);
+    font-size: var(--third-title);
+    font-weight: var(--style2);
+}
+
+form p{
+    color: var(--neutral-light);
+    font-family: var(--font-btn);
+    font-size: var(--btn-size);
+}
+
+form span{
+    color: var(--secondary-dark2);
+    font-size: var(--btn-size);
+    font-family: var(--font-link);
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+
+form h1{
+    margin-top: 20px;
 }

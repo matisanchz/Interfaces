@@ -9,49 +9,51 @@
 </head>
 <body>
 
-    <header>
-        <div class="login-header">
-            <img src="media/imagenes/logo.svg" alt="Poker Games" width="200px">
+    <header class="login-header">
+        <div>
+            <img src="media/imagenes/logo.svg" alt="PokerGames" id="logo-form">
         </div>
     </header>
-    <form action="" class="form-login">
-        <h1>Iniciá Sesión</h1>
-        <label>Usuario</label>
-        <input type="text">
-        <label>Clave</label>
-        <input type="text">
 
-        <button>Ingresar</button>
-        <button>Acceder con Google</button>
-        <button>Acceder con Facebook</button>
-        
-        <p>Si aún no eres gamer <span>Registrate aquí</span></p>
-        <span>Bloqueeé u olvidé mi usuario y/o clave</span>
-    </form>
-
-
+    <section class="forms">
+        <form action="" class="form-login">
+            <h1>Iniciá Sesión</h1>
+            <label>Usuario</label>
+            <input type="text" class="input-txt">
+            <label>Clave</label>
+            <input type="text" class="input-txt">
     
-    <form action="" class="form-register">
-        <h1>Ingresá tus datos</h1>
-        <label>Nombre y Apellido<span>*</span></label>
-        <input type="text">
-        <label>Nickname</label>
-        <input type="text">
-        <label>Email<span>*</span></label>
-        <input type="text">
-        <label>Fecha de Nacimiento<span>*</span></label>
-        <input type="text" value="dd/mm/aa">
-        <label>Clave<span>*</span></label>
-        <input type="text">
-        <label>Repetir Clave</label>
-        <input type="text">
+            <button class="btn-primary">INGRESAR</button>
+            <button class="btn-google">Acceder con Google</button>
+            <button class="btn-fb">Acceder con Facebook</button>
+            
+            <p>Si aún no eres gamer <a href="home.html"><span>Registrate aquí</span></a></p>
+            <span>Bloqueeé u olvidé mi usuario y/o clave</span>
+        </form>
 
-        <img src="captcha" alt="">
+        <form action="" class="form-register none">
+            <h1>Ingresá tus datos</h1>
+            <label>Nombre y Apellido<span>*</span></label>
+            <input type="text">
+            <label>Nickname</label>
+            <input type="text">
+            <label>Email<span>*</span></label>
+            <input type="text">
+            <label>Fecha de Nacimiento<span>*</span></label>
+            <input type="text" value="dd/mm/aa">
+            <label>Clave<span>*</span></label>
+            <input type="text">
+            <label>Repetir Clave</label>
+            <input type="text">
+    
+            <img src="captcha" alt="">
+    
+            <button>Registrar</button>
+            
+            <img src="flechita" alt="">
+        </form>
 
-        <button>Registrar</button>
-        
-        <img src="flechita" alt="">
-    </form>
+    </section>
 
     <script src="js/forms.js"></script>
     
