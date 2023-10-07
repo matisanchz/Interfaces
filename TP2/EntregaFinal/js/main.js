@@ -92,17 +92,16 @@ let carts = document.querySelectorAll(".icon-cart");
 carts.forEach(function(cart){
     cart.addEventListener("click", function() {
 
-        cart.classList.add("giro");
-
-        cart.addEventListener("animationend", () =>{
-            cart.classList.remove("giro");
-        });
-
         let source = this.src;
         if(source.includes("card-cart")){
             source = source.replace("card-cart", "card-added");
         }else{
             source = source.replace("card-added", "card-cart");
+            cart.classList.add("giro");
+
+            cart.addEventListener("animationend", () =>{
+                cart.classList.remove("giro");
+            });
         }
         this.src = source;
     });
@@ -119,8 +118,6 @@ carts.forEach(function(cart){
         cart.classList.remove("rotating");
     });
 });
-
-
 
 //Por cada card
 cards.forEach(function(card){
