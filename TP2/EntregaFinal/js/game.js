@@ -22,7 +22,7 @@ img.onload = function(){
 document.getElementById('share').addEventListener('click', function() {
   document.getElementById('popup-overlay').style.display = 'block';
   // Generar el enlace a compartir y mostrarlo en el campo de texto
-  var shareLink = window.location.href; // Cambia esto por el enlace que deseas compartir
+  var shareLink = "http://www.pocketgames.com/juego/4enlinea:CSGO";
   document.getElementById('share-link').value = shareLink;
 });
 
