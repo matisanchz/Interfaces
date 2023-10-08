@@ -948,8 +948,8 @@ form h1{
     cursor: pointer;
 }
 
-.form-hide{
-    height: 100vh !important;
+.body-hide{
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -968,6 +968,7 @@ form h1{
     opacity: 0.95;
     height: 120vh;
     width: 100%;
+    margin:auto;
     z-index: 1000;
 }
 
@@ -1604,6 +1605,16 @@ form h1{
         margin-left: 15px;
         padding-top: 4px;
         display:flex;
+    }
+
+}
+
+@media only screen and (min-width: 2200px) {
+
+    body{
+        width: 100%;
+        display: flex;
+        justify-content: center ;
     }
 
 }

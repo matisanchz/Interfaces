@@ -496,10 +496,10 @@ function loadPage() {
         function activatePreloader(){
 
             let spinnerStatus = document.querySelector(".status");
-            document.querySelector("body").classList.add("form-hide");
+            document.querySelector("body").classList.add("body-hide");
 
             setTimeout(() => {
-                document.body.classList.remove("form-hide");
+                document.body.classList.remove("body-hide");
                 
                 var ultimoHijo = document.body.lastElementChild;
                 ultimoHijo.remove();
