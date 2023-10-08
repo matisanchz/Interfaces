@@ -1105,14 +1105,13 @@ form h1{
     width: 197px;
 }
 
-.pop-up-exitoso{
+.mensaje-exitoso{
     height: 100vh;
     width: 100%;
     position: absolute;
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 2;
     transition: transform 0.3s ease;
 }
 
