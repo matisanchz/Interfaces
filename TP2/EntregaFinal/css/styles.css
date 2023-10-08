@@ -1085,6 +1085,20 @@ form h1{
     cursor: pointer;
 }
 
+.fb-form{
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    transform: translateX(-130px) translateY(169px);
+}
+
+.google-form{
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    transform: translateX(-130px) translateY(110px);
+}
+
 @media only screen and (min-width: 600px) {
 
     #user, #cart{
