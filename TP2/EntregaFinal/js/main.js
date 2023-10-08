@@ -499,6 +499,7 @@ function loadPage() {
             document.querySelector("body").classList.add("form-hide");
 
             setTimeout(() => {
+                document.body.classList.remove("form-hide");
                 
                 var ultimoHijo = document.body.lastElementChild;
                 ultimoHijo.remove();
