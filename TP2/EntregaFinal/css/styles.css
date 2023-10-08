@@ -803,7 +803,7 @@ form{
 }
 
 .form-register{
-    height: 982px;
+    height: 1000px;
 }
 
 .form-register .btn-primary{
@@ -1097,6 +1097,10 @@ form h1{
     height: 30px;
     position:absolute;
     transform: translateX(-130px) translateY(110px);
+}
+
+.btn-register{
+    width: 197px;
 }
 
 @media only screen and (min-width: 600px) {
