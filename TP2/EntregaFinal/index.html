@@ -23,7 +23,7 @@
             <label>Clave</label>
             <input type="text" class="input-txt" required>
     
-            <button type="submit" class="btn-primary">Ingresar</button>
+            <button type="submit" class="btn-primary btn-ingreso">Ingresar</button>
             <button class="btn-google">Acceder con Google</button>
             <img src="media/iconos/google.svg" alt="" class="google-form">
             <button class="btn-fb">Acceder con Facebook</button>
@@ -33,6 +33,14 @@
             <span>Bloqueeé u olvidé mi usuario y/o clave</span>
         </form>
 
+        <div class="overlay mje-ingreso none">
+            <div class="mensaje-exitoso">
+                <div class="pop-up-body">
+                    <h3 id="success-msg">¡Te has logueado exitosamente!</h3>
+                </div>
+            </div>
+        </div>
+        
         <form action="" class="form-register none">
             <h1>Ingresá tus datos</h1>
             <label>Nombre y Apellido<span>*</span></label>
@@ -65,7 +73,14 @@
             
             <img src="media/iconos/return.svg" alt="Return" class="return">
         </form>
-
+        <div class="overlay mje-registro none">
+            <div class="mensaje-exitoso">
+                <div class="pop-up-body">
+                    <h3 id="success-msg">¡Te has registrado exitosamente!</h3>
+                </div>
+            </div>
+        </div>
+        
     </section>
 
     <script src="js/form.js"></script>
