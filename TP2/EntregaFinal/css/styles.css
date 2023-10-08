@@ -1138,14 +1138,7 @@ form h1{
     }
     
     header{
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
         height: 70px;
-        position:fixed;
-        z-index: 99;
-        background-color: var(--primary-dark3);
     }
 
     .card.last{
@@ -1154,123 +1147,46 @@ form h1{
     
     h1{
         font-size: var(--heading);
-        font-weight: var(--style1);
     }
     
     h2{
         font-size: var(--subtitle);
-        font-weight: var(--style1);
     }
     
     h3{
         font-size: var(--third-title);
-        font-weight: var(--style2);
     }
     
     #burger{
         margin-left: 23px;
         width: 60px;
         height: 60px;
-        transition: transform 0.5s ease;
-    }
-    
-    .rotate{
-        transform: rotate(180deg);
     }
     
     .carrusel{
-        display: flex;
-        flex-wrap: nowrap;
         size: auto;
-        overflow: hidden;
-        white-space: nowrap;
-        padding-bottom: 35px;
-        scroll-behavior: smooth;
     }
     
     .card{
-        display: inline-block;
-        box-sizing: border-box;
         padding: 8px;
-        position: relative;
     }
     
     .card-img{
         width: 210px;
         height: 120px;
-        border: 2px solid transparent;
-        border-radius: 14px;
-    }
-    
-    .difference{
-        mix-blend-mode:difference;
-    }
-    
-    .normal{
-        mix-blend-mode:normal;
-    }
-    
-    .card .card-img:hover {
-        border: 2px solid var(--accent);
     }
       
     .card h3{
-        color: var(--neutral-light);
-        position: absolute;
-        top: 15px;
-        right: 0px;
-        padding-right: 20px;
-        padding-top: 5px;
-        text-align: left;
-        font-family: var(--font);
         font-size: var(--third-title);
-        font-weight: var(--style2);
     }
     
     .icon-medium{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
+        width: 40px;
+        height:40px;
     }
-    
-    .icon-paid{
-        position: absolute;
-        bottom: 15%;
-        left: 8%;
-    }
-    
-    .icon-cart{
-        position: absolute;
-        bottom: 15%;
-        right: 8%;
-        transition: transform 0.5s ease;
-    }
-    
-    .none{
-        display:none;
-    }
-    
-    .label{
-        position: absolute;
-        bottom: 17%;
-        left: 4.5%;
-        z-index: 1;
-    }
-    
-    .price{
-        color: var(--neutral-light);
-        font-family: 'Lato', sans-serif;
-        position: absolute;
-        bottom: 20%;
-        left: 5%;
-        z-index: 2;
-    }
-    
-    h1,h2,h3, label{
-        color: var(--neutral-light);
-    }
+
+    /*COSAS DE FRAN*/
+    /*==============================================*/
     
     .game{
         display: flex;
@@ -1330,13 +1246,12 @@ form h1{
         flex-direction: column;
         align-items: center;
     }
+
+    /*==============================================*/
     
     .option{
-        display: flex;
         width: 238px;
         height: 46px;
-        align-items: center;
-        background-color: var(--primary-dark2);
     }
     
     .option h3{
@@ -1349,38 +1264,21 @@ form h1{
     }
     
     nav{
-        position: fixed;
         padding-top: 70px;
-        z-index: 98;
     }
     
     .menu{
         left: -238px;
-        transition: left 0.3s ease;
     }
     
     .menu-user{
-        position: fixed;
-        right: 0;
         right: -238px;
-        transition: right 0.3s ease;
     }
     
     .menu-cart{
-        position: fixed;
-        right: 0;
         right: -286px;
-        transition: right 0.3s ease;
     }
-    
-    .menu{
-        box-shadow: 2px 2px 3px 0px var(--neutral-dark);
-    }
-    
-    .menu-user, .menu-cart{
-        box-shadow: -2px 2px 3px 0px var(--neutral-dark);
-    }
-    
+
     .closed-menu {
         left: -238px;
     }
@@ -1410,24 +1308,16 @@ form h1{
     }
     
     .item{
-        display: flex;
-        justify-content: space-around;
         width: 284px;
-        height: 96px;
-        align-items: center;
-        background-color: var(--primary-dark2);
-        border: 1px solid transparent;
-    }
-    
-    .item-container div{
-        display: flex;
-        justify-content: space-around;
     }
     
     .big{
         width: 442px;
         height: 262px;
     }
+
+    /*CAMBIOS DE FRAN*/
+    /*===========================================*/
     
     .breadcrumb{
         display: flex;
@@ -1441,14 +1331,11 @@ form h1{
     li.active{
         color: var(--accent) !important;
     }
+
+    /*===========================================*/
     
-    .cuatro{
-        display: flex;
-    }
     
     .dos{
-        display: flex;
-        flex-direction: column;
         height: 262px;
     }
     
@@ -1457,8 +1344,6 @@ form h1{
     }
     
     .left{
-        z-index: 5;
-        position: absolute;
         width: 40px;
         height: 40px;
         left: 25px;
@@ -1471,8 +1356,6 @@ form h1{
     }
     
     .right{
-        z-index: 5;
-        position: absolute;
         width: 40px;
         height: 40px;
         right: 20px;
@@ -1482,6 +1365,9 @@ form h1{
     .right.tend{
         transform: translateY(-200px);
     }
+
+    /*CAMBIOS DE FRAN*/
+    /*=============================*/
     
     hr{
         width: 100%;
@@ -1516,6 +1402,8 @@ form h1{
         color: var(--neutral-light);
         font-family: 'Urbanist';
     }
+
+     /*=============================*/
     
     #user{
         padding-right: 30px;
@@ -1529,43 +1417,14 @@ form h1{
         height: 57px;
     }
     
-    .item img{
-        padding-right: 8px;
-    }
-    
-    .item h3{
-        text-align: center;
-        transform: translateX(4px);
-    }
-    
-    .item h2, .item h3{
-        color: var(--secondary-light2);
-    }
-    
-    .item-container div{
-        transform: translateY(10px);
-    }
-    
-    .item:hover{
-        border: 1px solid var(--neutral-dark);
-    }
-    
-    .total .item-container{
-        transform: translateX(23px);
-    }
-    
     .basket, .icon-cart{
         width: 41px;
         height: 41px;
     }
 
     .search{
-        background-color: var(--neutral-light);
-        color: var(--neutral);
         width: 254px;
         height: 39px;
-        border-radius: 20px;
-        text-align: center;
         font-size: 14px;
     }
     
@@ -1579,14 +1438,9 @@ form h1{
         display: flex;
         padding-right: 150px;
     }
-    
-    .carruseles{
-        padding-top: 40px;
-    }
-    
-    a .card{
-        padding-left: 0px;
-    }
+
+    /*CAMBIOS DE FRAN*/
+    /*====================================*/
     
     .control-bar{
         display: flex;
@@ -1720,14 +1574,7 @@ form h1{
         margin-top: 30px;
         margin-bottom: 30px;
     }
-    
-    #logo-header{
-        width: 324px;
-        margin-left: 15px;
-        padding-top: 4px;
-        display:flex;
-    }
-    
+
     .social-links a{
         padding: 20px;
     }
@@ -1747,8 +1594,13 @@ form h1{
         justify-content: center;
     }
     
-
+    /*====================================*/
     
-    
+    #logo-header{
+        width: 324px;
+        margin-left: 15px;
+        padding-top: 4px;
+        display:flex;
+    }
 
 }
