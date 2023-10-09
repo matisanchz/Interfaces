@@ -799,6 +799,11 @@ form{
 .form-register{
     height: 1000px;
 }
+.data label{
+    display: flex;
+    justify-content: flex-start;
+    
+}
 
 .form-register .btn-primary{
     margin-bottom: 10px;
@@ -840,16 +845,28 @@ form button{
     background-color: var(--neutral-light);
     color: var(--neutral-dark);
 }
+.btn-google:hover{
+    background-color: white;
+    color: var(--accent);
+}
 
 .btn-fb{
     background-color: rgba(30, 88, 235, 1);
     color: var(--neutral-light);
+}
+.btn-fb:hover{
+    background-color: rgb(43, 101, 248);
 }
 
 form label{
     font-family: var(--font);
     font-size: var(--third-title);
     font-weight: var(--style2);
+}
+
+.form-register label{
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 
 form p{
@@ -1661,7 +1678,28 @@ form h1{
         justify-content: center;
         align-items: center;
     }
-    
+
+    /* .active1{
+        visibility: visible;
+        display: block;
+        position:fixed;
+        top: 25%;
+        left: 25%;
+        bottom: 25%;
+        right: 25%;
+        width: 50%;
+        height: 20%;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    /*Estilo de fondo desenfocado 
+    body.blur {
+        filter: blur(5px);
+    } */
+
     /* Estilo para el contenido del pop-up */
     .popup-content {
         background-color: var(--primary-light1);
