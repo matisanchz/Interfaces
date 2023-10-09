@@ -30,3 +30,31 @@ document.getElementById('share').addEventListener('click', function() {
 document.getElementById('close-popup').addEventListener('click', function() {
   document.getElementById('popup-overlay').style.display = 'none';
 });
+
+// Selecciona todos los elementos con la clase "like-icon"
+let likeIcons = document.querySelectorAll(".like-icon");
+
+likeIcons.forEach(function(likeIcon) {
+  // Variable para realizar un seguimiento del estado actual de cada elemento
+  let isLiked = true;
+
+  likeIcon.addEventListener("click", function() {
+
+    if (isLiked) {
+      likeIcon.src = "media/iconos/like-coment.svg"; 
+    } else {
+      likeIcon.src = "media/iconos/fill-like.svg"; 
+    }
+    
+    isLiked = !isLiked;
+  });
+});
+
+
+
+
+
+
+
+
+
