@@ -1208,6 +1208,12 @@ form h1{
     }
 }
 
+.play-game{
+    position: absolute;
+    transform: translateX(940px) translateY(-50px);
+    width: 150x;
+    height:150px;
+}
 
 @media only screen and (min-width: 600px) {
 
