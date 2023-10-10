@@ -11,12 +11,19 @@ const ctx = canvas.getContext('2d');
 
 ctx.stroke();
 
-let img = new Image();
-img.src = "media/imagenes/game2.svg";
+let imgGame = new Image();
+imgGame.src = "media/imagenes/game2.svg";
 
-img.onload = function(){
-    ctx.drawImage(img, 0, 0);
-  }
+let imgPlay = new Image();
+imgPlay.src = "media/imagenes/play.svg";
+
+imgPlay.onload = function(){
+    ctx.drawImage(imgPlay, 0, 0);
+  };
+
+  imgGame.onload = function() {
+    ctx.drawImage(imgGame, 0, 0);
+  };
   
 // Función para mostrar el pop-up cuando se hace clic en el botón "Compartir"
 document.getElementById('share').addEventListener('click', function() {

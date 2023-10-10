@@ -864,8 +864,8 @@ form label{
     font-weight: var(--style2);
 }
 
-.form-register label{
-    margin-top: 30px;
+.form-register label, .form-login label{
+    margin-top: 25px;
     margin-bottom: 5px;
 }
 
