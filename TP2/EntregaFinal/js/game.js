@@ -12,7 +12,7 @@ const ctx = canvas.getContext('2d');
 ctx.stroke();
 
 let imgGame = new Image();
-imgGame.src = "media/imagenes/game2.svg";
+imgGame.src = "media/imagenes/game3.svg";
 
 imgGame.onload = function() {
   ctx.drawImage(imgGame, 0, 0, canvas.width, canvas.height);

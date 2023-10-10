@@ -729,9 +729,6 @@ a .card{
     color: var(--neutral-light)
 }
 .highlights{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-top: 30px;
     margin-left: 30px;
 }
@@ -1209,13 +1206,6 @@ form h1{
         transform: scale(1.0);
         transition: 100ms;
     }
-}
-
-.play-game{
-    position: absolute;
-    transform: translateX(940px) translateY(-50px);
-    width: 150x;
-    height:150px;
 }
 
 @media only screen and (min-width: 600px) {
