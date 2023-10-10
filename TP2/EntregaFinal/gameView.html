@@ -25,7 +25,7 @@
     </header>
 
     <nav class ="menu">
-        <div class="option">
+        <div class="option home">
             <img src="media/iconos/inicio.svg">
             <h3>Inicio</h3>
         </div>
@@ -96,7 +96,7 @@
             <img src="media/iconos/purchase.svg">
             <h3>Mis compras</h3>
         </div>
-        <div class="option line">
+        <div class="option line close">
             <img src="media/iconos/out.svg">
             <h3>Cerrar Sesión</h3>
         </div>
@@ -177,31 +177,33 @@
             </div>
 
             <!-- Contenedor del pop-up -->
-            <div id="popup-overlay" class="popup-overlay">
-                <div id="popup-content" class="popup-content">
-                    <h2>Compartir este contenido</h2>
-                    <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
-                    <div class="social-links">
-                        <a href="#">
-                            <img src="media/iconos/insta.svg" alt="instagram">
-                        </a>
-                        <a href="#">
-                            <img src="media/iconos/wasap.svg" alt="wasap">
-                        </a>
-                        <a href="#">
-                            <img src="media/iconos/face.svg" alt="facebook">
-                        </a>
-                        <a href="#">
-                            <img src="media/iconos/tik.svg" alt="tiktok">
-                        </a>
-                        <a href="#">
-                            <img src="media/iconos/redit.svg" alt="redit">
-                        </a>
-                        <a href="#">
-                            <img src="media/iconos/twiter.svg" alt="twiter">
-                        </a>
+            <div class="overlay none"></div>
+                <div id="popup-overlay" class="popup-overlay">
+                    <div id="popup-content" class="popup-content">
+                        <h2>Compartir este contenido</h2>
+                        <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
+                        <div class="social-links">
+                            <a href="#">
+                                <img src="media/iconos/insta.svg" alt="instagram">
+                            </a>
+                            <a href="#">
+                                <img src="media/iconos/wasap.svg" alt="wasap">
+                            </a>
+                            <a href="#">
+                                <img src="media/iconos/face.svg" alt="facebook">
+                            </a>
+                            <a href="#">
+                                <img src="media/iconos/tik.svg" alt="tiktok">
+                            </a>
+                            <a href="#">
+                                <img src="media/iconos/redit.svg" alt="redit">
+                            </a>
+                            <a href="#">
+                                <img src="media/iconos/twiter.svg" alt="twiter">
+                            </a>
+                        </div>
+                        <button id="close-popup">CERRAR</button>
                     </div>
-                    <button id="close-popup">CERRAR</button>
                 </div>
             </div>
 
@@ -209,44 +211,46 @@
     
         <section class="similares">
             <h2>Juegos Similares</h2>
-                <div class="carrusel">
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/fire-water.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Fireboy & Watergirl</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/shell-shockers.png" alt="" class="card-img card-payable">
-                        <h3 class="none">Shell Shockers</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/among-us.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Among US</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/bomb-it.png" alt="" class="card-img card-primary">
-                        <h3 class="none">BOMB IT!</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/evowars-io.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Evowars.io</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/holey-io.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Holey.io</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/gulper-io.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Gulper.io</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/build-royale.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Build Royale</h3>
-                    </div>
-                    <div class="card">
-                        <img src="media/imagenes/multiplayer/highway-racer.png" alt="" class="card-img card-primary">
-                        <h3 class="none">Highway Race</h3>
-                    </div>
+            <img src="media/iconos/left.svg" alt="" class="left none">
+            <div class="carrusel">
+                <div class="card">
+                    <img src="media/imagenes/estrategia/dual.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Dual Force</h3>
                 </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/mah.png" alt="" class="card-img card-payable">
+                    <h3 class="none">Mahjong</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/candy.png" alt="" class="card-img card-payable">
+                    <h3 class="none">Candy Crush</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/ajedrez.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Ajedrez</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/buscaminas.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Buscaminas</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/damas.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Damas</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/jigsaw.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Jigsaw</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/sudoku.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Sudoku</h3>
+                </div>
+                <div class="card">
+                    <img src="media/imagenes/puzzle/ludo.png" alt="" class="card-img card-primary">
+                    <h3 class="none">Ludo</h3>
+                </div>
+            </div>
+            <img src="media/iconos/right.svg" alt="" class="right">
         </section>
     
         <section class="game-related">

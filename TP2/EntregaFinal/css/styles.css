@@ -1674,39 +1674,36 @@ form h1{
         right: 25%;
         width: 50%;
         height: 20%;
-        z-index: 1000;
+        z-index: 2001;
         justify-content: center;
         align-items: center;
     }
+   
+    .overlay-pop {
 
-    /* .active1{
-        visibility: visible;
-        display: block;
-        position:fixed;
-        top: 25%;
-        left: 25%;
-        bottom: 25%;
-        right: 25%;
-        width: 50%;
-        height: 20%;
-        z-index: 1000;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
         justify-content: center;
         align-items: center;
-        backdrop-filter: blur(5px);
-    }
-
-    /*Estilo de fondo desenfocado 
-    body.blur {
-        filter: blur(5px);
-    } */
+        z-index: 1500;
+    } 
 
     /* Estilo para el contenido del pop-up */
     .popup-content {
         background-color: var(--primary-light1);
         padding: 20px;
         border-radius: 10px;
-        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
         text-align: center;
+        margin: auto;
+        left:0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        max-width: 750px;
     }
     
     /* Estilo para los enlaces sociales */
