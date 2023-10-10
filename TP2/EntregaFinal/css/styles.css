@@ -76,8 +76,16 @@ header img{
     cursor: pointer;
 }
 
-h1, h2, h3{
+h1, h2, h3, p, input{
     font-family: var(--font);
+}
+
+a{
+    font-family: var(--font-link);
+}
+
+button{
+    font-family: var(--font-btn);
 }
 
 h1{
@@ -211,31 +219,38 @@ h1,h2,h3, label{
 
 }
 
-.links-footer, .logo-footer, .social-footer, .text-footer{
-    display: flex;
-    justify-content: space-evenly;
-}
-
 footer{
-    width: auto;
-    padding-top: 80px;
-    padding-bottom: 1%;
-    background-image: url("../media/imagenes/Rectangle.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 }
 
-.logo-footer, .links-footer, .social-footer{
-    margin-bottom: 60px;
-}
+.logo-footer {
+    text-align: center;
+  }
+  
+.logo-footer img {
+    max-width: 100%;
+    height: auto; 
+  }
 
+.links-footer{
+    margin-top: 20px;
+}
 .section-footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
 }
 
+.social-footer{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 footer h2{
     color: var(--secondary-dark1);
     padding-bottom: 10px;
@@ -243,24 +258,20 @@ footer h2{
 
 footer a{
     color: var(--secondary-light2);
-    padding-bottom: 10px;
 }
 footer p{
     color: var(--neutral-light)
 }
 
-.social-footer{
-    justify-content: center;
-}
-
 .insta, .face, .tik, .tube{
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-
 .text-footer{
+    display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 1%;
 }
 
 .option{
@@ -362,12 +373,17 @@ nav{
     width: 312px;
     height: 188px;
 }
-
+main .container {
+    display: flex;
+    justify-content: flex-start;
+  }
 .breadcrumb{
     display: flex;
     flex-direction: row;
     list-style: none;
-    margin-left: 0.0001%;
+}
+.breadcrumb li{
+    padding: 5px;
 }
 div.container a{
     color:var(--neutral-light)
@@ -736,35 +752,20 @@ a .card{
     transform: rotate(360deg); /* Rotación de 360 grados */
 }
 
-/* Estilo para el overlay del pop-up */
-.popup-overlay {
-    display: none;
-    position:fixed;
-    top: 25%;
-    left: 25%;
-    bottom: 25%;
-    right: 25%;
-    width: 50%;
-    height: 20%;
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilo para el contenido del pop-up */
-.popup-content {
-    background-color: var(--primary-dark1);
-    padding: 20px;
-    border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-    text-align: center;
-}
-
 /* Estilo para los enlaces sociales */
 .social-links {
     margin-top: 30px;
     margin-bottom: 30px;
+    transition: transform 0.3s, filter 0.3s;
 }
+.social-links img{
+    transition: transform 0.3s, filter 0.3s;
+}
+/* Efecto de agrandamiento y cambio de filtro en hover */
+.social-links img:hover {
+    transform: scale(1.5);
+    filter: brightness(1.2); 
+  }
 
 #logo-header{
     display:none;
@@ -807,6 +808,11 @@ form{
 .form-register{
     height: 1000px;
 }
+.data label{
+    display: flex;
+    justify-content: flex-start;
+    
+}
 
 .form-register .btn-primary{
     margin-bottom: 10px;
@@ -848,16 +854,28 @@ form button{
     background-color: var(--neutral-light);
     color: var(--neutral-dark);
 }
+.btn-google:hover{
+    background-color: white;
+    color: var(--accent);
+}
 
 .btn-fb{
     background-color: rgba(30, 88, 235, 1);
     color: var(--neutral-light);
+}
+.btn-fb:hover{
+    background-color: rgb(43, 101, 248);
 }
 
 form label{
     font-family: var(--font);
     font-size: var(--third-title);
     font-weight: var(--style2);
+}
+
+.form-register label, .form-login label{
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 form p{
@@ -894,11 +912,21 @@ form h1{
 }
 #share-link{
     background-color: var(--primary-light2);
-    width: 43%;
+    width: 45%;
+    border-radius: 50px;
+    text-align: center;
 }
 #close-popup{
     background-color: var(--primary);
+    border-radius: 50px;
+    letter-spacing: 2px;
+    width: 121.34px;
+    height: 39px;
 }
+#close-popup:hover {
+    background-color: var(--accent); 
+    color: #fff;
+  }
 .rules-images{
     display: flex;
     justify-content: center;
@@ -1180,7 +1208,6 @@ form h1{
     }
 }
 
-
 @media only screen and (min-width: 600px) {
 
     #user, #cart{
@@ -1301,7 +1328,7 @@ form h1{
     }
     
     footer{
-        width: auto;
+        width: 100%;
         padding-top: 80px;
         padding-bottom: 1%;
         background-image: url("../media/imagenes/Rectangle.png");
@@ -1655,18 +1682,36 @@ form h1{
         right: 25%;
         width: 50%;
         height: 20%;
-        z-index: 1000;
+        z-index: 2001;
         justify-content: center;
         align-items: center;
     }
-    
+   
+    .overlay-pop {
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1500;
+    } 
+
     /* Estilo para el contenido del pop-up */
     .popup-content {
-        background-color: var(--primary-dark1);
+        background-color: var(--primary-light1);
         padding: 20px;
         border-radius: 10px;
-        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
         text-align: center;
+        margin: auto;
+        left:0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        max-width: 750px;
     }
     
     /* Estilo para los enlaces sociales */
@@ -1680,7 +1725,7 @@ form h1{
     }
     .popup-content h2{
         margin-bottom: 20px;
-        color: var(--primary-light3);
+        color: var(--neutral-dark);
     }
     #share-link{
         background-color: var(--primary-light2);
