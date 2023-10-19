@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+    <header class="login-header">
+        <div>
+            <img src="media/imagenes/logo.svg" alt="PokerGames" id="logo-form">
+        </div>
+    </header>
+
+    <section class="forms">
+        <form action="home.html" class="form-login">
+            <h1>Iniciá Sesión</h1>
+
+            <div class="data">
+                <label>Email</label>
+                <input type="email" class="input-txt" required>
+                <label>Clave</label>
+                <input type="text" class="input-txt" required>
+            </div>
+
+            <button type="submit" class="btn-primary btn-ingreso">Ingresar</button>
+            <button class="btn-google">Acceder con Google</button>
+            <img src="media/iconos/google.svg" alt="" class="google-form">
+            <button class="btn-fb">Acceder con Facebook</button>
+            <img src="media/iconos/face.svg" alt="" class="fb-form">
+
+            <p>Si aún no eres gamer <a><span class="registro">Registrate aquí</span></a></p>
+            <span>Bloqueeé u olvidé mi usuario y/o clave</span>
+        </form>
+
+        <div class="overlay mje-ingreso none">
+            <div class="pop-up-exitoso">
+                <div class="pop-up-body">
+                    <h3>¡Te has logueado exitosamente!</h3>
+                </div>
+            </div>
+        </div>
+        
+
+        <form action="" class="form-register none">
+            <h1>Ingresá tus datos</h1>
+            <div class="data">
+                <label>Nombre y Apellido *</label>
+                <input type="text" class="input-txt" required>
+                <label>Nickname</label>
+                <input type="text" class="input-txt">
+                <label>Email *</label>
+                <input type="email" class="input-txt" value="ejemplo@poket.com"required>
+                <label>Fecha de Nacimiento *</label>
+                <input type="text" value="dd/mm/aa" class="input-txt" required>
+                <label>Clave *</label>
+                <input type="text" class="input-txt" required>
+                <label>Repetir Clave *</label>
+                <input type="text" class="input-txt" required>
+            </div>
+            
+            <div class ="terminos">
+                <input type="checkbox" required>
+                <label>Acepta términos y condiciones</label>
+            </div>
+            <div class="captcha">
+                <div class="container-captcha">
+                    <div class="tic">
+                        <img src="media/iconos/tic.svg" alt="" class="none">
+                    </div>
+                    <p>No soy un robot</p>
+                </div>
+                <img src="media/iconos/captcha.svg" alt="">
+            </div>
+    
+            <button class="btn-primary btn-register">Registrar</button>
+            
+            <img src="media/iconos/return.svg" alt="Return" class="return">
+        </form>
+        <div class="overlay mje-registro none">
+            <div class="pop-up-exitoso">
+                <div class="pop-up-body">
+                    <h3>¡Te has registrado exitosamente!</h3>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="js/form.js"></script>
+    
+</body>
+</html>
