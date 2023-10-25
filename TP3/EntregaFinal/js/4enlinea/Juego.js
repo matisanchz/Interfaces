@@ -45,7 +45,7 @@ function clearCanvas(){
 
 //Se instancian las fichas
 function crearFichas(){
-    for(let i = 0; i<5; i++){
+    for(let i = 0; i<25; i++){
         let radio = 22;
         let ficha = new Ficha(50, posicionYFichasJ1, "green", ctx, radio);
         posicionYFichasJ1 = posicionYFichasJ1 - radio;
@@ -53,9 +53,9 @@ function crearFichas(){
 
     }
 
-    for(let i = 0; i<5; i++){
+    for(let i = 0; i<25; i++){
         let radio = 22;
-        let ficha = new Ficha(1000, posicionYFichasJ2, "blue", ctx, radio);
+        let ficha = new Ficha(canvas.width-50, posicionYFichasJ2, "blue", ctx, radio);
         posicionYFichasJ2 = posicionYFichasJ2 - radio;
         fichas.push(ficha);
     }
