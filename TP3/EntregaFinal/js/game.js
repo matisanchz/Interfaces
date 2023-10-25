@@ -1,30 +1,5 @@
 "use strict";
 
-const canvas = document.querySelector('canvas');
-canvas.width = 1370;
-canvas.height = 600;
-
-const ctx = canvas.getContext('2d');
-
-ctx.strokeStyle = "#867824"; // Color del borde
-ctx.lineWidth = 2;
-ctx.strokeRect(0, 0, 120, 600);
-
-ctx.strokeStyle = "#A707FF"; // Color del borde
-ctx.lineWidth = 2;
-ctx.strokeRect(125, 0, 1120, 600);
-
-ctx.strokeStyle = "#867824"; // Color del borde
-ctx.lineWidth = 2;
-ctx.strokeRect(1250, 0, 120, 600);
-
-// let imgGame = new Image();
-// imgGame.src = "media/imagenes/game3.svg";
-
-// imgGame.onload = function() {
-//   ctx.drawImage(imgGame, 0, 0, canvas.width, canvas.height);
-// };
-
 // Función para mostrar el pop-up cuando se hace clic en el botón "Compartir"
 document.getElementById('share').addEventListener('click', function() {
   document.getElementById('popup-overlay').style.display = 'block';
