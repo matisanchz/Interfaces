@@ -18,9 +18,10 @@ let height = canvas.height;
 let isMouseDown = false;
 let lastClickedFigure = null;
 
-var filas = 8;
-var columnas = 9;
+var filas = 7;
+var columnas = 6;
 var tam_ficha = 50;
+let tablero = null;
 var margen_tablero = height - filas*tam_ficha;
 
 let posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
@@ -33,9 +34,12 @@ let fichas = [];
 
 function drawFigure(){
     clearCanvas();
+    tablero.draw();
     for(let i = 0; i<fichas.length; i++){
         fichas[i].draw();
     }
+
+    drawTimer();
 }
 
 function clearCanvas(){
@@ -45,15 +49,15 @@ function clearCanvas(){
 
 //Se instancian las fichas
 function crearFichas(){
-    for(let i = 0; i<25; i++){
+    for(let i = 0; i<21; i++){
         let radio = 22;
-        let ficha = new Ficha(50, posicionYFichasJ1, "green", ctx, radio);
+        let ficha = new Ficha(50, posicionYFichasJ1, "red", ctx, radio);
         posicionYFichasJ1 = posicionYFichasJ1 - radio;
         fichas.push(ficha);
 
     }
 
-    for(let i = 0; i<25; i++){
+    for(let i = 0; i<21; i++){
         let radio = 22;
         let ficha = new Ficha(canvas.width-50, posicionYFichasJ2, "blue", ctx, radio);
         posicionYFichasJ2 = posicionYFichasJ2 - radio;
@@ -63,8 +67,25 @@ function crearFichas(){
 
 document.addEventListener('DOMContentLoaded', function(){
     crearFichas();
+    crearTablero();
     drawFigure();
 })
+
+function crearTablero(){
+    tablero = new Tablero(ctx, width, height, filas, columnas, "red");
+}
+
+function drawTimer(){
+
+    let posicionY = height/2 - 250;
+    let posicionX = width/2 - 250;
+
+    ctx.font = "30px Roboto";  // Define la fuente y el tamaño de la letra
+    ctx.fillStyle = "black";   // Define el color del texto
+
+    // Dibuja la frase en el canvas
+    ctx.fillText("Tiempo restante: ", posicionX, posicionY);
+}
 
 function onMouseDown(e){
     isMouseDown = true;
@@ -92,7 +113,7 @@ function onMouseDown(e){
 }
 
 function findClickedFigure(x, y){
-    for(let i = 0; i < fichas.length; i++){
+    for(let i = fichas.length-1; i >= 0; i--){
         const element = fichas[i];
         if(element.isPointInside(x, y)){
             return element;
@@ -102,6 +123,46 @@ function findClickedFigure(x, y){
 
 function onMouseUp(e){
     isMouseDown = false;
+    if(lastClickedFigure!=null){
+        if(!isOnArea(lastClickedFigure)){
+            lastClickedFigure.setOrigenPosition();
+            drawFigure();
+        }else{
+            lastClickedFigure.setPosX(tablero.getColumn(lastClickedFigure));
+            drawFigure();
+            movePixel(lastClickedFigure);
+        }
+    } 
+}
+
+function movePixel(figure){
+    setTimeout(() => {
+        let y = figure.getPosY();
+        figure.setPosY(y+4);
+        drawFigure();
+        movePixel(figure);
+    },0.1);
+}
+
+function isOnArea(figure){
+    let x = width/2;
+    let y = height/2;
+
+    let tamFicha = 60;
+
+    let widthTotal = tamFicha*columnas;
+    let heightTotal = tamFicha * filas;
+
+    let movX = widthTotal/2;
+    let movY = heightTotal/2 - (tamFicha/2);
+
+    let posXIzq = x-movX;
+    let posXDer = posXIzq + (columnas*60);
+    let posYAbajo = y-movY;
+
+    return (figure.getPosX() > posXIzq && 
+            figure.getPosX() < posXDer)
+            && figure.getPosY() < posYAbajo;
 }
 
 function onMouseMove(e){

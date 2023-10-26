@@ -11,6 +11,8 @@ class Ficha{
         this.radius = radius;
         this.resaltado = false;
         this.resaltadoEstilo = 'black';
+        this.posOrigenX = posX;
+        this.posOrigenY = posY;
     }
 
     draw(){
@@ -45,6 +47,19 @@ class Ficha{
         this.posY = y;
     }
 
+    setPosX(x){
+        this.posX = x;
+    }
+
+    setPosY(y){
+        this.posY = y;
+    }
+
+    setOrigenPosition(){
+        this.posX = this.posOrigenX;
+        this.posY = this.posOrigenY;
+    }
+
     setResaltado(resaltado){
         this.resaltado = resaltado;
     }
@@ -60,6 +75,12 @@ class Ficha{
     }
     getPosY(){
         return this.posY;
+    }
+    getPosOrigenX(){
+        return this.posOrigenX;
+    }
+    getPosOrigenY(){
+        return this.posOrigenY;
     }
     getFill(){
         return this.Fill;
