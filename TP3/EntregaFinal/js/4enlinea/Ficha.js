@@ -13,6 +13,7 @@ class Ficha{
         this.resaltadoEstilo = 'black';
         this.posOrigenX = posX;
         this.posOrigenY = posY;
+        this.disable = false;
     }
 
     draw(){
@@ -33,9 +34,13 @@ class Ficha{
     }
 
     isPointInside(x, y){
-        let _x = this.posX - x;
-        let _y = this.posY - y;
-        return Math.sqrt(_x * _x + _y * _y) < this.radius;
+        if(!this.disable){
+            let _x = this.posX - x;
+            let _y = this.posY - y;
+            return Math.sqrt(_x * _x + _y * _y) < this.radius;
+        }else{
+            return false;
+        }
     }
 
     setFill(fill){
@@ -62,6 +67,10 @@ class Ficha{
 
     setResaltado(resaltado){
         this.resaltado = resaltado;
+    }
+
+    setDisable(disable){
+        this.disable = true;
     }
 
     getPosition(){
@@ -91,6 +100,3 @@ class Ficha{
 
 
 }
-
-// Exporta la clase Ficha para que pueda ser importada en otros archivos
-export default Ficha;

@@ -1,7 +1,5 @@
 "use strict"
 
-import Ficha from './Ficha.js';
-
 class Tablero {
 
     constructor(ctx, widthCanvas, heightCanvas, filas, columnas, fill) {
@@ -109,6 +107,3 @@ class Tablero {
     }
 
 }
-
-// Exporta la clase Tablero para que pueda ser importada en otros archivos
-export default Tablero;

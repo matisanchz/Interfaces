@@ -1,9 +1,5 @@
 "use strict"
 
-// Importa la clase Ficha desde Ficha.js
-import Ficha from './Ficha.js';
-import Tablero from './Tablero.js';
-
 let canvas = document.querySelector('canvas');
 canvas.width = 1370;
 canvas.height = 600;
@@ -128,19 +124,22 @@ function onMouseUp(e){
             lastClickedFigure.setOrigenPosition();
             drawFigure();
         }else{
+            disableEvents();
+            lastClickedFigure.setDisable(true);
             lastClickedFigure.setPosX(tablero.getColumn(lastClickedFigure));
             drawFigure();
-            movePixel(lastClickedFigure);
+            dropFigure(lastClickedFigure);
+            //enableEvents();
         }
     } 
 }
 
-function movePixel(figure){
+function dropFigure(figure){
     setTimeout(() => {
         let y = figure.getPosY();
-        figure.setPosY(y+4);
+        figure.setPosY(y+2);
         drawFigure();
-        movePixel(figure);
+        dropFigure(figure);
     },0.1);
 }
 
@@ -181,7 +180,18 @@ function onMouseMove(e){
     }
 }
 
-canvas.addEventListener('mousedown', onMouseDown, false);
-canvas.addEventListener('mouseup', onMouseUp, false);
-canvas.addEventListener('mousemove', onMouseMove, false);
+canvas.addEventListener('mousedown', onMouseDown);
+canvas.addEventListener('mouseup', onMouseUp);
+canvas.addEventListener('mousemove', onMouseMove);
 
+function disableEvents(){
+    canvas.removeEventListener('mousedown', onMouseDown);
+    canvas.removeEventListener('mouseup', onMouseUp);
+    canvas.removeEventListener('mousemove', onMouseMove);
+}
+
+function enableEvents(){
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mouseup', onMouseUp);
+    canvas.addEventListener('mousemove', onMouseMove);
+}
