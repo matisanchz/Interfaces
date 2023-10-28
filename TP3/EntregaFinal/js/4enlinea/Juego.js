@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 function crearTablero(){
-    tablero = new Tablero(ctx, width, height, filas, columnas, "red");
+    tablero = new Tablero(ctx, width, height, filas, columnas, "green");
 }
 
 function drawTimer(){
@@ -125,10 +125,14 @@ function onMouseUp(e){
             drawFigure();
         }else{
             lastClickedFigure.setDisable(true);
-            lastClickedFigure.setPosX(tablero.getColumn(lastClickedFigure));
+            let posColumn = tablero.getColumn(lastClickedFigure);
+            lastClickedFigure.setPosX(tablero.getColumnPos(posColumn));
             lastClickedFigure.setPosY(tablero.getPosY());
             drawFigure();
-            dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + tablero.getHeight()));
+            let movimiento = tablero.getHeight(posColumn);
+            dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + movimiento));
+            tablero.fillSpace(lastClickedFigure, posColumn);
+            console.log(tablero.getMatriz());
         }
     } 
 }

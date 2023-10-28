@@ -6,11 +6,20 @@ class Tablero {
         this.ctx = ctx;
         this.filas = filas;
         this.columnas = columnas;
-        this.matriz = [];
+        this.matriz = this.iniciarMatriz();
         this.widthCanvas = widthCanvas;
         this.heightCanvas = heightCanvas;
         this.fill = fill;
         this.area = [];
+    }
+
+    iniciarMatriz(){
+        let matriz = new Array(this.filas);
+        for(let i = 0; i< this.filas; i++){
+            matriz[i] = new Array(this.columnas);
+        }
+        console.log(matriz);
+        return matriz;
     }
 
     draw(){
@@ -86,7 +95,7 @@ class Tablero {
 
     }
 
-    getColumn(ficha){
+    /*getColumnPos(ficha){
         let posX = ficha.getPosX();
 
         for(let i = 0; i< this.area.length; i++){
@@ -104,6 +113,42 @@ class Tablero {
 
         return -1;
 
+    }*/
+
+    getColumnPos(pos){
+        return this.area[pos] + ((this.area[pos+1] - this.area[pos])/2);
+    }
+
+    getColumn(ficha){
+        let posX = ficha.getPosX();
+
+        for(let i = 0; i< this.area.length; i++){
+            if(i===0){
+                if(posX>=this.area[i]&&posX<=this.area[i+1]){
+                    return i;
+                }
+            }else{
+                if(posX>this.area[i]&&posX<=this.area[i+1]){
+                    return i;
+                }
+            }
+        }
+
+        return -1;
+
+    }
+
+    fillSpace(figure, col){
+        for(let i=this.filas-1; i>=0; i--){
+            if(this.matriz[i][col]===null||this.matriz[i][col]===undefined){
+                this.matriz[i][col] = figure;
+                break;
+            }
+        }
+    }
+
+    getMatriz(){
+        return this.matriz;
     }
 
     getPosY(){
@@ -118,9 +163,22 @@ class Tablero {
         return (y-movY-(tamFicha/2));
     }
 
-    getHeight(){
+    /*getHeight(){
         let tamFicha = 60;
         return tamFicha * this.filas;
+    }*/
+
+    getHeight(col){
+        let tamFicha = 60;
+        let fila = this.filas;
+        for(let i=this.filas-1; i>=0; i--){
+            if(this.matriz[i][col]===null||this.matriz[i][col]===undefined){
+                break;
+            }else{
+                fila = fila - 1;
+            }
+        }
+        return tamFicha * fila;
     }
 
 }
