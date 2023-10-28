@@ -106,4 +106,21 @@ class Tablero {
 
     }
 
+    getPosY(){
+        let y = this.heightCanvas/2;
+
+        let tamFicha = 60;
+
+        let heightTotal = tamFicha * this.filas;
+
+        let movY = heightTotal/2 - (tamFicha/2);
+
+        return (y-movY-(tamFicha/2));
+    }
+
+    getHeight(){
+        let tamFicha = 60;
+        return tamFicha * this.filas;
+    }
+
 }

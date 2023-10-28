@@ -3,7 +3,7 @@
 class Ficha{
 
     //Se crea el constructor de la ficha, con los parámetros necesarios para poder dibujarla en los diferentes casos que se presenten
-    constructor(posX, posY, fill, context, radius){
+    constructor(posX, posY, fill, context, radius, jugador){
         this.posX = posX;
         this.posY = posY;
         this.fill = fill;
@@ -14,6 +14,7 @@ class Ficha{
         this.posOrigenX = posX;
         this.posOrigenY = posY;
         this.disable = false;
+        this.jugador = jugador;
     }
 
     draw(){

@@ -47,7 +47,7 @@ function clearCanvas(){
 function crearFichas(){
     for(let i = 0; i<21; i++){
         let radio = 22;
-        let ficha = new Ficha(50, posicionYFichasJ1, "red", ctx, radio);
+        let ficha = new Ficha(50, posicionYFichasJ1, "red", ctx, radio, 1);
         posicionYFichasJ1 = posicionYFichasJ1 - radio;
         fichas.push(ficha);
 
@@ -55,7 +55,7 @@ function crearFichas(){
 
     for(let i = 0; i<21; i++){
         let radio = 22;
-        let ficha = new Ficha(canvas.width-50, posicionYFichasJ2, "blue", ctx, radio);
+        let ficha = new Ficha(canvas.width-50, posicionYFichasJ2, "blue", ctx, radio, 2);
         posicionYFichasJ2 = posicionYFichasJ2 - radio;
         fichas.push(ficha);
     }
@@ -124,22 +124,23 @@ function onMouseUp(e){
             lastClickedFigure.setOrigenPosition();
             drawFigure();
         }else{
-            disableEvents();
             lastClickedFigure.setDisable(true);
             lastClickedFigure.setPosX(tablero.getColumn(lastClickedFigure));
+            lastClickedFigure.setPosY(tablero.getPosY());
             drawFigure();
-            dropFigure(lastClickedFigure);
-            //enableEvents();
+            dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + tablero.getHeight()));
         }
     } 
 }
 
-function dropFigure(figure){
+function dropFigure(figure, height){
     setTimeout(() => {
-        let y = figure.getPosY();
-        figure.setPosY(y+2);
-        drawFigure();
-        dropFigure(figure);
+        if(figure.getPosY()<height){
+            let y = figure.getPosY();
+            figure.setPosY(y+2);
+            drawFigure();
+            dropFigure(figure, height);
+        }
     },0.1);
 }
 
