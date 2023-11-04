@@ -119,12 +119,14 @@ function inicializar(){
     iniciarTimer();
 }
 
+let interval;
+
 function iniciarTimer(){
     let timer = document.querySelector(".timer");
     let time = timer.firstElementChild;
     console.log(time);
     let status = 200;
-    setInterval(() => {
+    interval = setInterval(() => {
         time.innerHTML = `Tiempo restante: ${status}`;
         if(status >= 0){
             status -= 1;
@@ -135,7 +137,11 @@ function iniciarTimer(){
     }, 1000);
 }
 
-//document.getElementById('restart').addEventListener('click', restart);
+function detenerTimer() {
+    clearInterval(interval); // Detenemos el setInterval utilizando el identificador almacenado
+}
+
+document.getElementById('restart').addEventListener('click', restart);
 
 document.getElementById('return').addEventListener('click', refresh);
 
@@ -145,9 +151,30 @@ function refresh(){
 
 //Arreglar el restart
 function restart(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    detenerTimer();
+    reiniciarVariables();
     clearCanvas();
-
     inicializar();
+}
+
+function reiniciarVariables(){
+    isMouseDown = false;
+    lastClickedFigure = null;
+    firstTimeCharging = true;
+    filas = 0;
+    columnas = 0;
+    tam_ficha = 0;
+    num_ganador = 0;
+    radio = 0;
+    tablero = null;
+    fichaJ1 = "";
+    fichaJ2 = "";
+    posicionYFichasJ1 = 0;
+    posicionYFichasJ2 = 0;
+    fichasJ1 = [];
+    fichasJ2 = [];
+    fichas = [];
 }
 
 function configurarJugadores(){
