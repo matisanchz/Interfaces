@@ -3,7 +3,9 @@
 class Ficha{
 
     //Se crea el constructor de la ficha, con los parámetros necesarios para poder dibujarla en los diferentes casos que se presenten
-    constructor(posX, posY, fill, context, radius, jugador){
+    constructor(posX, posY, fill, context, radius, jugador, imageURL){
+        this.image = new Image();
+        this.image.src = imageURL;
         this.posX = posX;
         this.posY = posY;
         this.fill = fill;
@@ -15,9 +17,46 @@ class Ficha{
         this.posOrigenY = posY;
         this.disable = false;
         this.jugador = jugador;
+        this.cargoImg = false;
     }
 
     draw(){
+        this.context.fillStyle = this.fill;
+        this.context.beginPath();
+        this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
+        this.context.fill();
+
+        if (!this.image.complete) {
+            // Espera a que la imagen se cargue antes de dibujarla
+            this.image.onload = () => {
+                this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+            };
+        } else {
+            this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+        }
+        this.context.closePath();
+    }
+
+    /*draw(){
+        this.context.fillStyle = this.fill;
+        this.context.beginPath();
+        this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
+        this.context.fill();
+
+       if (this.image != undefined) {
+            if (this.cargoImg) {
+                this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+            }
+            else {
+                //this.getImagen().onload = () => {
+                this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+                this.cargoImg = true;
+            }
+        }
+        this.context.closePath();
+    }*/
+
+    /*draw(){
         this.context.fillStyle = this.fill;
         this.context.beginPath();
         this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
@@ -32,7 +71,7 @@ class Ficha{
             this.context.stroke();
         }
         this.context.closePath();
-    }
+    }*/
 
     isPointInside(x, y){
         if(!this.disable){
@@ -98,6 +137,11 @@ class Ficha{
     getRadius(){
         return this.radius;
     }
-
+    getJugador(){
+        return this.jugador;
+    }
+    getImagen(){
+        return this.image;
+    }
 
 }

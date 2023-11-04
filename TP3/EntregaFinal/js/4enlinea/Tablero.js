@@ -2,7 +2,7 @@
 
 class Tablero {
 
-    constructor(ctx, widthCanvas, heightCanvas, filas, columnas, fill) {
+    constructor(ctx, widthCanvas, heightCanvas, filas, columnas, fill, tamFicha) {
         this.ctx = ctx;
         this.filas = filas;
         this.columnas = columnas;
@@ -11,6 +11,10 @@ class Tablero {
         this.heightCanvas = heightCanvas;
         this.fill = fill;
         this.area = [];
+        this.image = new Image();
+        this.image.src = 'media/imagenes/4-en-linea/casilla.svg';
+        this.tableroDibujado = false;
+        this.tamFicha = tamFicha;
     }
 
     iniciarMatriz(){
@@ -23,17 +27,32 @@ class Tablero {
     }
 
     draw(){
+        if(!this.image.complete){
+            this.image.onload = () => {
+                this.drawPasamanos();
+            };
+        }else{
+            this.drawPasamanos();
+        }
+    }
+
+    drawPasamanos(){
+        if (!this.tableroDibujado) {
+            this.drawTable();
+            this.tableroDibujado = true; // Marcar el tablero como dibujado
+          }
+    }
+
+    drawTable(){
 
         let x = this.widthCanvas/2;
         let y = this.heightCanvas/2;
 
-        let tamFicha = 60;
-
-        let widthTotal = tamFicha*this.columnas;
-        let heightTotal = tamFicha * this.filas;
+        let widthTotal = this.tamFicha*this.columnas;
+        let heightTotal = this.tamFicha * this.filas;
 
         let movX = widthTotal/2;
-        let movY = heightTotal/2 - (tamFicha/2);
+        let movY = heightTotal/2 - (this.tamFicha/2);
 
         let posX = x-movX;
         let posY = y-movY;
@@ -47,26 +66,30 @@ class Tablero {
                 if(this.area.length<this.columnas+1){
                     if(this.area.length === 0){
                         this.area[c]=posX;
-                        this.area[c+1]=posX+tamFicha;
+                        this.area[c+1]=posX+this.tamFicha;
                     }else{
-                        this.area[c+1]=posX+tamFicha;
+                        this.area[c+1]=posX+this.tamFicha;
                     }
                 }
 
-                this.ctx.fillStyle = this.fill;
+                /*this.ctx.fillStyle = this.fill;
                 this.ctx.fillRect(posX, posY, tamFicha, tamFicha);
                 this.ctx.lineWidth = 5;
-                this.ctx.strokeRect(posX, posY, tamFicha, tamFicha);
+                this.ctx.strokeRect(posX, posY, tamFicha, tamFicha);*/
 
-                posX=posX+tamFicha;
+                this.ctx.drawImage(this.image, posX, posY, this.tamFicha, this.tamFicha);
+        
+
+
+                posX=posX+this.tamFicha;
             }
 
             posX = auxX;
 
-            posY = posY + tamFicha;
+            posY = posY + this.tamFicha;
         }
 
-        // Dibujar los círculos recortados
+        /*// Dibujar los círculos recortados
         this.ctx.globalCompositeOperation = 'destination-out';
         posX = x - movX;
         posY = y - movY;
@@ -91,8 +114,105 @@ class Tablero {
             posY = posY + tamFicha;
         }
         // Restaurar el modo de composición predeterminado
-        this.ctx.globalCompositeOperation = 'source-over';
+        this.ctx.globalCompositeOperation = 'source-over';*/
 
+    }
+
+    isWinner(posX, posY, jugador, modo){
+        return (this.checkHorizontal(posX, modo, jugador) ||
+                this.checkVertical(posY, modo, jugador) ||
+                this.checkDiagonalUno(posX, posY, modo, jugador) ||
+                this.checkDiagonalDos(posX, posY, modo, jugador));
+    }
+
+    checkHorizontal(fila, modo, jugador){
+        let hayGanador = false
+        let col = 0;
+        let cant = 0;
+        while (col < this.columnas && hayGanador == false) {
+            if((this.matriz[fila][col])!==undefined 
+                && (this.matriz[fila][col].getJugador() === jugador) 
+                && cant < modo) {
+                cant++;
+            }else{
+                cant = 0;
+            }
+            if (cant === modo) {
+                hayGanador = true;
+            }
+            col++;
+      
+        }
+        return hayGanador;
+    }
+
+    checkVertical(col,modo, jugador){
+        let hayGanador = false
+        let fila = 0;
+        let cant = 0;
+        while (fila < this.filas && hayGanador == false) {
+            if((this.matriz[fila][col])!==undefined 
+                && (this.matriz[fila][col].getJugador() === jugador) 
+                && cant < modo) {
+                cant++;
+            }else{
+                cant = 0;
+            }
+            if (cant === modo) {
+                hayGanador = true;
+            }
+            fila++;
+        }
+        return hayGanador;
+    }
+
+    checkDiagonalUno(fila,col,modo,jugador){
+        let hayGanador = false;
+        let cant=0;
+        while (fila>0 && col>0){//llevo fila y columna a la primer posición de la diagonal (arriba a la izquierda)
+            fila--;
+            col--;
+        }
+        while (fila < this.filas && col <this.columnas && hayGanador == false) {
+            if((this.matriz[fila][col])!==undefined 
+                && (this.matriz[fila][col].getJugador() === jugador) 
+                && cant < modo) {
+                cant++;
+            }else{
+                cant = 0;
+            }
+            if (cant == modo) {
+                hayGanador = true;
+            }
+            fila++;
+            col++;
+        }
+        return hayGanador;
+    }
+
+    checkDiagonalDos(fila,col,modo,jugador){
+        let hayGanador = false;
+        let cant=0;
+        while (fila>0 && col<columnas-1){//llevo fila y columna a la primer posición de la diagonal (arriba a la derecha)
+            fila--;
+            col++;
+        }
+        while (fila < this.filas && col >=0 && hayGanador == false) {
+            if((this.matriz[fila][col])!==undefined 
+                && (this.matriz[fila][col].getJugador() === jugador) 
+                && cant < modo) {
+                cant++;
+            }else{
+                cant = 0;
+            }
+            if (cant == modo) {
+                hayGanador = true;
+            }
+            
+            fila++;
+            col--;
+        }
+        return hayGanador;
     }
 
     /*getColumnPos(ficha){
@@ -142,9 +262,10 @@ class Tablero {
         for(let i=this.filas-1; i>=0; i--){
             if(this.matriz[i][col]===null||this.matriz[i][col]===undefined){
                 this.matriz[i][col] = figure;
-                break;
+                return i;
             }
         }
+        return -1;
     }
 
     getMatriz(){
@@ -154,13 +275,11 @@ class Tablero {
     getPosY(){
         let y = this.heightCanvas/2;
 
-        let tamFicha = 60;
+        let heightTotal = this.tamFicha * this.filas;
 
-        let heightTotal = tamFicha * this.filas;
+        let movY = heightTotal/2 - (this.tamFicha/2);
 
-        let movY = heightTotal/2 - (tamFicha/2);
-
-        return (y-movY-(tamFicha/2));
+        return (y-movY-(this.tamFicha/2));
     }
 
     /*getHeight(){
@@ -169,7 +288,6 @@ class Tablero {
     }*/
 
     getHeight(col){
-        let tamFicha = 60;
         let fila = this.filas;
         for(let i=this.filas-1; i>=0; i--){
             if(this.matriz[i][col]===null||this.matriz[i][col]===undefined){
@@ -178,7 +296,15 @@ class Tablero {
                 fila = fila - 1;
             }
         }
-        return tamFicha * fila;
+        return this.tamFicha * fila;
+    }
+
+    getImagen(){
+        return this.image;
+    }
+    
+    setTableroDibujado(bool){
+        this.tableroDibujado = bool;
     }
 
 }
