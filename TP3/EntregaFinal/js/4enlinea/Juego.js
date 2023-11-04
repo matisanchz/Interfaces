@@ -25,18 +25,18 @@ let tam_ficha = 0;
 let num_ganador = 0;
 let radio = 0;
 let tablero = null;
-let margen_tablero = height - filas*tam_ficha;
 
 let fichaJ1 = "";
 let fichaJ2 = "";
 
-let posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
-let posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
-
+let posicionYFichasJ1 = 0;
+let posicionYFichasJ2 = 0;
 let fichasJ1 = [];
 let fichasJ2 = [];
 
 let fichas = [];
+
+//Crea el resto de figuras
 
 function drawFigure(){
     clearCanvas();
@@ -53,22 +53,9 @@ function drawFigure(){
     firstTimeCharging = false;
     tablero.setTableroDibujado(false);
     tablero.draw();
-    drawTimer();
 }
 
-function drawMap(){
-    let backgroundImage = new Image();
-    backgroundImage.src = 'media/imagenes/4-en-linea/sas.svg'; // Reemplaza 'tu_imagen_de_fondo.jpg' con la ruta de tu imagen.
-   
-    backgroundImage.onload = function() {
-        // Dibuja la imagen de fondo en el lienzo
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-        
-        // Dibuja un cuadrado en el lienzo
-        ctx.fillStyle = 'rgba(255, 0, 0, 0.5)'; // Relleno rojo semitransparente
-        ctx.fillRect(100, 100, 200, 200); // Cambia las coordenadas y dimensiones según tus necesidades
-    };
-}
+//En teoria, limpia el canvas para volver a crear todo
 
 function clearCanvas(){
     ctx.fillStyle = '#F8F8FF';
@@ -76,18 +63,36 @@ function clearCanvas(){
     //drawMap();
 }
 
+//Dibuja el fondo de mi canvas, con una imagen
+
+function drawMap(){
+    let backgroundImage = new Image();
+    backgroundImage.src = 'media/imagenes/4-en-linea/de_dust.svg';
+    
+    setTimeout(() => {
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+    },20);
+}
+
+
+
+
 //Se instancian las fichas
 function crearFichas(){
-    for(let i = 0; i<15; i++){
-        let ficha = new Ficha(50, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
-        posicionYFichasJ1 = posicionYFichasJ1 - radio;
-        fichas.push(ficha);
 
+    let cant_fichas = filas * columnas / 2;
+
+    let posInicial = width/2 + (columnas/2*tam_ficha) + tam_ficha*2;
+
+    for(let i = 0; i<cant_fichas; i++){
+        let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
+        posicionYFichasJ1 = posicionYFichasJ1 - (radio/4*3);
+        fichas.push(ficha);
     }
 
-    for(let i = 0; i<15; i++){
-        let ficha = new Ficha(canvas.width-50, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
-        posicionYFichasJ2 = posicionYFichasJ2 - radio;
+    for(let i = 0; i<cant_fichas; i++){
+        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
+        posicionYFichasJ2 = posicionYFichasJ2 - (radio/4*3);
         fichas.push(ficha);
     }
 }
@@ -95,9 +100,13 @@ function crearFichas(){
 let play = document.getElementById('play-game');
 
 play.addEventListener('click', function(e){
-    let div = document.querySelector(".game-menu");
-    div.classList.toggle("none");
+    let manu = document.querySelector(".game-menu");
+    manu.classList.toggle("none");
     canvas.classList.toggle("pointer-events");
+    let btns = document.querySelector(".game-playing");
+    btns.classList.toggle("none");
+    let timer = document.querySelector(".timer");
+    timer.classList.toggle("none");
     inicializar();
 });
 
@@ -107,6 +116,38 @@ function inicializar(){
     crearFichas();
     crearTablero();
     drawFigure();
+    iniciarTimer();
+}
+
+function iniciarTimer(){
+    let timer = document.querySelector(".timer");
+    let time = timer.firstElementChild;
+    console.log(time);
+    let status = 200;
+    setInterval(() => {
+        time.innerHTML = `Tiempo restante: ${status}`;
+        if(status >= 0){
+            status -= 1;
+        }else{
+            mjeAlert();
+        }
+           
+    }, 1000);
+}
+
+//document.getElementById('restart').addEventListener('click', restart);
+
+document.getElementById('return').addEventListener('click', refresh);
+
+function refresh(){
+    location.reload();
+}
+
+//Arreglar el restart
+function restart(){
+    clearCanvas();
+
+    inicializar();
 }
 
 function configurarJugadores(){
@@ -123,6 +164,15 @@ function configurarJuego() {
     num_ganador = select[2];
     tam_ficha = select[3];
     radio = select[4];
+    let margen_tablero = height - filas*tam_ficha;
+    posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
+    posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
+
+    if(num_ganador==5 || num_ganador==6){
+        posicionYFichasJ1 = posicionYFichasJ1 - tam_ficha;
+        posicionYFichasJ2 = posicionYFichasJ2 - tam_ficha;
+    }
+
 }
 
 //Chequear el valor del tam_ficha
@@ -138,9 +188,9 @@ function elegirModo(){
         var_tablero.push(columnas);
         numero_ganador = 4;
         var_tablero.push(numero_ganador);
-        tam_ficha = 85;
+        tam_ficha = 78;
         var_tablero.push(tam_ficha);
-        radio = 35;
+        radio = 30;
         var_tablero.push(radio);
 
     } else if (modo == 5) {
@@ -189,18 +239,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function crearTablero(){
     tablero = new Tablero(ctx, width, height, filas, columnas, "green", tam_ficha);
-}
-
-function drawTimer(){
-
-    let posicionY = height/2 - 250;
-    let posicionX = width/2 - 250;
-
-    ctx.font = "30px Roboto";  // Define la fuente y el tamaño de la letra
-    ctx.fillStyle = "black";   // Define el color del texto
-
-    // Dibuja la frase en el canvas
-    ctx.fillText("Tiempo restante: ", posicionX, posicionY);
 }
 
 function onMouseDown(e){
