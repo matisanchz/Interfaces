@@ -6,6 +6,8 @@ canvas.height = 600;
 
 let ctx = canvas.getContext('2d');
 
+const imgFondo = new Image();
+
 //ctx.stroke();
 
 //Para la imagen del inicio
@@ -22,10 +24,16 @@ function drawInicio(){
 
 
 */
-const imgFondo = new Image();
+
 
 function drawFondo(){
-    ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+    if(firstTimeCharging){
+        setTimeout(() => {
+            ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+        },50);
+    }else{
+        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+    }
 }
 
 let width = canvas.width;
@@ -60,19 +68,42 @@ let fichas = [];
 function drawFigure(){
     clearCanvas();
     drawFondo();
+    tablero.setTableroDibujado(false);
+    if(firstTimeCharging){
+        setTimeout(() => {
+            drawFichas();
+        }, 50);
+        setTimeout(() => {
+            drawTablero();
+        }, 50*2);
+    }else{
+        drawFichas();
+        drawTablero();
+    }
+
+    firstTimeCharging = false;
+}
+
+function drawTablero(){
+    if(firstTimeCharging){
+        setTimeout(() => {
+            tablero.draw();
+        },40*(fichas.length+2));
+    }else{
+        tablero.draw();
+    }
+}
+
+function drawFichas(){
     for(let i = 0; i<fichas.length; i++){
         if(firstTimeCharging){
             setTimeout(() => {
                 fichas[i].draw();
-            },i * 20);
+            },i * 40);
         }else{
             fichas[i].draw();
         }
-        
     }
-    firstTimeCharging = false;
-    tablero.setTableroDibujado(false);
-    tablero.draw();
 }
 
 //En teoria, limpia el canvas para volver a crear todo
@@ -80,22 +111,7 @@ function drawFigure(){
 function clearCanvas(){
     ctx.fillStyle = '#F8F8FF';
     ctx.fillRect(0, 0, width, height);
-    //drawMap();
 }
-
-//Dibuja el fondo de mi canvas, con una imagen
-
-function drawMap(){
-    let backgroundImage = new Image();
-    backgroundImage.src = 'media/imagenes/4-en-linea/de_dust.svg';
-    
-    setTimeout(() => {
-        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-    },20);
-}
-
-
-
 
 //Se instancian las fichas
 function crearFichas(){
@@ -207,9 +223,6 @@ function configurarJugadores(){
 function configurarMapa(){
     mapa = document.getElementById("map").value;
     imgFondo.src = mapa;
-    imgFondo.onload = function() {
-        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
-    }
 }
 
 //Configurarmos las variables del juego
