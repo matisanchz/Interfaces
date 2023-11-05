@@ -18,6 +18,7 @@ class Ficha{
         this.disable = false;
         this.jugador = jugador;
         this.cargoImg = false;
+        this.isDropped = false;
     }
 
     draw(){
@@ -142,6 +143,12 @@ class Ficha{
     }
     getImagen(){
         return this.image;
+    }
+    getIsDropped(){
+        return this.isDropped;
+    }
+    setIsDropped(boolean){
+        this.isDropped = boolean;
     }
 
 }

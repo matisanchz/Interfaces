@@ -8,8 +8,25 @@ let ctx = canvas.getContext('2d');
 
 //ctx.stroke();
 
- // Carga la imagen de fondo
+//Para la imagen del inicio
+/*const imgInicio = new Image();
+imgInicio.src = "media/imagenes/4-en-linea/de_dust.svg";
 
+imgInicio.onload = function() {
+    drawFondo();
+}
+
+function drawInicio(){
+    ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
+}
+
+
+*/
+const imgFondo = new Image();
+
+function drawFondo(){
+    ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+}
 
 let width = canvas.width;
 let height = canvas.height;
@@ -29,6 +46,8 @@ let tablero = null;
 let fichaJ1 = "";
 let fichaJ2 = "";
 
+let mapa = "";
+
 let posicionYFichasJ1 = 0;
 let posicionYFichasJ2 = 0;
 let fichasJ1 = [];
@@ -40,6 +59,7 @@ let fichas = [];
 
 function drawFigure(){
     clearCanvas();
+    drawFondo();
     for(let i = 0; i<fichas.length; i++){
         if(firstTimeCharging){
             setTimeout(() => {
@@ -113,6 +133,7 @@ play.addEventListener('click', function(e){
 function inicializar(){
     configurarJuego();
     configurarJugadores();
+    configurarMapa();
     crearFichas();
     crearTablero();
     drawFigure();
@@ -124,7 +145,6 @@ let interval;
 function iniciarTimer(){
     let timer = document.querySelector(".timer");
     let time = timer.firstElementChild;
-    console.log(time);
     let status = 200;
     interval = setInterval(() => {
         time.innerHTML = `Tiempo restante: ${status}`;
@@ -149,7 +169,6 @@ function refresh(){
     location.reload();
 }
 
-//Arreglar el restart
 function restart(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     detenerTimer();
@@ -158,6 +177,7 @@ function restart(){
     inicializar();
 }
 
+//Reinicio variables, para el restart
 function reiniciarVariables(){
     isMouseDown = false;
     lastClickedFigure = null;
@@ -177,9 +197,19 @@ function reiniciarVariables(){
     fichas = [];
 }
 
+//Inicializacion del personaje elegido para la ficha de cada jugador
 function configurarJugadores(){
     fichaJ1 = document.getElementById("fichaJ1").value;
     fichaJ2 = document.getElementById("fichaJ2").value;
+}
+
+//Inicializacion del personaje elegido para la ficha de cada jugador
+function configurarMapa(){
+    mapa = document.getElementById("map").value;
+    imgFondo.src = mapa;
+    imgFondo.onload = function() {
+        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+    }
 }
 
 //Configurarmos las variables del juego
@@ -202,12 +232,13 @@ function configurarJuego() {
 
 }
 
-//Chequear el valor del tam_ficha
+//Inicializacion de variables para el juego
 function elegirModo(){
     let modo = document.getElementById("game-mode").value;
     let var_tablero = [];
     let filas, columnas, numero_ganador;
     
+    //Variables para 4 en linea
     if (modo == 4) {
         filas = 6;
         var_tablero.push(filas);
@@ -220,6 +251,7 @@ function elegirModo(){
         radio = 30;
         var_tablero.push(radio);
 
+    //Variables para 5 en linea
     } else if (modo == 5) {
         filas = 7;
         var_tablero.push(filas);
@@ -232,6 +264,7 @@ function elegirModo(){
         radio = 20;
         var_tablero.push(radio);
 
+    //Variables para 6 en linea
     } else if (modo == 6) {
         filas = 8;
         var_tablero.push(filas);
@@ -244,6 +277,7 @@ function elegirModo(){
         radio = 16;
         var_tablero.push(radio);
 
+    //Variables para 7 en linea
     } else if (modo == 7) {
         filas = 9;
         var_tablero.push(filas);
@@ -264,10 +298,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 
+//Funcion para instanciar tablero
 function crearTablero(){
     tablero = new Tablero(ctx, width, height, filas, columnas, "green", tam_ficha);
 }
 
+//Funcion que se ejecuta mientras el mouse esta presionado
 function onMouseDown(e){
     isMouseDown = true;
 
@@ -324,6 +360,7 @@ function onMouseUp(e){
                 drawFigure();
                 console.log(posRow);
                 console.log(posColumn);
+                lastClickedFigure.setIsDropped(true);
                 dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + movimiento), posRow, posColumn);
                 /*if(tablero.isWinner(posRow, posColumn, lastClickedFigure.getJugador())){
                     mjeAlert();
@@ -340,7 +377,7 @@ function dropFigure(figure, height, posRow, posColumn){
     setTimeout(() => {
         if(figure.getPosY()<height){
             let y = figure.getPosY();
-            figure.setPosY(y+2);
+            figure.setPosY(y+4);
             drawFigure();
             dropFigure(figure, height, posRow, posColumn);
         }else{
@@ -386,9 +423,34 @@ function onMouseMove(e){
     }
 }
 
+function onMouseLeave(e){
+    if(lastClickedFigure != null){
+        lastClickedFigure.setOrigenPosition();
+        clearCanvas();
+        disableEvents();
+        drawFigure();
+    }
+}
+
+function onMouseLeave(e){
+    if(lastClickedFigure != null && lastClickedFigure.getIsDropped() === false){
+        lastClickedFigure.setOrigenPosition();
+        clearCanvas();
+        drawFigure();
+    }
+}
+
+function onMouseEnter(e){
+    if(lastClickedFigure != null && lastClickedFigure.getIsDropped() === false){
+        onMouseUp();
+    }
+}
+
 canvas.addEventListener('mousedown', onMouseDown);
 canvas.addEventListener('mouseup', onMouseUp);
 canvas.addEventListener('mousemove', onMouseMove);
+canvas.addEventListener('mouseleave', onMouseLeave);
+canvas.addEventListener('mouseenter', onMouseEnter);
 
 function disableEvents(){
     canvas.removeEventListener('mousedown', onMouseDown);
