@@ -219,8 +219,8 @@ h1,h2,h3, label{
 .game{
     display: flex;
     flex-flow: column;
-    justify-content: space-evenly;
-
+    justify-content: center;
+    max-width: 1370px;
 }
 
 footer{
@@ -720,6 +720,7 @@ canvas {
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     margin-bottom: 30px;
+    max-width: 1370px;
 }
 .logo-game-view{
     display: flex;
@@ -1381,7 +1382,7 @@ form h1{
     .game{
         display: flex;
         flex-flow: column;
-        justify-content: space-evenly;
+        justify-content: center;
     
     }
     

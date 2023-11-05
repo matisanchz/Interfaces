@@ -8,14 +8,12 @@ let ctx = canvas.getContext('2d');
 
 const imgFondo = new Image();
 
-//ctx.stroke();
-
 //Para la imagen del inicio
-/*const imgInicio = new Image();
-imgInicio.src = "media/imagenes/4-en-linea/de_dust.svg";
+const imgInicio = new Image();
+imgInicio.src = "media/imagenes/game2.svg";
 
 imgInicio.onload = function() {
-    drawFondo();
+    drawInicio();
 }
 
 function drawInicio(){
@@ -23,7 +21,7 @@ function drawInicio(){
 }
 
 
-*/
+
 
 
 function drawFondo(){
