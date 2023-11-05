@@ -43,25 +43,6 @@ class Ficha{
         this.context.beginPath();
         this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
         this.context.fill();
-
-       if (this.image != undefined) {
-            if (this.cargoImg) {
-                this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
-            }
-            else {
-                //this.getImagen().onload = () => {
-                this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
-                this.cargoImg = true;
-            }
-        }
-        this.context.closePath();
-    }*/
-
-    /*draw(){
-        this.context.fillStyle = this.fill;
-        this.context.beginPath();
-        this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
-        this.context.fill();
         if(this.resaltado === true){
             this.context.strokeStyle = this.resaltadoEstilo;
             this.context.lineWidth = 5;

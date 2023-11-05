@@ -39,6 +39,8 @@ function drawFondo(){
 let width = canvas.width;
 let height = canvas.height;
 
+let turno = 1;
+
 let isMouseDown = false;
 let lastClickedFigure = null;
 
@@ -84,6 +86,14 @@ function drawFigure(){
     firstTimeCharging = false;
 }
 
+function cambiarTurno(){
+    if(turno == 1){
+        turno = 2;
+    }else{
+        turno = 1;
+    }
+}
+
 function drawTablero(){
     if(firstTimeCharging){
         setTimeout(() => {
@@ -124,12 +134,14 @@ function crearFichas(){
         let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
         posicionYFichasJ1 = posicionYFichasJ1 - (radio/4*3);
         fichas.push(ficha);
+        fichasJ1.push(ficha);
     }
 
     for(let i = 0; i<cant_fichas; i++){
         let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
         posicionYFichasJ2 = posicionYFichasJ2 - (radio/4*3);
         fichas.push(ficha);
+        fichasJ2.push(ficha);
     }
 }
 
@@ -228,7 +240,6 @@ function configurarMapa(){
 //Configurarmos las variables del juego
 function configurarJuego() {
     let select = elegirModo();
-    console.log(select);
     filas = select[0];
     columnas = select[1];
     num_ganador = select[2];
@@ -343,8 +354,14 @@ function onMouseDown(e){
 }
 
 function findClickedFigure(x, y){
-    for(let i = fichas.length-1; i >= 0; i--){
-        const element = fichas[i];
+    let aux = [];
+    if(turno == 1){
+        aux = fichasJ1;
+    }else{
+        aux = fichasJ2;
+    }
+    for(let i = aux.length-1; i >= 0; i--){
+        const element = aux[i];
         if(element.isPointInside(x, y)){
             return element;
         }
@@ -371,8 +388,6 @@ function onMouseUp(e){
                 lastClickedFigure.setPosX(tablero.getColumnPos(posColumn));
                 lastClickedFigure.setPosY(tablero.getPosY());
                 drawFigure();
-                console.log(posRow);
-                console.log(posColumn);
                 lastClickedFigure.setIsDropped(true);
                 dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + movimiento), posRow, posColumn);
                 /*if(tablero.isWinner(posRow, posColumn, lastClickedFigure.getJugador())){
@@ -394,6 +409,7 @@ function dropFigure(figure, height, posRow, posColumn){
             drawFigure();
             dropFigure(figure, height, posRow, posColumn);
         }else{
+            cambiarTurno();
             if(tablero.isWinner(posRow, posColumn, figure.getJugador(), num_ganador)){
                 mjeAlert();
             }
