@@ -218,8 +218,9 @@ h1,h2,h3, label{
 
 .game{
     display: flex;
-    flex-flow: column;
+    /*flex-flow: column;*/
     justify-content: center;
+    align-content: center;
     max-width: 1370px;
 }
 
@@ -713,11 +714,62 @@ canvas {
     display: flex;
     flex-direction: column;
   }
+  .select-pj {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-.select-pj{
+  /* Estilo de los elementos con la clase .pj-title */
+  .pj-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+.game-menu h2{
+    padding: 10px;
+   
+    color: var(--neutral-light);
+}
+  /* Estilo de los elementos en la segunda fila */
+  .pj-select {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+select{
+    border-radius: 40px;
+    background-color: var(--primary-dark1); 
+    width: 200px; 
+    padding: 5px; 
+    font-size: var(--third-title);
+    text-align: center;
+    appearance: none;
 }
+
+#vs{
+    margin: 10px;
+    color: var(--secondary-dark2);
+}
+#play-game{
+    background-color: #2cbb6d;
+    color: var(--neutral-dark);
+    font-family: var(--font-btn);
+    font-size: var(--btn-size);
+    font-weight: var(--style2);
+    letter-spacing: 2px;
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+#play-game:hover {
+    box-shadow: 0 0 10px 5px rgba(52, 152, 219, 0.7);
+  }
 
 .control-bar{
     display: flex;
