@@ -676,7 +676,7 @@ canvas {
 
   .game-playing {
     position: absolute;
-    top: 10%;
+    top: 5%;
     left: 5%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
@@ -685,11 +685,18 @@ canvas {
     color: white;
     z-index: 1;
   }
+  .btn-play-game{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
 
   .timer{
     position: absolute;
-    top: 10%;
-    left: 50%;
+    top: 5%;
+    left: 95%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;

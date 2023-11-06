@@ -20,10 +20,6 @@ function drawInicio(){
     ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
 }
 
-
-
-
-
 function drawFondo(){
     if(firstTimeCharging){
         setTimeout(() => {
@@ -50,6 +46,7 @@ let tam_ficha = 0;
 let num_ganador = 0;
 let radio = 0;
 let tablero = null;
+let difPosicion = 0;
 
 let fichaJ1 = "";
 let fichaJ2 = "";
@@ -130,14 +127,14 @@ function crearFichas(){
 
     for(let i = 0; i<cant_fichas; i++){
         let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
-        posicionYFichasJ1 = posicionYFichasJ1 - (radio/4*3);
+        posicionYFichasJ1 = posicionYFichasJ1 - difPosicion;
         fichas.push(ficha);
         fichasJ1.push(ficha);
     }
 
     for(let i = 0; i<cant_fichas; i++){
         let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
-        posicionYFichasJ2 = posicionYFichasJ2 - (radio/4*3);
+        posicionYFichasJ2 = posicionYFichasJ2 - difPosicion;
         fichas.push(ficha);
         fichasJ2.push(ficha);
     }
@@ -146,8 +143,8 @@ function crearFichas(){
 let play = document.getElementById('play-game');
 
 play.addEventListener('click', function(e){
-    let manu = document.querySelector(".game-menu");
-    manu.classList.toggle("none");
+    let menu = document.querySelector(".game-menu");
+    menu.classList.toggle("none");
     canvas.classList.toggle("pointer-events");
     let btns = document.querySelector(".game-playing");
     btns.classList.toggle("none");
@@ -218,6 +215,7 @@ function reiniciarVariables(){
     fichaJ2 = "";
     posicionYFichasJ1 = 0;
     posicionYFichasJ2 = 0;
+    difPosicion = 0;
     fichasJ1 = [];
     fichasJ2 = [];
     fichas = [];
@@ -248,8 +246,8 @@ function configurarJuego() {
     posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
 
     if(num_ganador==5 || num_ganador==6){
-        posicionYFichasJ1 = posicionYFichasJ1 - tam_ficha;
-        posicionYFichasJ2 = posicionYFichasJ2 - tam_ficha;
+        posicionYFichasJ1 = posicionYFichasJ1;
+        posicionYFichasJ2 = posicionYFichasJ2;
     }
 
 }
@@ -268,10 +266,12 @@ function elegirModo(){
         var_tablero.push(columnas);
         numero_ganador = 4;
         var_tablero.push(numero_ganador);
-        tam_ficha = 78;
+        tam_ficha = 80;
         var_tablero.push(tam_ficha);
-        radio = 30;
+        radio = 33;
         var_tablero.push(radio);
+        difPosicion = (radio/4*3);
+        var_tablero.push(difPosicion);
 
     //Variables para 5 en linea
     } else if (modo == 5) {
@@ -281,10 +281,12 @@ function elegirModo(){
         var_tablero.push(columnas);
         numero_ganador = 5;
         var_tablero.push(numero_ganador);
-        tam_ficha = 58;
+        tam_ficha = 72;
         var_tablero.push(tam_ficha);
-        radio = 20;
+        radio = 28;
         var_tablero.push(radio);
+        difPosicion = (radio/4*2.5);
+        var_tablero.push(difPosicion);
 
     //Variables para 6 en linea
     } else if (modo == 6) {
@@ -294,10 +296,12 @@ function elegirModo(){
         var_tablero.push(columnas);
         numero_ganador = 6;
         var_tablero.push(numero_ganador);
-        tam_ficha = 49;
+        tam_ficha = 66;
         var_tablero.push(tam_ficha);
-        radio = 16;
+        radio = 27.5;
         var_tablero.push(radio);
+        difPosicion = (radio/4*2);
+        var_tablero.push(difPosicion);
 
     //Variables para 7 en linea
     } else if (modo == 7) {
@@ -307,10 +311,12 @@ function elegirModo(){
         var_tablero.push(columnas);
         numero_ganador = 7;
         var_tablero.push(numero_ganador);
-        tam_ficha = 45;
+        tam_ficha = 58;
         var_tablero.push(tam_ficha);
-        radio = 15.5;
+        radio = 24;
         var_tablero.push(radio);
+        difPosicion = (radio/4*2);
+        var_tablero.push(difPosicion);
     } 
 
     return var_tablero;
@@ -489,4 +495,14 @@ function enableEvents(){
     canvas.addEventListener('mousedown', onMouseDown);
     canvas.addEventListener('mouseup', onMouseUp);
     canvas.addEventListener('mousemove', onMouseMove);
+}
+
+let btn_play = document.getElementById("play");
+
+btn_play.addEventListener('click', showMenu);
+
+function showMenu(){
+    btn_play.classList.toggle("none");
+    let menu = document.querySelector(".game-menu");
+    menu.classList.toggle("none");
 }
