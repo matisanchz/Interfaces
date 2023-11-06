@@ -16,20 +16,6 @@ imgInicio.onload = function() {
     drawInicio();
 }
 
-function drawInicio(){
-    ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
-}
-
-function drawFondo(){
-    if(firstTimeCharging){
-        setTimeout(() => {
-            ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
-        },50);
-    }else{
-        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
-    }
-}
-
 let width = canvas.width;
 let height = canvas.height;
 
@@ -47,6 +33,10 @@ let num_ganador = 0;
 let radio = 0;
 let tablero = null;
 let difPosicion = 0;
+let timing = 0;
+
+let imageFichaJ1 = new Image();
+let imageFichaJ2 = new Image();
 
 let fichaJ1 = "";
 let fichaJ2 = "";
@@ -60,26 +50,70 @@ let fichasJ2 = [];
 
 let fichas = [];
 
-//Crea el resto de figuras
 
-function drawFigure(){
-    clearCanvas();
-    drawFondo();
-    tablero.setTableroDibujado(false);
+function drawInicio(){
+    ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
+}
+
+function drawFondo(){
+    ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+}
+
+/*function drawFondo(){
     if(firstTimeCharging){
         setTimeout(() => {
-            drawFichas();
-        }, 50);
-        setTimeout(() => {
-            drawTablero();
-        }, 50*2);
+            ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+        },50);
     }else{
+        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+    }
+}*/
+
+function drawFondo(){
+    ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+}
+
+//Crea el resto de figuras
+function drawFigure(){
+    clearCanvas();
+    tablero.setTableroDibujado(false);
+
+    if(firstTimeCharging){
+        imgFondo.onload = function(){
+            drawFondo();
+            drawFichas();
+            drawTablero();
+        }
+    }else{
+        drawFondo();
         drawFichas();
         drawTablero();
     }
 
     firstTimeCharging = false;
 }
+
+/*function drawFigure(){
+    clearCanvas();
+    tablero.setTableroDibujado(false);
+    if(firstTimeCharging){
+        setTimeout(() => {
+            drawFondo();
+        }, 50);
+        setTimeout(() => {
+            drawFichas();
+        }, 100*2);
+        setTimeout(() => {
+            drawTablero();
+        }, 100*3);
+    }else{
+        drawFondo();
+        drawFichas();
+        drawTablero();
+    }
+
+    firstTimeCharging = false;
+}*/
 
 function cambiarTurno(){
     if(turno == 1){
@@ -93,19 +127,23 @@ function drawTablero(){
     if(firstTimeCharging){
         setTimeout(() => {
             tablero.draw();
-        },40*(fichas.length+2));
+        },100*2);
     }else{
         tablero.draw();
     }
 }
 
 function drawFichas(){
-    for(let i = 0; i<fichas.length; i++){
-        if(firstTimeCharging){
-            setTimeout(() => {
-                fichas[i].draw();
-            },i * 40);
-        }else{
+    if(firstTimeCharging){
+        setTimeout(() => {
+            for(let i = 0; i<fichas.length; i++){
+                setTimeout(() => {
+                    fichas[i].draw();
+                },i * 40);
+            }
+        }, 100*2);
+    }else{
+        for(let i = 0; i<fichas.length; i++){
             fichas[i].draw();
         }
     }
@@ -126,14 +164,14 @@ function crearFichas(){
     let posInicial = width/2 + (columnas/2*tam_ficha) + tam_ficha*2;
 
     for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
+        let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, imageFichaJ1);
         posicionYFichasJ1 = posicionYFichasJ1 - difPosicion;
         fichas.push(ficha);
         fichasJ1.push(ficha);
     }
 
     for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
+        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, imageFichaJ2);
         posicionYFichasJ2 = posicionYFichasJ2 - difPosicion;
         fichas.push(ficha);
         fichasJ2.push(ficha);
@@ -168,13 +206,13 @@ let interval;
 function iniciarTimer(){
     let timer = document.querySelector(".timer");
     let time = timer.firstElementChild;
-    let status = 200;
     interval = setInterval(() => {
-        time.innerHTML = `Tiempo restante: ${status}`;
-        if(status >= 0){
-            status -= 1;
+        time.innerHTML = `Tiempo restante: ${timing}`;
+        if(timing > 0){
+            timing -= 1;
         }else{
-            mjeAlert();
+            clearInterval(interval);
+            mjeTimeOut();
         }
            
     }, 1000);
@@ -216,6 +254,7 @@ function reiniciarVariables(){
     posicionYFichasJ1 = 0;
     posicionYFichasJ2 = 0;
     difPosicion = 0;
+    timing = 0;
     fichasJ1 = [];
     fichasJ2 = [];
     fichas = [];
@@ -223,8 +262,8 @@ function reiniciarVariables(){
 
 //Inicializacion del personaje elegido para la ficha de cada jugador
 function configurarJugadores(){
-    fichaJ1 = document.getElementById("fichaJ1").value;
-    fichaJ2 = document.getElementById("fichaJ2").value;
+    imageFichaJ1.src = document.getElementById("fichaJ1").value;
+    imageFichaJ2.src = document.getElementById("fichaJ2").value;
 }
 
 //Inicializacion del personaje elegido para la ficha de cada jugador
@@ -241,6 +280,8 @@ function configurarJuego() {
     num_ganador = select[2];
     tam_ficha = select[3];
     radio = select[4];
+    difPosicion = select[5];
+    timing = select[6];
     let margen_tablero = height - filas*tam_ficha;
     posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
     posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
@@ -272,6 +313,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*3);
         var_tablero.push(difPosicion);
+        timing = 150;
+        var_tablero.push(timing);
 
     //Variables para 5 en linea
     } else if (modo == 5) {
@@ -287,6 +330,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2.5);
         var_tablero.push(difPosicion);
+        timing = 200;
+        var_tablero.push(timing);
 
     //Variables para 6 en linea
     } else if (modo == 6) {
@@ -302,6 +347,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2);
         var_tablero.push(difPosicion);
+        timing = 250;
+        var_tablero.push(timing);
 
     //Variables para 7 en linea
     } else if (modo == 7) {
@@ -317,6 +364,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2);
         var_tablero.push(difPosicion);
+        timing = 300;
+        var_tablero.push(timing);
     } 
 
     return var_tablero;
@@ -372,8 +421,16 @@ function findClickedFigure(x, y){
     }
 }
 
-function mjeAlert(){
-    alert('Termino el juego');
+function mjeTimeOut(){
+    document.getElementById("time-out").classList.toggle("none");
+}
+
+function mjeGanador(jugador){
+    if(jugador==1){
+        document.getElementById("ct").classList.toggle("none");
+    }else{
+        document.getElementById("tt").classList.toggle("none");
+    }
 }
 
 function onMouseUp(e){
@@ -394,9 +451,6 @@ function onMouseUp(e){
                 drawFigure();
                 lastClickedFigure.setIsDropped(true);
                 dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + movimiento), posRow, posColumn);
-                /*if(tablero.isWinner(posRow, posColumn, lastClickedFigure.getJugador())){
-                    mjeAlert();
-                }*/
             }else{
                 lastClickedFigure.setOrigenPosition();
                 drawFigure();
@@ -415,7 +469,7 @@ function dropFigure(figure, height, posRow, posColumn){
         }else{
             cambiarTurno();
             if(tablero.isWinner(posRow, posColumn, figure.getJugador(), num_ganador)){
-                mjeAlert();
+                mjeGanador(figure.getJugador());
             }
         }
     },1);

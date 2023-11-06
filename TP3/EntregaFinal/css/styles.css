@@ -673,9 +673,9 @@ canvas {
     border-radius: 10px;
     color: white;
     z-index: 1;
-  }
+}
 
-  .game-playing {
+.game-playing {
     position: absolute;
     top: 15%;
     left: 7.5%;
@@ -685,16 +685,17 @@ canvas {
     border-radius: 10px;
     color: white;
     z-index: 1;
-  }
-  .btn-play-game{
+}
+
+.btn-play-game{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-  }
+}
 
-  .timer{
+.timer{
     position: absolute;
     top: 15%;
     left: 92.5%;
@@ -704,22 +705,57 @@ canvas {
     border-radius: 10px;
     color: white;
     z-index: 1;
-  }
+}
 
-  .timer h4{
+.timer h4{
     pointer-events: none;
-  }
+}
 
-  .btns-playing{
+.btns-playing{
     display: flex;
     flex-direction: column;
-  }
-  .select-pj {
+}
+.select-pj {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+}
+
+.mje-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mje-finalizacion{
+    width: 100%;
+    animation: mje-win 2s 2;
+}
+
+@keyframes mje-win {
+    0% {
+        transform: scale(1.0);
+        transition: 100ms;
+    }
+    25%{
+        transform: scale(1.1);
+        transition: 100ms;
+    }
+    50%{
+        transform: scale(1.0);
+        transition: 100ms;
+    }
+    75%{
+        transform: scale(1.1);
+        transition: 100ms;
+    }
+    100%{
+        transform: scale(1.0);
+        transition: 100ms;
+    }
+}
 
   /* Estilo de los elementos con la clase .pj-title */
   .pj-title {
@@ -745,8 +781,8 @@ select{
     width: 200px; 
     padding: 5px; 
     font-size: var(--third-title);
-    text-align: center;
-    appearance: none;
+    text-align:center;
+    /*appearance: none;*/
 }
 div.game-menu select option:hover {
     background-color: #ffcc00;

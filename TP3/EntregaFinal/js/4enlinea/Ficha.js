@@ -3,9 +3,8 @@
 class Ficha{
 
     //Se crea el constructor de la ficha, con los parámetros necesarios para poder dibujarla en los diferentes casos que se presenten
-    constructor(posX, posY, fill, context, radius, jugador, imageURL){
-        this.image = new Image();
-        this.image.src = imageURL;
+    constructor(posX, posY, fill, context, radius, jugador, image){
+        this.image = image;
         this.posX = posX;
         this.posY = posY;
         this.fill = fill;
