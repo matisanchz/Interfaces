@@ -677,8 +677,8 @@ canvas {
 
   .game-playing {
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 15%;
+    left: 7.5%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -696,8 +696,8 @@ canvas {
 
   .timer{
     position: absolute;
-    top: 5%;
-    left: 95%;
+    top: 15%;
+    left: 92.5%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -748,7 +748,9 @@ select{
     text-align: center;
     appearance: none;
 }
-
+div.game-menu select option:hover {
+    background-color: #ffcc00;
+  }
 #vs{
     margin: 10px;
     color: var(--secondary-dark2);
@@ -769,6 +771,22 @@ select{
 }
 #play-game:hover {
     box-shadow: 0 0 10px 5px rgba(52, 152, 219, 0.7);
+  }
+  #restart, #return{
+    background-color: var(--secondary-light1);
+    color: var(--neutral-dark);
+    font-family: var(--font-btn);
+    font-size: var(--btn-size);
+    font-weight: var(--style2);
+    letter-spacing: 2px;
+    width: 120px;
+    height: 40px;
+    border-radius: 50px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  #restart:hover, #return:hover{
+    background-color: var(--secondary-dark3);
   }
 
 .control-bar{
