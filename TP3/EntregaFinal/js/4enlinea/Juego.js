@@ -12,6 +12,8 @@ let tt =  document.getElementById("tt");
 let timeOut = document.getElementById("time-out");
 let timer = document.querySelector(".timer");
 
+let mjeOk = document.getElementById("mje-ok");
+
 let play = document.getElementById('play-game');
 
 let btn_play = document.getElementById("play");
@@ -52,6 +54,7 @@ let fichaJ2 = "";
 let mapa = "";
 let posicionYFichasJ1 = 0;
 let posicionYFichasJ2 = 0;
+let line = 0;
 let fichasJ1 = [];
 let fichasJ2 = [];
 let fichas = [];
@@ -133,14 +136,14 @@ function crearFichas(){
     let posInicial = width/2 + (columnas/2*tam_ficha) + tam_ficha*1.5;
 
     for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ1, "white", ctx, radio, 1, fichaJ1);
+        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ1, "white", ctx, radio, 1, fichaJ1, line);
         posicionYFichasJ1 = posicionYFichasJ1 - difPosicion;
         fichas.push(ficha);
         fichasJ1.push(ficha);
     }
 
     for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(posInicial, posicionYFichasJ2, "black", ctx, radio, 2, fichaJ2);
+        let ficha = new Ficha(posInicial, posicionYFichasJ2, "black", ctx, radio, 2, fichaJ2, line);
         posicionYFichasJ2 = posicionYFichasJ2 - difPosicion;
         fichas.push(ficha);
         fichasJ2.push(ficha);
@@ -286,6 +289,7 @@ function configurarJuego() {
     radio = select[4];
     difPosicion = select[5];
     timing = select[6];
+    line = select[7];
     let margen_tablero = height - filas*tam_ficha;
     posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
     posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
@@ -319,6 +323,8 @@ function elegirModo(){
         var_tablero.push(difPosicion);
         timing = 150;
         var_tablero.push(timing);
+        line = 14;
+        var_tablero.push(line);
 
     //Variables para 5 en linea
     } else if (modo == 5) {
@@ -336,6 +342,8 @@ function elegirModo(){
         var_tablero.push(difPosicion);
         timing = 200;
         var_tablero.push(timing);
+        line = 14;
+        var_tablero.push(line);
 
     //Variables para 6 en linea
     } else if (modo == 6) {
@@ -353,6 +361,8 @@ function elegirModo(){
         var_tablero.push(difPosicion);
         timing = 250;
         var_tablero.push(timing);
+        line = 11;
+        var_tablero.push(line);
 
     //Variables para 7 en linea
     } else if (modo == 7) {
@@ -370,6 +380,8 @@ function elegirModo(){
         var_tablero.push(difPosicion);
         timing = 300;
         var_tablero.push(timing);
+        line = 9;
+        var_tablero.push(line);
     } 
 
     return var_tablero;
@@ -455,12 +467,20 @@ function findClickedFigure(x, y){
 
 //Pop-up de tiempo finalizado
 function mjeTimeOut(){
+    mjeOk.classList.toggle("none");
     timeOut.classList.toggle("none");
     juegoFinalizado = true;
 }
 
+//Al clickear 'OK', borra los pop ups de ganador/empate
+mjeOk.addEventListener('click', function(){
+    clearMensajes();
+    mjeOk.classList.toggle('none');
+});
+
 //Pop-up de ganador
 function mjeGanador(jugador){
+    mjeOk.classList.toggle("none");
     if(jugador==1){
         ct.classList.toggle("none");
     }else{
