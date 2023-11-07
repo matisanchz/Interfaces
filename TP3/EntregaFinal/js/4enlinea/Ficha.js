@@ -21,40 +21,34 @@ class Ficha{
         this.isDropped = false;
     }
 
+    //Permite dibujar la ficha, coordinando la carga previa de la imágen
     draw(){
         this.context.fillStyle = this.fill;
         this.context.beginPath();
         this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
         this.context.fill();
 
-        if (!this.image.complete) {
-            // Espera a que la imagen se cargue antes de dibujarla
-            this.image.onload = () => {
+        if(!this.resaltado){
+            if (!this.image.complete) {
+                // Espera a que la imagen se cargue antes de dibujarla
+                this.image.onload = () => {
+                    this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+                };
+            } else {
                 this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
-            };
-        } else {
+            }
+        }else{
+            //Bloque de código que permite remarcar aquellas fichas consideradas como conjunto ganador
             this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
+            this.context.strokeStyle = "gold";
+            this.context.lineWidth = 15;
+            this.context.stroke();
         }
+
         this.context.closePath();
     }
 
-    /*draw(){
-        this.context.fillStyle = this.fill;
-        this.context.beginPath();
-        this.context.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
-        this.context.fill();
-        if(this.resaltado === true){
-            this.context.strokeStyle = this.resaltadoEstilo;
-            this.context.lineWidth = 5;
-            this.context.stroke();
-        }else{
-            this.context.strokeStyle = this.resaltadoEstilo;
-            this.context.lineWidth = 3;
-            this.context.stroke();
-        }
-        this.context.closePath();
-    }*/
-
+    //Permite chequear si el mouse se encuentra dentro de la ficha
     isPointInside(x, y){
         if(!this.disable){
             let _x = this.posX - x;
@@ -65,6 +59,7 @@ class Ficha{
         }
     }
 
+    //Getters y setters del objeto Ficha
     setFill(fill){
         this.fill = fill
     }
