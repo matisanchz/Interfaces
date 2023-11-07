@@ -1,12 +1,23 @@
 "use strict"
 
 let canvas = document.querySelector('canvas');
+
 canvas.width = 1370;
 canvas.height = 600;
 
 let ctx = canvas.getContext('2d');
 
-const imgFondo = new Image();
+let ct = document.getElementById("ct");
+let tt =  document.getElementById("tt");
+let timeOut = document.getElementById("time-out");
+
+let play = document.getElementById('play-game');
+
+let btn_play = document.getElementById("play");
+
+let imgCostadoJ1 = new Image();
+
+let imgCostadoJ2 = new Image();
 
 //Para la imagen del inicio
 const imgInicio = new Image();
@@ -16,69 +27,123 @@ imgInicio.onload = function() {
     drawInicio();
 }
 
-function drawInicio(){
-    ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
-}
-
-function drawFondo(){
-    if(firstTimeCharging){
-        setTimeout(() => {
-            ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
-        },50);
-    }else{
-        ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
-    }
-}
-
+//Inicialización de variables
+let imgFondo = new Image();
 let width = canvas.width;
 let height = canvas.height;
-
 let turno = 1;
-
 let isMouseDown = false;
 let lastClickedFigure = null;
-
 let firstTimeCharging = true;
-
+let smtDropping = false;
+let juegoFinalizado = false;
 let filas = 0;
 let columnas = 0;
 let tam_ficha = 0;
 let num_ganador = 0;
 let radio = 0;
 let tablero = null;
+let interval;
 let difPosicion = 0;
-
+let timing = 0;
 let fichaJ1 = "";
 let fichaJ2 = "";
-
 let mapa = "";
-
 let posicionYFichasJ1 = 0;
 let posicionYFichasJ2 = 0;
 let fichasJ1 = [];
 let fichasJ2 = [];
-
 let fichas = [];
 
-//Crea el resto de figuras
+//Dibuja la imagen de inicio del canvas
+function drawInicio(){
+    ctx.drawImage(imgInicio, 0, 0, canvas.width, canvas.height);
+}
 
+//Dibuja el mapa de fondo
+function drawFondo(){
+    ctx.drawImage(imgFondo, 0, 0, canvas.width, canvas.height);
+
+    ctx.drawImage(imgCostadoJ1, posicionYFichasJ1 - tam_ficha/4, canvas.height/3);
+
+    ctx.drawImage(imgCostadoJ2, canvas.width/3*2.5, canvas.height/3);
+}
+
+//Crea el resto de figuras
 function drawFigure(){
     clearCanvas();
-    drawFondo();
     tablero.setTableroDibujado(false);
+
+    //Chequeo si es la primera vez que carga la pantalla
     if(firstTimeCharging){
-        setTimeout(() => {
-            drawFichas();
-        }, 50);
-        setTimeout(() => {
-            drawTablero();
-        }, 50*2);
+        imgFondo.onload = function(){
+            setTimeout(() => {
+                drawFondo();
+                    drawFichas();
+                    drawTablero();
+            },100*3);
+        }
     }else{
+        drawFondo();
         drawFichas();
         drawTablero();
     }
 
     firstTimeCharging = false;
+}
+
+//Dibuja el tablero
+function drawTablero(){
+    if(firstTimeCharging){
+        setTimeout(() => {
+            tablero.draw();
+        },100*3);
+    }else{
+        tablero.draw();
+    }
+}
+
+//Dibuja las fichas, guardadas en el arreglo
+function drawFichas(){
+    if(firstTimeCharging){
+        for(let i = 0; i<fichas.length; i++){
+            setTimeout(() => {
+                fichas[i].draw();
+            },i * 400);
+        }
+    }else{
+        for(let i = 0; i<fichas.length; i++){
+            fichas[i].draw();
+        }
+    }
+}
+
+//Borra la totalidad del canvas
+function clearCanvas(){
+    ctx.fillStyle = '#F8F8FF';
+    ctx.fillRect(0, 0, width, height);
+}
+
+//Permite instanciar las fichas, antes de dibujarlas
+function crearFichas(){
+
+    let cant_fichas = filas * columnas / 2;
+
+    let posInicial = width/2 + (columnas/2*tam_ficha) + tam_ficha*1.5;
+
+    for(let i = 0; i<cant_fichas; i++){
+        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ1, "white", ctx, radio, 1, fichaJ1);
+        posicionYFichasJ1 = posicionYFichasJ1 - difPosicion;
+        fichas.push(ficha);
+        fichasJ1.push(ficha);
+    }
+
+    for(let i = 0; i<cant_fichas; i++){
+        let ficha = new Ficha(posInicial, posicionYFichasJ2, "black", ctx, radio, 2, fichaJ2);
+        posicionYFichasJ2 = posicionYFichasJ2 - difPosicion;
+        fichas.push(ficha);
+        fichasJ2.push(ficha);
+    }
 }
 
 function cambiarTurno(){
@@ -89,59 +154,7 @@ function cambiarTurno(){
     }
 }
 
-function drawTablero(){
-    if(firstTimeCharging){
-        setTimeout(() => {
-            tablero.draw();
-        },40*(fichas.length+2));
-    }else{
-        tablero.draw();
-    }
-}
-
-function drawFichas(){
-    for(let i = 0; i<fichas.length; i++){
-        if(firstTimeCharging){
-            setTimeout(() => {
-                fichas[i].draw();
-            },i * 40);
-        }else{
-            fichas[i].draw();
-        }
-    }
-}
-
-//En teoria, limpia el canvas para volver a crear todo
-
-function clearCanvas(){
-    ctx.fillStyle = '#F8F8FF';
-    ctx.fillRect(0, 0, width, height);
-}
-
-//Se instancian las fichas
-function crearFichas(){
-
-    let cant_fichas = filas * columnas / 2;
-
-    let posInicial = width/2 + (columnas/2*tam_ficha) + tam_ficha*2;
-
-    for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(posInicial, posicionYFichasJ1, "red", ctx, radio, 1, fichaJ1);
-        posicionYFichasJ1 = posicionYFichasJ1 - difPosicion;
-        fichas.push(ficha);
-        fichasJ1.push(ficha);
-    }
-
-    for(let i = 0; i<cant_fichas; i++){
-        let ficha = new Ficha(canvas.width-posInicial, posicionYFichasJ2, "blue", ctx, radio, 2, fichaJ2);
-        posicionYFichasJ2 = posicionYFichasJ2 - difPosicion;
-        fichas.push(ficha);
-        fichasJ2.push(ficha);
-    }
-}
-
-let play = document.getElementById('play-game');
-
+//Al presionar el boton 'Jugar' inicializa el juego
 play.addEventListener('click', function(e){
     let menu = document.querySelector(".game-menu");
     menu.classList.toggle("none");
@@ -153,6 +166,7 @@ play.addEventListener('click', function(e){
     inicializar();
 });
 
+//Primer metodo para inicializar el juego, modularizado en varias funciones
 function inicializar(){
     configurarJuego();
     configurarJugadores();
@@ -163,41 +177,60 @@ function inicializar(){
     iniciarTimer();
 }
 
-let interval;
-
+//Inicializa el timer, y genera una resta por segundo transcurrido
 function iniciarTimer(){
     let timer = document.querySelector(".timer");
     let time = timer.firstElementChild;
-    let status = 200;
     interval = setInterval(() => {
-        time.innerHTML = `Tiempo restante: ${status}`;
-        if(status >= 0){
-            status -= 1;
+        time.innerHTML = `Tiempo restante: ${timing}`;
+        if(timing > 0){
+            timing -= 1;
         }else{
-            mjeAlert();
+            clearInterval(interval);
+            mjeTimeOut();
         }
            
     }, 1000);
 }
 
+//Limpia el intervalo del timer
 function detenerTimer() {
-    clearInterval(interval); // Detenemos el setInterval utilizando el identificador almacenado
+    clearInterval(interval);
 }
 
 document.getElementById('restart').addEventListener('click', restart);
 
 document.getElementById('return').addEventListener('click', refresh);
 
+//Botón 'Volver al menu'
 function refresh(){
     location.reload();
 }
 
+//Botón 'Reiniciar Juego'
 function restart(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     detenerTimer();
     reiniciarVariables();
+    clearMensajes();
     clearCanvas();
     inicializar();
+}
+
+//Limpia los pop-up, si existen, de juego finalizado
+function clearMensajes(){
+    let clasesArrayCt = Array.from(ct.classList);
+    let clasesArrayTt = Array.from(tt.classList);
+    let clasesArrayTimer = Array.from(timeOut.classList);
+    if(!clasesArrayCt.includes("none")){
+        ct.classList.toggle("none");
+    }
+    if(!clasesArrayTt.includes("none")){
+        tt.classList.toggle("none");
+    }
+    if(!clasesArrayTimer.includes("none")){
+        timeOut.classList.toggle("none");
+    }
 }
 
 //Reinicio variables, para el restart
@@ -216,6 +249,9 @@ function reiniciarVariables(){
     posicionYFichasJ1 = 0;
     posicionYFichasJ2 = 0;
     difPosicion = 0;
+    juegoFinalizado = false;
+    smtDropping = false;
+    timing = 0;
     fichasJ1 = [];
     fichasJ2 = [];
     fichas = [];
@@ -225,9 +261,15 @@ function reiniciarVariables(){
 function configurarJugadores(){
     fichaJ1 = document.getElementById("fichaJ1").value;
     fichaJ2 = document.getElementById("fichaJ2").value;
+
+    let P1 = fichaJ1.split("/");
+    let P2 = fichaJ2.split("/");
+
+    imgCostadoJ1.src = 'media/imagenes/4-en-linea/pj_'+P1[P1.length-1];
+    imgCostadoJ2.src = 'media/imagenes/4-en-linea/pj_'+P2[P2.length-1];
 }
 
-//Inicializacion del personaje elegido para la ficha de cada jugador
+//Inicializacion del mapa elegido
 function configurarMapa(){
     mapa = document.getElementById("map").value;
     imgFondo.src = mapa;
@@ -241,6 +283,8 @@ function configurarJuego() {
     num_ganador = select[2];
     tam_ficha = select[3];
     radio = select[4];
+    difPosicion = select[5];
+    timing = select[6];
     let margen_tablero = height - filas*tam_ficha;
     posicionYFichasJ1 = (filas-1/2)*tam_ficha + margen_tablero;
     posicionYFichasJ2 = (filas-1/2)*tam_ficha + margen_tablero;
@@ -272,6 +316,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*3);
         var_tablero.push(difPosicion);
+        timing = 150;
+        var_tablero.push(timing);
 
     //Variables para 5 en linea
     } else if (modo == 5) {
@@ -287,6 +333,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2.5);
         var_tablero.push(difPosicion);
+        timing = 200;
+        var_tablero.push(timing);
 
     //Variables para 6 en linea
     } else if (modo == 6) {
@@ -302,6 +350,8 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2);
         var_tablero.push(difPosicion);
+        timing = 250;
+        var_tablero.push(timing);
 
     //Variables para 7 en linea
     } else if (modo == 7) {
@@ -317,22 +367,23 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*2);
         var_tablero.push(difPosicion);
+        timing = 300;
+        var_tablero.push(timing);
     } 
 
     return var_tablero;
-  }
+}
 
-document.addEventListener('DOMContentLoaded', function(){
-
-})
-
-//Funcion para instanciar tablero
+//Instanciar tablero
 function crearTablero(){
     tablero = new Tablero(ctx, width, height, filas, columnas, "green", tam_ficha);
 }
 
-//Funcion que se ejecuta mientras el mouse esta presionado
+//Se ejecuta cuando el mouse esté presionado
 function onMouseDown(e){
+
+    console.log("Ingreso");
+
     isMouseDown = true;
 
     if(lastClickedFigure != null){
@@ -357,25 +408,7 @@ function onMouseDown(e){
     drawFigure();
 }
 
-function findClickedFigure(x, y){
-    let aux = [];
-    if(turno == 1){
-        aux = fichasJ1;
-    }else{
-        aux = fichasJ2;
-    }
-    for(let i = aux.length-1; i >= 0; i--){
-        const element = aux[i];
-        if(element.isPointInside(x, y)){
-            return element;
-        }
-    }
-}
-
-function mjeAlert(){
-    alert('Termino el juego');
-}
-
+//Se ejecuta cuando se levanta el mouse
 function onMouseUp(e){
     isMouseDown = false;
     if(lastClickedFigure!=null){
@@ -393,10 +426,8 @@ function onMouseUp(e){
                 lastClickedFigure.setPosY(tablero.getPosY());
                 drawFigure();
                 lastClickedFigure.setIsDropped(true);
+                smtDropping = true;
                 dropFigure(lastClickedFigure, (lastClickedFigure.getPosY() + movimiento), posRow, posColumn);
-                /*if(tablero.isWinner(posRow, posColumn, lastClickedFigure.getJugador())){
-                    mjeAlert();
-                }*/
             }else{
                 lastClickedFigure.setOrigenPosition();
                 drawFigure();
@@ -405,6 +436,42 @@ function onMouseUp(e){
     } 
 }
 
+//Permite identificar, en cada click, si se selecciono una ficha
+function findClickedFigure(x, y){
+    if(!smtDropping && !juegoFinalizado){
+        let aux = [];
+        if(turno == 1){
+            aux = fichasJ1;
+        }else{
+            aux = fichasJ2;
+        }
+        for(let i = aux.length-1; i >= 0; i--){
+            const element = aux[i];
+            if(element.isPointInside(x, y)){
+                return element;
+            }
+        }
+    }
+}
+
+//Pop-up de tiempo finalizado
+function mjeTimeOut(){
+    timeOut.classList.toggle("none");
+    juegoFinalizado = true;
+}
+
+//Pop-up de ganador
+function mjeGanador(jugador){
+    if(jugador==1){
+        ct.classList.toggle("none");
+    }else{
+        tt.classList.toggle("none");
+    }
+    juegoFinalizado=true;
+    detenerTimer();
+}
+
+//Permite trazar un recorrido de caída de la ficha, cuando se la suelta en un área permitida
 function dropFigure(figure, height, posRow, posColumn){
     setTimeout(() => {
         if(figure.getPosY()<height){
@@ -413,14 +480,16 @@ function dropFigure(figure, height, posRow, posColumn){
             drawFigure();
             dropFigure(figure, height, posRow, posColumn);
         }else{
+            smtDropping = false;
             cambiarTurno();
             if(tablero.isWinner(posRow, posColumn, figure.getJugador(), num_ganador)){
-                mjeAlert();
+                mjeGanador(figure.getJugador());
             }
         }
     },1);
 }
 
+//Chequea si la ficha se encuentra en un área permitida para su dropeo
 function isOnArea(figure){
     let x = width/2;
     let y = height/2;
@@ -440,6 +509,7 @@ function isOnArea(figure){
             && figure.getPosY() < posYAbajo;
 }
 
+//Se ejecuta cuando el mouse se mueve: Si tenemos seleccionada una ficha, seteamos nueva posición, y dibujamos el canvas entero
 function onMouseMove(e){
 
     let ClientRect = canvas.getBoundingClientRect();
@@ -456,15 +526,7 @@ function onMouseMove(e){
     }
 }
 
-function onMouseLeave(e){
-    if(lastClickedFigure != null){
-        lastClickedFigure.setOrigenPosition();
-        clearCanvas();
-        disableEvents();
-        drawFigure();
-    }
-}
-
+//Se ejecuta cuando el mouse se posiciona fuera del canvas; permite soltar una ficha, si aun seguía presionada
 function onMouseLeave(e){
     if(lastClickedFigure != null && lastClickedFigure.getIsDropped() === false){
         lastClickedFigure.setOrigenPosition();
@@ -473,34 +535,24 @@ function onMouseLeave(e){
     }
 }
 
+//Se ejecuta cuando el mouse vuelve a entrar al canvas; permite colocar la ficha en su posición original, en caso de haberla soltado
 function onMouseEnter(e){
     if(lastClickedFigure != null && lastClickedFigure.getIsDropped() === false){
         onMouseUp();
     }
 }
 
+//Serie de eventos dentro del elemento canvas
 canvas.addEventListener('mousedown', onMouseDown);
 canvas.addEventListener('mouseup', onMouseUp);
 canvas.addEventListener('mousemove', onMouseMove);
 canvas.addEventListener('mouseleave', onMouseLeave);
 canvas.addEventListener('mouseenter', onMouseEnter);
 
-function disableEvents(){
-    canvas.removeEventListener('mousedown', onMouseDown);
-    canvas.removeEventListener('mouseup', onMouseUp);
-    canvas.removeEventListener('mousemove', onMouseMove);
-}
-
-function enableEvents(){
-    canvas.addEventListener('mousedown', onMouseDown);
-    canvas.addEventListener('mouseup', onMouseUp);
-    canvas.addEventListener('mousemove', onMouseMove);
-}
-
-let btn_play = document.getElementById("play");
-
+//Se ejecuta cuando se presiona el primer play de la pantalla, para visualizar el menu configurable del juego
 btn_play.addEventListener('click', showMenu);
 
+//Muestra el menu de configuración de juego
 function showMenu(){
     btn_play.classList.toggle("none");
     let menu = document.querySelector(".game-menu");
