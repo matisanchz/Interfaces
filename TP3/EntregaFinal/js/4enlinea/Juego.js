@@ -10,6 +10,7 @@ let ctx = canvas.getContext('2d');
 let ct = document.getElementById("ct");
 let tt =  document.getElementById("tt");
 let timeOut = document.getElementById("time-out");
+let timer = document.querySelector(".timer");
 
 let play = document.getElementById('play-game');
 
@@ -146,6 +147,7 @@ function crearFichas(){
     }
 }
 
+//Permite cambiar el turno del jugador
 function cambiarTurno(){
     if(turno == 1){
         turno = 2;
@@ -161,7 +163,6 @@ play.addEventListener('click', function(e){
     canvas.classList.toggle("pointer-events");
     let btns = document.querySelector(".game-playing");
     btns.classList.toggle("none");
-    let timer = document.querySelector(".timer");
     timer.classList.toggle("none");
     inicializar();
 });
@@ -179,10 +180,9 @@ function inicializar(){
 
 //Inicializa el timer, y genera una resta por segundo transcurrido
 function iniciarTimer(){
-    let timer = document.querySelector(".timer");
-    let time = timer.firstElementChild;
+    let time = timer.children[1];
     interval = setInterval(() => {
-        time.innerHTML = `Tiempo restante: ${timing}`;
+        time.innerHTML = `&nbsp;&nbsp;&nbsp;${timing}`;
         if(timing > 0){
             timing -= 1;
         }else{
@@ -196,6 +196,7 @@ function iniciarTimer(){
 //Limpia el intervalo del timer
 function detenerTimer() {
     clearInterval(interval);
+
 }
 
 document.getElementById('restart').addEventListener('click', restart);
@@ -387,7 +388,6 @@ function onMouseDown(e){
     isMouseDown = true;
 
     if(lastClickedFigure != null){
-        lastClickedFigure.setResaltado(false);
         lastClickedFigure = null;
     }
 
@@ -402,7 +402,6 @@ function onMouseDown(e){
     let clickFig = findClickedFigure(x , y ); //coordenadas x e y dentro del canvas
 
     if(clickFig!=null){
-        clickFig.setResaltado(true);
         lastClickedFigure = clickFig;
     }
     drawFigure();
@@ -483,6 +482,11 @@ function dropFigure(figure, height, posRow, posColumn){
             smtDropping = false;
             cambiarTurno();
             if(tablero.isWinner(posRow, posColumn, figure.getJugador(), num_ganador)){
+                let aux = tablero.getConjuntoGanador();
+                aux.forEach(f => {
+                    f.setResaltado(true);
+                });
+                drawFigure();
                 mjeGanador(figure.getJugador());
             }
         }

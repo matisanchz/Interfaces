@@ -59,6 +59,10 @@ main{
     margin-right: 15px;
     width: auto;
     padding-top: 100px;
+    /* display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; */
 }
 
 header{
@@ -193,7 +197,7 @@ h3{
 }
 
 .none{
-    display:none;
+    display:none !important;
 }
 
 .label{
@@ -215,13 +219,17 @@ h3{
 h1,h2,h3, label{
     color: var(--neutral-light);
 }
-
-.game{
+.section-game-center{
     display: flex;
-    /*flex-flow: column;*/
+    justify-content: center;
+}
+.game{
+    display: flex; 
+    flex-flow: column;
     justify-content: center;
     align-content: center;
     max-width: 1370px;
+    /* border: solid red 3px; */
 }
 
 footer{
@@ -381,6 +389,7 @@ nav{
 main .container {
     display: flex;
     justify-content: flex-start;
+    margin-left: 120px;
   }
 .breadcrumb{
     display: flex;
@@ -656,7 +665,8 @@ a .card{
 
 .screen-game {
     position: relative;
-    text-align: center; /* Alinea el contenido al centro horizontalmente */
+    text-align: center;
+    
 }
 
 canvas {
@@ -681,7 +691,7 @@ canvas {
     left: 7.5%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     color: white;
     z-index: 1;
@@ -697,11 +707,15 @@ canvas {
 
 .timer{
     position: absolute;
-    top: 15%;
-    left: 92.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 10%;
+    left: 94%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     color: white;
     z-index: 1;
@@ -709,6 +723,24 @@ canvas {
 
 .timer h4{
     pointer-events: none;
+}
+
+#time {
+    animation: timing 5s linear infinite; /* Repite infinitamente */
+    transform-origin: center;
+    animation-delay: 2s;
+}
+
+@keyframes timing {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
 }
 
 .btns-playing{
@@ -809,20 +841,20 @@ div.game-menu select option:hover {
     box-shadow: 0 0 10px 5px rgba(52, 152, 219, 0.7);
   }
   #restart, #return{
-    background-color: var(--secondary-light1);
+    background-color: var(--secondary-dark1);
     color: var(--neutral-dark);
     font-family: var(--font-btn);
     font-size: var(--btn-size);
     font-weight: var(--style2);
     letter-spacing: 2px;
-    width: 120px;
+    width: 100px;
     height: 40px;
     border-radius: 50px;
     margin: 5px;
     cursor: pointer;
   }
   #restart:hover, #return:hover{
-    background-color: var(--secondary-dark3);
+    background-color: var(--secondary-light1);
   }
 
 .control-bar{
