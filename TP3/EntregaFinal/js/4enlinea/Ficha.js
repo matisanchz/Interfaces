@@ -3,7 +3,7 @@
 class Ficha{
 
     //Se crea el constructor de la ficha, con los parámetros necesarios para poder dibujarla en los diferentes casos que se presenten
-    constructor(posX, posY, fill, context, radius, jugador, imageUrl){
+    constructor(posX, posY, fill, context, radius, jugador, imageUrl, line){
         this.image = new Image();
         this.image.src = imageUrl;
         this.posX = posX;
@@ -19,6 +19,7 @@ class Ficha{
         this.jugador = jugador;
         this.cargoImg = false;
         this.isDropped = false;
+        this.line = line;
     }
 
     //Permite dibujar la ficha, coordinando la carga previa de la imágen
@@ -41,7 +42,7 @@ class Ficha{
             //Bloque de código que permite remarcar aquellas fichas consideradas como conjunto ganador
             this.context.drawImage(this.getImagen(), this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
             this.context.strokeStyle = "gold";
-            this.context.lineWidth = 15;
+            this.context.lineWidth = this.line;
             this.context.stroke();
         }
 

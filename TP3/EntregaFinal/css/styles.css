@@ -389,7 +389,6 @@ nav{
 main .container {
     display: flex;
     justify-content: flex-start;
-    margin-left: 120px;
   }
 .breadcrumb{
     display: flex;
@@ -840,7 +839,7 @@ div.game-menu select option:hover {
 #play-game:hover {
     box-shadow: 0 0 10px 5px rgba(52, 152, 219, 0.7);
   }
-  #restart, #return{
+  #restart, #return, #mje-ok{
     background-color: var(--secondary-dark1);
     color: var(--neutral-dark);
     font-family: var(--font-btn);
