@@ -156,135 +156,139 @@
             </ol>
         </div>
         
-        <section class="game">
+        <div class="section-game-center">
+            <section class="game">
 
-            <div class="screen-game">
-
-                <canvas class="pointer-events">
-                    
-                </canvas> 
-
-                <div class="mje-container">
-                    <img class="mje-finalizacion none" id="ct" src="media/imagenes/4-en-linea/ctwin.svg" alt="">
-                    <img class="mje-finalizacion none" id="tt" src="media/imagenes/4-en-linea/ttwin.svg" alt="">
-                    <img class="mje-finalizacion none" id="time-out" src="media/imagenes/4-en-linea/timeout.svg" alt="">
-                </div>
-
-                <div class="game-menu none">
-                 
-                    <div class="select-pj">
-                        <div class="pj-title">
-                            <div>
-                                <h2 class="item1">Counter Player</h2>
+                <div class="screen-game">
+    
+                    <canvas class="pointer-events">
+                        
+                    </canvas> 
+    
+                    <div class="mje-container">
+                        <img class="mje-finalizacion none" id="ct" src="media/imagenes/4-en-linea/ctwin.svg" alt="">
+                        <img class="mje-finalizacion none" id="tt" src="media/imagenes/4-en-linea/ttwin.svg" alt="">
+                        <img class="mje-finalizacion none" id="time-out" src="media/imagenes/4-en-linea/timeout.svg" alt="">
+                        <button id="mje-ok">OK</button>
+                    </div>
+    
+                    <div class="game-menu none">
+                     
+                        <div class="select-pj">
+                            <div class="pj-title">
+                                <div>
+                                    <h2 class="item1">Counter Player</h2>
+                                </div>
+                                <div>
+                                    <h2 class="item2">Terrorist Player</h2>
+                                </div>
                             </div>
-                            <div>
-                                <h2 class="item2">Terrorist Player</h2>
+                            <div class="pj-select">
+                                <select class="item3" id="fichaJ1" name="fichaJ1" aria-label="Default select example">
+                                    <option  value="media/imagenes/4-en-linea/sas.svg">SAS</option>
+                                    <option  value="media/imagenes/4-en-linea/gsg9.svg">GSG9</option>
+                                    <option  value="media/imagenes/4-en-linea/gign.svg">GIGN</option>
+                                    <option  value="media/imagenes/4-en-linea/urban.svg">Urban</option>
+                                </select>
+                                <div>
+                                    <h1 class="item4" id="vs">vs</h1>
+                                </div>
+                                <select class="item5" id="fichaJ2" name="fichaJ2" aria-label="Default select example">
+                                    <option  value="media/imagenes/4-en-linea/arctic.svg">Arctic</option>
+                                    <option  value="media/imagenes/4-en-linea/terror.svg">Terror</option>
+                                    <option  value="media/imagenes/4-en-linea/guerilla.svg">Guerilla</option>
+                                    <option  value="media/imagenes/4-en-linea/leet.svg">Leet</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="pj-select">
-                            <select class="item3" id="fichaJ1" name="fichaJ1" aria-label="Default select example">
-                                <option  value="media/imagenes/4-en-linea/sas.svg">SAS</option>
-                                <option  value="media/imagenes/4-en-linea/gsg9.svg">GSG9</option>
-                                <option  value="media/imagenes/4-en-linea/gign.svg">GIGN</option>
-                                <option  value="media/imagenes/4-en-linea/urban.svg">Urban</option>
+                        <div class="select-map">
+                            <h2>Select Map</h2>
+                            <select id="map">
+                                <option value="media/imagenes/4-en-linea/de_dust.svg">de_dust</option>
+                                <option value="media/imagenes/4-en-linea/de_aztec.svg">de_aztec</option>
+                                <option value="media/imagenes/4-en-linea/de_nuke.svg">de_nuke</option>
+                                <option value="media/imagenes/4-en-linea/de_inferno.svg">de_inferno</option>
                             </select>
-                            <div>
-                                <h1 class="item4" id="vs">vs</h1>
-                            </div>
-                            <select class="item5" id="fichaJ2" name="fichaJ2" aria-label="Default select example">
-                                <option  value="media/imagenes/4-en-linea/arctic.svg">Arctic</option>
-                                <option  value="media/imagenes/4-en-linea/terror.svg">Terror</option>
-                                <option  value="media/imagenes/4-en-linea/guerilla.svg">Guerilla</option>
-                                <option  value="media/imagenes/4-en-linea/leet.svg">Leet</option>
+                        </div>
+                        <div class="select-mode">
+                            <h2>Select Mode</h2>
+                            <select id="game-mode">
+                                <option value="4">4 en línea</option>
+                                <option value="5">5 en línea</option>
+                                <option value="6">6 en línea</option>
+                                <option value="7">7 en línea</option>
                             </select>
                         </div>
+                        <button id="play-game">JUGAR</button>
                     </div>
-                    <div class="select-map">
-                        <h2>Select Map</h2>
-                        <select id="map">
-                            <option value="media/imagenes/4-en-linea/de_dust.svg">de_dust</option>
-                            <option value="media/imagenes/4-en-linea/de_aztec.svg">de_aztec</option>
-                            <option value="media/imagenes/4-en-linea/de_nuke.svg">de_nuke</option>
-                            <option value="media/imagenes/4-en-linea/de_inferno.svg">de_inferno</option>
-                        </select>
+    
+                    <div class="btn-play-game">
+                        <img src="media/iconos/play-game.svg" alt="play" id="play">
                     </div>
-                    <div class="select-mode">
-                        <h2>Select Mode</h2>
-                        <select id="game-mode">
-                            <option value="4">4 en línea</option>
-                            <option value="5">5 en línea</option>
-                            <option value="6">6 en línea</option>
-                            <option value="7">7 en línea</option>
-                        </select>
-                    </div>
-                    <button id="play-game">JUGAR</button>
-                </div>
-
-                <div class="btn-play-game">
-                    <img src="media/iconos/play-game.svg" alt="play" id="play">
-                </div>
-
-                <div class="game-playing none">
-                    <div class="btns-playing">
-                        <button type="submit" id="restart">Reiniciar Juego</button>
-                        <button type="submit" id="return">Volver al menu</button>
-                    </div>
-                </div>
-
-                <div class="timer none">
-                    <h4></h4>
-                </div>
-
-            </div>
-
-            <div class="control-bar">
-                <div class="logo-game-view">
-                    <img src="media/iconos/logo-pocket.svg" alt="" id="logo-game-view">
-                    <h2>4 en Linea: CS GO</h2>
-                </div>
-                <div class="game-icons">
-                    <img src="media/iconos/heart.svg" alt="">
-                    <button class="ripple-button" id="share">
-                        <img src="media/iconos/share.svg" alt="">
-                    </button>
-                    <img src="media/iconos/like.svg" alt="">
-                    <img src="media/iconos/dislike.svg" alt="">
-                    <img src="media/iconos/fullscreen.svg" alt="">
-                </div>
-            </div>
-
-            <!-- Contenedor del pop-up -->
-            <div class="overlay none"></div>
-                <div id="popup-overlay" class="popup-overlay">
-                    <div id="popup-content" class="popup-content">
-                        <h2>Compartir este contenido</h2>
-                        <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
-                        <div class="social-links">
-                            <a href="#">
-                                <img src="media/iconos/insta.svg" alt="instagram">
-                            </a>
-                            <a href="#">
-                                <img src="media/iconos/wasap.svg" alt="wasap">
-                            </a>
-                            <a href="#">
-                                <img src="media/iconos/face.svg" alt="facebook">
-                            </a>
-                            <a href="#">
-                                <img src="media/iconos/tik.svg" alt="tiktok">
-                            </a>
-                            <a href="#">
-                                <img src="media/iconos/redit.svg" alt="redit">
-                            </a>
-                            <a href="#">
-                                <img src="media/iconos/twiter.svg" alt="twiter">
-                            </a>
+    
+                    <div class="game-playing none">
+                        <div class="btns-playing">
+                            <button type="submit" id="restart">Reiniciar</button>
+                            <button type="submit" id="return">Menu</button>
                         </div>
-                        <button id="close-popup">CERRAR</button>
+                    </div>
+    
+                    <div class="timer none">
+                        <h4></h4>
+                    </div>
+    
+                </div>
+    
+                <div class="control-bar">
+                    <div class="logo-game-view">
+                        <img src="media/iconos/logo-pocket.svg" alt="" id="logo-game-view">
+                        <h2>4 en Linea: CS GO</h2>
+                    </div>
+                    <div class="game-icons">
+                        <img src="media/iconos/heart.svg" alt="">
+                        <button class="ripple-button" id="share">
+                            <img src="media/iconos/share.svg" alt="">
+                        </button>
+                        <img src="media/iconos/like.svg" alt="">
+                        <img src="media/iconos/dislike.svg" alt="">
+                        <img src="media/iconos/fullscreen.svg" alt="">
                     </div>
                 </div>
-            </div>
-
-        </section>   
+    
+                <!-- Contenedor del pop-up -->
+                <div class="overlay none"></div>
+                    <div id="popup-overlay" class="popup-overlay">
+                        <div id="popup-content" class="popup-content">
+                            <h2>Compartir este contenido</h2>
+                            <p>Enlace para copiar: <input type="text" id="share-link" readonly></p>
+                            <div class="social-links">
+                                <a href="#">
+                                    <img src="media/iconos/insta.svg" alt="instagram">
+                                </a>
+                                <a href="#">
+                                    <img src="media/iconos/wasap.svg" alt="wasap">
+                                </a>
+                                <a href="#">
+                                    <img src="media/iconos/face.svg" alt="facebook">
+                                </a>
+                                <a href="#">
+                                    <img src="media/iconos/tik.svg" alt="tiktok">
+                                </a>
+                                <a href="#">
+                                    <img src="media/iconos/redit.svg" alt="redit">
+                                </a>
+                                <a href="#">
+                                    <img src="media/iconos/twiter.svg" alt="twiter">
+                                </a>
+                            </div>
+                            <button id="close-popup">CERRAR</button>
+                        </div>
+                    </div>
+                </div>
+    
+            </section>
+        </div>
+          
     
         <section class="similares">
             <h2>Juegos Similares</h2>
