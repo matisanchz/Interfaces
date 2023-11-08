@@ -229,13 +229,39 @@ h1,h2,h3, label{
     justify-content: center;
     align-content: center;
     max-width: 1370px;
-    /* border: solid red 3px; */
+}
+
+#flecha-izq{
+    position: absolute;
+    bottom: 8%;
+    left: 7%;
+    animation: moveUpDown 2s linear infinite;
+    z-index: 2;
+}
+
+#flecha-der{
+    position: absolute;
+    bottom: 8%;
+    right: 7%;
+    animation: moveUpDown 2s linear infinite;
+    z-index: 2;
+}
+
+@keyframes moveUpDown{
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Sube la imagen 20px */
+    }
+    100% {
+        transform: translateY(0); /* Vuelve a la posición inicial */
+    }
 }
 
 footer{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 
 .logo-footer {
@@ -852,7 +878,7 @@ div.game-menu select option:hover {
     margin: 5px;
     cursor: pointer;
   }
-  #restart:hover, #return:hover{
+  #restart:hover, #return:hover,  #mje-ok:hover{
     background-color: var(--secondary-light1);
   }
 
