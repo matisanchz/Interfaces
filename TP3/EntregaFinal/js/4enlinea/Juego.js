@@ -380,7 +380,7 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*3);
         var_tablero.push(difPosicion);
-        timing = 35;
+        timing = 150;
         var_tablero.push(timing);
         line = 14;
         var_tablero.push(line);
