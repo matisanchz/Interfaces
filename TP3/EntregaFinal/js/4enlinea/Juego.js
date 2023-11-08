@@ -12,6 +12,9 @@ let tt =  document.getElementById("tt");
 let timeOut = document.getElementById("time-out");
 let timer = document.querySelector(".timer");
 
+let flechaIzq = document.getElementById("flecha-izq");
+let flechaDer = document.getElementById("flecha-der");
+
 let mjeOk = document.getElementById("mje-ok");
 
 let play = document.getElementById('play-game');
@@ -154,8 +157,12 @@ function crearFichas(){
 function cambiarTurno(){
     if(turno == 1){
         turno = 2;
+        flechaIzq.classList.toggle("none");
+        flechaDer.classList.toggle("none");
     }else{
         turno = 1;
+        flechaIzq.classList.toggle("none");
+        flechaDer.classList.toggle("none");
     }
 }
 
@@ -172,6 +179,7 @@ play.addEventListener('click', function(e){
 
 //Primer metodo para inicializar el juego, modularizado en varias funciones
 function inicializar(){
+    asignarTurno();
     configurarJuego();
     configurarJugadores();
     configurarMapa();
@@ -179,6 +187,33 @@ function inicializar(){
     crearTablero();
     drawFigure();
     iniciarTimer();
+}
+
+//Dibuja la flecha, en base al turno
+function asignarTurno(){
+    let clasesFlechaIzq = Array.from(flechaIzq.classList);
+    let clasesFlechaDer = Array.from(flechaDer.classList);
+    if(turno==1){
+        if(clasesFlechaIzq.includes("none")){
+            flechaIzq.classList.toggle("none");
+        }
+    }else{
+        if(clasesFlechaDer.includes("none")){
+            flechaDer.classList.toggle("none");
+        }
+    }
+}
+
+//Saca las flechas, si ya termino el juego
+function quitarFlechas(){
+    let clasesFlechaIzq = Array.from(flechaIzq.classList);
+    let clasesFlechaDer = Array.from(flechaDer.classList);
+    if(!clasesFlechaIzq.includes("none")){
+        flechaIzq.classList.toggle("none");
+    }
+    if(!clasesFlechaDer.includes("none")){
+        flechaDer.classList.toggle("none");
+    }
 }
 
 //Inicializa el timer, y genera una resta por segundo transcurrido
@@ -206,9 +241,8 @@ document.getElementById('restart').addEventListener('click', restart);
 
 document.getElementById('return').addEventListener('click', refresh);
 
-//Botón 'Volver al menu'
 function refresh(){
-    location.reload();
+    window.location.replace("gameView.html");
 }
 
 //Botón 'Reiniciar Juego'
@@ -395,8 +429,6 @@ function crearTablero(){
 //Se ejecuta cuando el mouse esté presionado
 function onMouseDown(e){
 
-    console.log("Ingreso");
-
     isMouseDown = true;
 
     if(lastClickedFigure != null){
@@ -467,6 +499,7 @@ function findClickedFigure(x, y){
 
 //Pop-up de tiempo finalizado
 function mjeTimeOut(){
+    quitarFlechas();
     mjeOk.classList.toggle("none");
     timeOut.classList.toggle("none");
     juegoFinalizado = true;
@@ -480,6 +513,7 @@ mjeOk.addEventListener('click', function(){
 
 //Pop-up de ganador
 function mjeGanador(jugador){
+    quitarFlechas();
     mjeOk.classList.toggle("none");
     if(jugador==1){
         ct.classList.toggle("none");

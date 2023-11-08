@@ -24,7 +24,6 @@ class Tablero {
         for(let i = 0; i< this.filas; i++){
             matriz[i] = new Array(this.columnas);
         }
-        console.log(matriz);
         return matriz;
     }
 
