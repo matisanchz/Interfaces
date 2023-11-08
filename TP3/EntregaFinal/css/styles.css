@@ -852,7 +852,7 @@ div.game-menu select option:hover {
     margin: 5px;
     cursor: pointer;
   }
-  #restart:hover, #return:hover{
+  #restart:hover, #return:hover,  #mje-ok:hover{
     background-color: var(--secondary-light1);
   }
 
