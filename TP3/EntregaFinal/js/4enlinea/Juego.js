@@ -116,7 +116,7 @@ function drawFichas(){
         for(let i = 0; i<fichas.length; i++){
             setTimeout(() => {
                 fichas[i].draw();
-            },i * 400);
+            },i * 1000);
         }
     }else{
         for(let i = 0; i<fichas.length; i++){
@@ -234,13 +234,13 @@ function iniciarTimer(){
 //Limpia el intervalo del timer
 function detenerTimer() {
     clearInterval(interval);
-
 }
 
 document.getElementById('restart').addEventListener('click', restart);
 
 document.getElementById('return').addEventListener('click', refresh);
 
+//Refresca la página, al volver atrás desde el juego
 function refresh(){
     window.location.replace("gameView.html");
 }
