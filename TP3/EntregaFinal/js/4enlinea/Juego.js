@@ -96,8 +96,8 @@ function drawFigure(){
         imgFondo.onload = function(){
             setTimeout(() => {
                 drawFondo();
-                    drawFichas();
-                    drawTablero();
+                drawFichas();
+                drawTablero();
             },100*3);
         }
     }else{
@@ -126,7 +126,7 @@ function drawFichas(){
         for(let i = 0; i<fichas.length; i++){
             setTimeout(() => {
                 fichas[i].draw();
-            },i * 1000);
+            },1500);
         }
     }else{
         for(let i = 0; i<fichas.length; i++){
@@ -200,7 +200,9 @@ function inicializar(){
     crearFichas();
     crearTablero();
     drawFigure();
-    iniciarTimer();
+    setTimeout(function(){
+        iniciarTimer();
+    }, 800);
 }
 
 //Dibuja la flecha, en base al turno
@@ -246,11 +248,11 @@ function iniciarTimer(){
             audioBomb.play();
         }
         if(timing<10){
-            if (!sonidoReproducido) {
+            if (!playedAudio) {
                 audioBlow.play();
-                sonidoReproducido = true;
+                playedAudio = true;
               }
-        }  
+        }
     }, 1000);
 }
 
@@ -378,7 +380,7 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*3);
         var_tablero.push(difPosicion);
-        timing = 150;
+        timing = 35;
         var_tablero.push(timing);
         line = 14;
         var_tablero.push(line);
