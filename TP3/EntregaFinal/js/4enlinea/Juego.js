@@ -21,6 +21,16 @@ let play = document.getElementById('play-game');
 
 let btn_play = document.getElementById("play");
 
+let audioDisparo = document.getElementById('shot');
+let audioGo = document.getElementById('go');
+let audioBomb = document.getElementById('bomb-time');
+let audioBlow = document.getElementById('blow');
+let playedAudio = false;
+
+let audioCTWin = document.getElementById('ct-win');
+let audioTWin = document.getElementById('t-win');
+let audioExplode = document.getElementById('explode');
+
 let imgCostadoJ1 = new Image();
 
 let imgCostadoJ2 = new Image();
@@ -86,8 +96,8 @@ function drawFigure(){
         imgFondo.onload = function(){
             setTimeout(() => {
                 drawFondo();
-                    drawFichas();
-                    drawTablero();
+                drawFichas();
+                drawTablero();
             },100*3);
         }
     }else{
@@ -116,7 +126,7 @@ function drawFichas(){
         for(let i = 0; i<fichas.length; i++){
             setTimeout(() => {
                 fichas[i].draw();
-            },i * 1000);
+            },1500);
         }
     }else{
         for(let i = 0; i<fichas.length; i++){
@@ -174,6 +184,10 @@ play.addEventListener('click', function(e){
     let btns = document.querySelector(".game-playing");
     btns.classList.toggle("none");
     timer.classList.toggle("none");
+    audioDisparo.play();
+    setTimeout(function(){
+        audioGo.play();
+    }, 800)
     inicializar();
 });
 
@@ -186,7 +200,9 @@ function inicializar(){
     crearFichas();
     crearTablero();
     drawFigure();
-    iniciarTimer();
+    setTimeout(function(){
+        iniciarTimer();
+    }, 800);
 }
 
 //Dibuja la flecha, en base al turno
@@ -220,6 +236,7 @@ function quitarFlechas(){
 function iniciarTimer(){
     let time = timer.children[1];
     interval = setInterval(() => {
+        
         time.innerHTML = `&nbsp;&nbsp;&nbsp;${timing}`;
         if(timing > 0){
             timing -= 1;
@@ -227,7 +244,15 @@ function iniciarTimer(){
             clearInterval(interval);
             mjeTimeOut();
         }
-           
+        if(timing<30){
+            audioBomb.play();
+        }
+        if(timing<10){
+            if (!playedAudio) {
+                audioBlow.play();
+                playedAudio = true;
+              }
+        }
     }, 1000);
 }
 
@@ -355,7 +380,7 @@ function elegirModo(){
         var_tablero.push(radio);
         difPosicion = (radio/4*3);
         var_tablero.push(difPosicion);
-        timing = 150;
+        timing = 35;
         var_tablero.push(timing);
         line = 14;
         var_tablero.push(line);
@@ -497,9 +522,10 @@ function findClickedFigure(x, y){
     }
 }
 
-//Pop-up de tiempo finalizado
+//Pop-up de tiempo finalizado(bomb explosion)
 function mjeTimeOut(){
     quitarFlechas();
+    audioExplode.play();
     mjeOk.classList.toggle("none");
     timeOut.classList.toggle("none");
     juegoFinalizado = true;
@@ -517,8 +543,10 @@ function mjeGanador(jugador){
     mjeOk.classList.toggle("none");
     if(jugador==1){
         ct.classList.toggle("none");
+        audioCTWin.play();
     }else{
         tt.classList.toggle("none");
+        audioTWin.play();
     }
     juegoFinalizado=true;
     detenerTimer();
