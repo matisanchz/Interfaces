@@ -25,7 +25,17 @@
 }
 
 body{
-    max-width: 1280px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container{
+    width: 1080px;
+}
+
+.container-fluid{
+    width: 100vw;
 }
 
 h1{
@@ -42,25 +52,89 @@ p{
     color: var(--primary);
 }
 
-.hero{
+.hero-images{
     position: relative;
-    width: 1280px;
-    height: 844.5px;
+    height: 720px;
+    background-image: url('../images/hero/sky.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.hero-background{
+.building-left{
+    left:-4.5%;
+    top: 8%;
+    transform: translate(0%, 3%);
+}
+
+.building-center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-45.5%, 95%);
+}
+
+.building-right{
+    right: -0.5%;
+    transform: translate(0%, 8%);
+}
+
+.logo{
+    left: 30%;
+    transform: translate(0%, 12%);
+}
+
+.hero-pjs{
     position: absolute;
-    background-color: #8F6AA6;
-    transform: skewY(3deg);
-    width: inherit;
-    height: inherit;
+    top: 35%;
+    left: 40%;
+}
+
+.w-spider{
+    left: -39%;
+    transform: translate(0%, 17%);
+}
+
+.b-spider{
+    left: 18.5%;
+    transform: translate(0%, 7%);
+}
+
+.spider{
+    left: -9.5%;
+    transform: translate(0%, 18%);
+    z-index: 2;
+}
+
+.l-web{
+    left: -48%;
+    transform: translate(0%, 9%);
+    z-index: 3;
+}
+
+.r-web{
+    left: 45%;
+    transform: translate(0%, 20%);
+    z-index: 3;
+}
+
+.hero{
+    height: 844.5px;
+    background-image: url('../images/hero/background.png');
+    background-size: 100% 90% ;
+    background-repeat: no-repeat;
+    display: flex;
+    position: relative;
+}
+
+.hero-section{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-text{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-95%, -50%);
+    transform: translate(2%, 50%);
+    z-index: 2;
 }
 
 .img-hero{
@@ -68,14 +142,15 @@ p{
 }
 
 .elf{
-    top: 21%;
-    left: 55%;
-    z-index: 1;
+    transform: translate(130%, 14.5%);
+    width: 497.7px;
+    height: 828.29px;
+    z-index: 3;
 }
 
 .game-hero{
-    top: 69%;
-    left: 5%;
+    transform: translate(0%, 97%);
+    z-index: 2;
 }
 
 .description{
@@ -94,3 +169,4 @@ p{
     color: var(--secondary);
     margin-top: 15px;
 }
+
