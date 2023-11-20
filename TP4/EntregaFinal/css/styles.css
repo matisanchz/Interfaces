@@ -196,83 +196,16 @@ p{
     z-index: 5;
 }
 
-.ring-box{
+.preloader-box{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.ring{
-    position:absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    animation: ring 2s linear infinite;
-}
-
-.ring:before{
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(234, 197, 197, 0.9);
-}
-
-.ring-box span{
+.preloader-box span{
     color: var(--primary);
     letter-spacing: 1px;
-    line-height: 200px;
-}
-
-@keyframes ring{
-    0%{
-        transform: rotate(0deg);
-        box-shadow: 1px 5px 2px rgb(237, 23, 23);
-    }
-    10%{
-        transform: rotate(36deg);
-        box-shadow: 1px 5px 2px rgba(255, 245, 46);
-    }
-    20%{
-        transform: rotate(72deg);
-        box-shadow: 1px 5px 2px rgb(5, 180, 255);
-    }
-    30%{
-        transform: rotate(108deg);
-        box-shadow: 1px 5px 2px rgb(0, 81, 255);
-    }
-    40%{
-        transform: rotate(144deg);
-        box-shadow: 1px 5px 2px rgb(46, 220, 255);
-    }
-    50%{
-        transform: rotate(180deg);
-        box-shadow: 1px 5px 2px rgba(255, 245, 46);
-    }
-    60%{
-        transform: rotate(216deg);
-        box-shadow: 1px 5px 2px rgb(255, 130, 46);
-    }
-    70%{
-        transform: rotate(252deg);
-        box-shadow: 1px 5px 2px rgb(237, 23, 23);
-    }
-    80%{
-        transform: rotate(288deg);
-        box-shadow: 1px 5px 2px rgba(255, 245, 46);
-    }
-    90%{
-        transform: rotate(324deg);
-        box-shadow: 1px 5px 2px rgb(13, 5, 255);
-    }
-    100%{
-        transform: rotate(360deg);
-        box-shadow: 1px 5px 2px rgb(255, 130, 46);
-    }
 }
 
 .line-box{
@@ -303,6 +236,23 @@ p{
 
 .charger-box{
     margin-top: 20px;
+}
+
+.img-logo{
+    height: auto;
+}
+
+.img-masks{
+    animation: fade-effect 2s infinite;
+}
+
+@keyframes fade-effect {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 /************************************/

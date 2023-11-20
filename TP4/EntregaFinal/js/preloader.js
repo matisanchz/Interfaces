@@ -6,18 +6,19 @@ function loadPage() {
         
     let container = document.createElement("div");
     let chargerBox = document.createElement("div");
-    let ringBox = document.createElement("div");
+    let percentageBox = document.createElement("div");
     let logo = document.createElement("img");
     let masks = document.createElement("img");
 
-    let ring = document.createElement("div");
     let loading = document.createElement("span");
     let percentage = document.createElement("span");
     let box = document.createElement("div");
     let charger = document.createElement("div");
 
-    logo.src = "images/small-logo.svg";
+    logo.src = "images/preloader-logo.svg";
+    logo.classList.add('img-logo');
     masks.src = "images/masks.svg";
+    masks.classList.add('img-masks');
 
     /*Contenedor principal*/
     container.classList.add("container-preloader")
@@ -25,11 +26,9 @@ function loadPage() {
     /*Contenedor para el charger*/
     chargerBox.classList.add("charger-box")
 
-    /*Contenedor para el aro animado*/
-    ringBox.classList.add("ring-box");
+    /*Contenedor para el porcentaje*/
+    percentageBox.classList.add("preloader-box");
 
-    /*Aro*/
-    ring.classList.add("ring");
     /*Porcentaje*/
     percentage.classList.add("status");
     /*Span*/
@@ -43,12 +42,11 @@ function loadPage() {
 
     percentage.textContent = "0%";
     
-    ringBox.appendChild(ring);
-    ringBox.appendChild(loading);
-    ringBox.appendChild(percentage);
+    percentageBox.appendChild(loading);
+    percentageBox.appendChild(percentage);
 
     container.appendChild(logo);
-    container.appendChild(ringBox);
+    container.appendChild(percentageBox);
     container.appendChild(chargerBox);
     container.appendChild(masks);
 
@@ -67,15 +65,14 @@ function loadPage() {
             var ultimoHijo = document.body.lastElementChild;
             ultimoHijo.remove();
 
-
         }, 5000);
 
-        let status = 10;
+        let status = 0;
         setInterval(() => {
             spinnerStatus.innerHTML = `${status}%`;
             if(status < 100)
-                status += 5;
-        }, 242)
+                status += 1;
+        }, 48.4)
     }
     
 }
