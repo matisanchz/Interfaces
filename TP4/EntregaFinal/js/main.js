@@ -14,7 +14,9 @@ function showCross(){
     if(!classes.includes("hide")){
         mediumLine.classList.add("hide");
         firstLine.classList.add("shadow-disappear");
+        firstLine.classList.add("first-line");
         lastLine.classList.add("shadow-disappear");
+        lastLine.classList.add("last-line");
     }
 }
 
@@ -29,6 +31,8 @@ function hideCross(){
     if(classes.includes("hide")){
         mediumLine.classList.remove("hide");
         firstLine.classList.remove("shadow-disappear");
+        firstLine.classList.remove("first-line");
         lastLine.classList.remove("shadow-disappear");
+        lastLine.classList.remove("last-line");
     }
 }
