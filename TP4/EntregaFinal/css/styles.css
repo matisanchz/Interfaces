@@ -14,8 +14,9 @@
     --primary: #FFFFFF;
     --secondary: #000000;
     --sky: #5499F8;
+    --yellow: #FFE901;
     /*Fuente*/
-    --font-lato: 'Lato', sans-serif;
+    --font-lato: 'Lato';
     /*Tamaños*/
     --title: 60px;
     --small: 20px;
@@ -53,6 +54,63 @@ p{
     color: var(--primary);
 }
 
+header{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgb(84, 153, 248) 70%, rgb(84, 153, 248, 0));
+    height: 227px;
+    z-index: 2;
+}
+
+.header-ctn{
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hambur{
+    display: flex;
+    flex-direction: column;
+    height: 54px;
+}
+
+.hambur > div {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+.hambur img{
+    border-radius: 111px;
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+
+
+header button{
+    height: auto;
+}
+
+main{
+    position: relative;
+    top: -25vb;
+}
+
+.btn-buy {
+    width: 200px;
+    height: 50px;
+    border: 8px solid var(--2982-ff, #2982FF);
+    background: var(--yellow);
+    border-radius: 111px;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    font: var(--font-lato);
+    color: #02187E;
+    font-style: var(--style-bold);
+    font-size: var(--small);
+    font-weight: 900;
+    letter-spacing: 2.2px;
+    line-height: 94.5%; 
+}
+
 .hero-images{
     position: relative;
     height: 720px;
@@ -65,6 +123,7 @@ p{
     left:-4.5%;
     top: 8%;
     transform: translate(0%, 3%);
+    z-index: 2;
 }
 
 .building-center{
@@ -76,11 +135,13 @@ p{
 .building-right{
     right: -0.5%;
     transform: translate(0%, 8%);
+    z-index: 2;
 }
 
 .logo{
     left: 30%;
     transform: translate(0%, 12%);
+    z-index: 2;
 }
 
 .hero-pjs{
@@ -92,29 +153,31 @@ p{
 .w-spider{
     left: -39%;
     transform: translate(0%, 17%);
+    z-index: 4;
 }
 
 .b-spider{
     left: 18.5%;
     transform: translate(0%, 7%);
+    z-index: 4;
 }
 
 .spider{
     left: -9.5%;
     transform: translate(0%, 18%);
-    z-index: 2;
+    z-index: 4;
 }
 
 .l-web{
     left: -48%;
     transform: translate(0%, 9%);
-    z-index: 3;
+    z-index: 4;
 }
 
 .r-web{
     left: 45%;
     transform: translate(0%, 20%);
-    z-index: 3;
+    z-index: 4;
 }
 
 .hero{
@@ -124,6 +187,7 @@ p{
     background-repeat: no-repeat;
     display: flex;
     position: relative;
+    z-index: 3;
 }
 
 .hero-section{
@@ -135,7 +199,7 @@ p{
 .hero-text{
     position: absolute;
     transform: translate(2%, 50%);
-    z-index: 2;
+    z-index: 3;
 }
 
 .img-hero{
@@ -146,12 +210,12 @@ p{
     transform: translate(130%, 14.5%);
     width: 497.7px;
     height: 828.29px;
-    z-index: 3;
+    z-index: 4;
 }
 
 .game-hero{
     transform: translate(0%, 97%);
-    z-index: 2;
+    z-index: 3;
 }
 
 .description{
@@ -169,6 +233,52 @@ p{
 .cont-desc p{
     color: var(--secondary);
     margin-top: 15px;
+}
+
+.none{
+    display: none;
+}
+
+.hide{
+    opacity: 0%;
+}
+
+.hambur:hover div:first-child{
+    animation: moveDown .3s linear forwards;
+}
+
+.hambur:hover div:last-child{
+    animation: moveUp .3s linear forwards;
+}
+
+.shadow-disappear{
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+    transition: box-shadow 0.3s ease;
+}
+
+@keyframes moveDown {
+    0% {
+        transform: rotate(15deg) translateY(3px) translateX(3px);
+    }
+    50% {
+        transform: rotate(30deg) translateY(6px) translateX(6px);
+    }
+    100% {
+        transform: rotate(45deg) translateY(10px) translateX(10px);
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        transform: rotate(-15deg) translateY(-3px) translateX(2px);
+    }
+    50% {
+        transform: rotate(-30deg) translateY(-6px) translateX(3px);
+    }
+    100% {
+        transform: rotate(-45deg) translateY(-8px) translateX(4px);
+    }
+
 }
 
 /***************PRELOADER*********************/
@@ -243,10 +353,10 @@ p{
 }
 
 .img-masks{
-    animation: fade-effect 2s infinite;
+    animation: fadeEffect 2s infinite;
 }
 
-@keyframes fade-effect {
+@keyframes fadeEffect {
     0%, 100% {
         opacity: 0;
     }
