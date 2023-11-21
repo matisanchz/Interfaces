@@ -366,3 +366,15 @@ main{
 }
 
 /************************************/
+
+/*********************FOOTER******************/
+
+.last-section{
+    height: 1296px;
+    background: linear-gradient(180deg,  #8FBEFC 21.2%, #F7E3D8  81.48%);
+    display: flex;
+    position: relative;
+}
+
+
+/***************************************/
