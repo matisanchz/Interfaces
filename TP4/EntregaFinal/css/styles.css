@@ -42,7 +42,7 @@ body{
     width: 100vw;
 }
 
-h1, span, p{
+h1, span, p, input{
     font-family: var(--font-lato);
 }
 
@@ -61,9 +61,11 @@ p{
 header{
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
     background: linear-gradient(to bottom, rgb(84, 153, 248) 70%, rgb(84, 153, 248, 0));
-    height: 227px;
-    z-index: 2;
+    height: 103px;
+    z-index: 10;
 }
 
 .header-ctn{
@@ -96,7 +98,6 @@ header button{
 
 main{
     position: relative;
-    top: -25vb;
     margin-bottom: 0px;
 }
 
@@ -138,7 +139,7 @@ main{
 .logo{
     left: 30%;
     transform: translate(0%, 12%);
-    z-index: 2;
+    z-index: 11;
 }
 
 .hero-pjs{
@@ -390,6 +391,12 @@ main{
 .subscribe input{
     width: 562px;
     border-radius: 111px 0 0 111px;
+    font-style: var(--style-normal);
+    font-size: var(--small);
+    letter-spacing: 2.2px;
+    line-height: 94.5%; 
+    color: rgb(0, 0, 0, 39);
+    padding-left:45px;
 }
 
 .subs-section img{
