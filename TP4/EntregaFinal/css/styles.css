@@ -34,6 +34,8 @@ body{
 
 .container{
     width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container-fluid{
@@ -93,6 +95,7 @@ header button{
 main{
     position: relative;
     top: -25vb;
+    margin-bottom: 0px;
 }
 
 .btn-buy {
@@ -376,5 +379,34 @@ main{
     position: relative;
 }
 
+.footer-band{
+    background-color: #242424;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    letter-spacing: 2.2px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+footer a{
+    text-decoration: underline;
+    color: var(--primary);
+    line-height: 94.5%; 
+}
+
+footer{
+    background-color: #5E5E5D;
+    height: 678;
+    margin-top: 0px;
+}
+
+.media{
+    padding-bottom: 120px;
+}
 
 /***************************************/
