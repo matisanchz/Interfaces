@@ -16,14 +16,14 @@
     --sky: #5499F8;
     --yellow: #FFE901;
     /*Fuente*/
-    --font-lato: 'Lato';
+    --font-lato: 'Lato', sans-serif;
     /*Tamaños*/
     --title: 60px;
     --small: 20px;
     /*Estilos*/
     --style-normal: normal;
     --style-bold: bold;
-    --style-semibold: 500;
+    --style-semibold: 600;
 }
 
 body{
@@ -42,17 +42,19 @@ body{
     width: 100vw;
 }
 
+h1, span, p{
+    font-family: var(--font-lato);
+}
+
 h1{
     font-size: var(--title);
     font-weight: var(--style-semibold);
-    font-family: var(--font-lato);
     color: var(--primary);
 }
 
 p{
     font-size: var(--small);
     font-weight: var(--style-normal);
-    font-family: var(--font-lato);
     color: var(--primary);
 }
 
@@ -102,16 +104,8 @@ main{
     width: 200px;
     height: 50px;
     border: 8px solid var(--2982-ff, #2982FF);
-    background: var(--yellow);
     border-radius: 111px;
     box-shadow: 4px 5px 0px 0px #02187E;
-    font: var(--font-lato);
-    color: #02187E;
-    font-style: var(--style-bold);
-    font-size: var(--small);
-    font-weight: 900;
-    letter-spacing: 2.2px;
-    line-height: 94.5%; 
 }
 
 .hero-images{
@@ -372,11 +366,75 @@ main{
 
 /*********************FOOTER******************/
 
+.subscribe{
+    display: flex;
+    justify-content: space-between;
+    width: 780px;
+    height: 100px;
+    border: 8px solid var(--2982-ff, #2982FF);
+    border-radius: 111px;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    margin-top: 36px;
+}
+
+.subs-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.subs-section .middle{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subscribe input{
+    width: 562px;
+    border-radius: 111px 0 0 111px;
+}
+
+.subs-section img{
+    width: 231px;
+    height: 145px;
+    margin-left: 200px;
+    margin-top: 36px;
+}
+
+.subs-section p{
+    margin-left: 200px;
+    margin-top: 36px;
+    color: var(--secondary);
+}
+
+.subs-section span{
+    text-decoration: underline;
+}
+
+.subscribe button{
+    width: 218px;
+    border-radius: 0 111px 111px 0;
+}
+
 .last-section{
     height: 1296px;
     background: linear-gradient(180deg,  #8FBEFC 21.2%, #F7E3D8  81.48%);
     position: relative;
     overflow: hidden;
+}
+
+.btn-subs{
+    background-color: var(--yellow);
+    border-left: 8px solid var(--2982-ff, #2982FF);
+}
+
+.btn-txt{
+    background: var(--yellow);
+    font: var(--font-lato);
+    color: #02187E;
+    font-style: var(--style-bold);
+    font-size: var(--small);
+    font-weight: 900;
+    letter-spacing: 2.2px;
+    line-height: 94.5%; 
 }
 
 .city{
@@ -401,6 +459,12 @@ footer p{
     letter-spacing: 2.2px;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.last-section h1{
+    padding-top: 160px;
+    color: var(--secondary);
+    text-align: center;
 }
 
 footer a{
