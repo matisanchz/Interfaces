@@ -279,6 +279,25 @@ main{
 
 }
 
+
+.sprite-one {
+    position: absolute;
+    transform: translate(290px, 150px);
+    background-image: url('../images/sprite-one.png');
+    background-repeat: repeat-x;
+    width: 43.28px;
+    height: 85px;
+    z-index: 4;
+    animation: spriteClimber 2.5s steps(7) infinite;
+}
+
+@keyframes spriteClimber {
+    0% { background-position:0 }
+    100% { background-position:303px }
+}
+
+
+
 /***************PRELOADER*********************/
 
 .body-hide{
