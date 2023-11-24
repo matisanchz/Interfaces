@@ -219,7 +219,8 @@ main{
 .description{
     display: flex;
     justify-content: center;
-    margin-top: 235px;
+    padding-top: 235px;
+    padding-bottom: 150px;
 }
 
 .cont-desc{

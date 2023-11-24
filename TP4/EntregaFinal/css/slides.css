@@ -1,0 +1,78 @@
+.frank{
+    background-color: black;
+}
+.ghost-spider{
+    height: 566px;
+    background-image: url('../images/slides/Ghost.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.gameplay{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.gameplay div {
+    transition: transform 0.5s ease; 
+}
+
+.gameplay div:hover {
+    transform: skewX(20deg);
+}
+
+#gp1{
+    position: absolute;
+    top: -155px;
+    left: -45px;
+    height: 326px;
+    width: 543px;
+}
+#gp2{
+    position: absolute;
+    top: -20px;
+    left: -45px;
+    height: 326px;
+    width: 543px;
+}
+#gp3{
+    position: absolute;
+    top: 174px;
+    left: -25px;
+    height: 326px;
+    width: 543px;
+}
+
+.avengers {
+    position: relative;
+    
+}
+.avengers h1{
+    margin-top: 175px;
+}
+.images {
+    position: relative;
+}
+
+.back-images{
+    position: absolute;
+}
+.front-heroes{
+    display: flex;
+}
+
+.back-images img, .front-heroes img {
+    position: absolute;
+}
+
+#i2{
+    z-index: 1; 
+}
+#i3{
+    z-index: 2;
+}
+
+.front-heroes img {
+    z-index: 3;
+}
