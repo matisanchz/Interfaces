@@ -279,7 +279,6 @@ main{
 
 }
 
-
 .sprite-one {
     position: absolute;
     transform: translate(290px, 150px);
@@ -288,14 +287,45 @@ main{
     width: 43.28px;
     height: 85px;
     z-index: 4;
-    animation: spriteClimber 2.5s steps(7) infinite;
+    animation: spriteOne 2.5s steps(7) infinite;
 }
 
-@keyframes spriteClimber {
+@keyframes spriteOne {
     0% { background-position:0 }
     100% { background-position:303px }
 }
 
+.sprite-two {
+    position: absolute;
+    transform: translate(565px, 220px);
+    background-image: url('../images/sprite-two.png');
+    background-repeat: repeat-x;
+    width: 166.06px;
+    height: 62.16px;
+    z-index: 4;
+    animation: spriteTwo 2.5s steps(10) infinite;
+}
+
+@keyframes spriteTwo {
+    0% { background-position:0 }
+    100% { background-position:1662.45px }
+}
+
+.sprite-three {
+    position: absolute;
+    transform: translate(1000px, 125px);
+    background-image: url('../images/sprite-three.png');
+    background-repeat: repeat-x;
+    width: 79.5px;
+    height: 84px;
+    z-index: 4;
+    animation: spriteThree 2.5s steps(10) infinite;
+}
+
+@keyframes spriteThree {
+    0% { background-position:0 }
+    100% { background-position:795.5px }
+}
 
 
 /***************PRELOADER*********************/
