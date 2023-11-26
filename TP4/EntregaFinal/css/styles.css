@@ -330,7 +330,7 @@ main{
 
 .section-middle{
     background-color: black;
-    height: 4443px;
+    height: 3530px;
 }
 
 .skew-y{
@@ -487,16 +487,15 @@ main{
 }
 
 .pjs-info{
-    height: 632px;
-    background-color: var(--primary);
-    transform: skewY(-5deg);
-    border-top: 36px solid var(--primary);
-    border-bottom: 36px solid var(--primary);
+    background-image: url('../images/game-info/blank-background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 842px;
+    z-index: 50;
 }
 
 .pjs-info .container{
-    transform: skewY(5deg);
-    padding-top: 125px;
+    padding-top: 215px;
 }
 
 .pj{
@@ -513,6 +512,18 @@ main{
 }
 
 .pj-pp{
+    background-image: url('../images/game-info/blue-background.svg');
+}
+
+.pj-mm{
+    background-image: url('../images/game-info/grey-background.svg');
+}
+
+.pj-gs{
+    background-image: url('../images/game-info/pink-background.svg');
+}
+
+/*.pj-pp{
     border-top: 36px solid rgba(37, 82, 200, 0.61);
     border-bottom: 36px solid rgba(37, 82, 200, 0.61);
     background-color:  #D1D9ED;
@@ -528,7 +539,7 @@ main{
     border-top: 36px solid rgba(201, 43, 148, 1);
     border-bottom: 36px solid rgba(201, 43, 148, 1);
     background-color: #F6E2EF;
-}
+}*/
 
 
 /***************PRELOADER*********************/
@@ -682,6 +693,7 @@ main{
     background: linear-gradient(180deg,  #8FBEFC 21.2%, #F7E3D8  81.48%);
     position: relative;
     overflow: hidden;
+    z-index:-1;
 }
 
 .btn-subs{

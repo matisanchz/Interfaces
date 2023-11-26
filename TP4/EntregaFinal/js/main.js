@@ -122,27 +122,27 @@ info.addEventListener('scroll', function(){
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const parallaxContainer = document.querySelector(".ctn-parallax");
+    const parallax = document.querySelector(".ctn-parallax");
   
-    parallaxContainer.addEventListener("mousemove", (event) => {
-      const { clientX, clientY } = event;
-      const { offsetWidth, offsetHeight } = parallaxContainer;
+    parallax.addEventListener("mousemove", (event) => {
+        const { clientX, clientY } = event;
+        const { offsetWidth, offsetHeight } = parallax;
+
+        const centerX = offsetWidth / 2;
+        const centerY = offsetHeight / 2;
+
+        const moveX = (clientX - centerX) / 20;
+        const moveY = (clientY - centerY) / 20;
+
+        let sky = document.querySelector(".l1");
+        let trees = document.querySelector(".l2");
+        let girl = document.querySelector(".l3");
+        let panther = document.querySelector(".l4");
+        let hulk = document.querySelector(".l5");
+        let grass = document.querySelector(".l6");
   
-      const centerX = offsetWidth / 2; //centro en x del contenedor parallax
-      const centerY = offsetHeight / 2; //centro en y del contenedor parallax
-  
-      const moveX = (clientX - centerX) / 20;
-      const moveY = (clientY - centerY) / 20;
-  
-      const layer1 = document.querySelector(".l1");
-      const layer2 = document.querySelector(".l2");
-      const girl = document.querySelector(".l3");
-      const panther = document.querySelector(".l4");
-      const hulk = document.querySelector(".l5");
-      const grass = document.querySelector(".l6");
-  
-        layer1.style.transform = `scale(${1 + clientX/100 * 0.001})`;
-        layer2.style.transform = `scale(${1 + clientX/100 * 0.001})`;
+        sky.style.transform = `scale(${1 + clientX/100 * 0.001})`;
+        trees.style.transform = `scale(${1 + clientX/100 * 0.001})`;
         grass.style.transform = `scale(${1 + clientX/100 * 0.001})`;
 
         panther.style.transform = `translateX(${moveX * -0.5}px) translateY(${moveY * -0.7}px) rotate(4deg)`;
