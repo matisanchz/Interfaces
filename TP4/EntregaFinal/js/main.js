@@ -1,10 +1,20 @@
 "use strict";
 
-let isMoved = false;
+let isClicked = false;
 
 let hambur = document.querySelector(".hambur");
 
-hambur.addEventListener('mouseenter', showCross);
+hambur.addEventListener('click', manageCross);
+
+function manageCross(){
+    if(isClicked){
+        hideCross();
+        isClicked = false;
+    }else{
+        showCross();
+        isClicked = true;
+    }
+}
 
 function showCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
@@ -19,8 +29,6 @@ function showCross(){
         lastLine.classList.add("last-line");
     }
 }
-
-hambur.addEventListener('mouseleave', hideCross);
 
 function hideCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
