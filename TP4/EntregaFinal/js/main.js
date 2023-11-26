@@ -1,6 +1,6 @@
 "use strict";
 
-let isOnMenu = false;
+let isMoved = false;
 
 let hambur = document.querySelector(".hambur");
 
@@ -36,3 +36,117 @@ function hideCross(){
         lastLine.classList.remove("last-line");
     }
 }
+
+let elf = document.querySelector(".elf");
+
+window.addEventListener('scroll', function() {
+
+    let scrollY = window.scrollY
+    let movement = scrollY / 3.5;
+    let translateY = -45 + movement - 50;
+
+    if(scrollY>=100 && scrollY<=800){
+        elf.style.transform = 'translate(644px,' + translateY +'px)';
+    }else{
+        elf.style.transform = 'translate(644px, 123px)';
+    }
+
+});
+
+let pjContainer = document.querySelector('.pjs-info');
+
+let pp = document.getElementById('peter-parker');
+let mm = document.getElementById('miles-morales');
+let gs = document.getElementById('gwen-stacy');
+
+pp.addEventListener('mouseenter', ()=>{
+    changePj("pp");
+});
+mm.addEventListener('mouseenter', ()=>{
+    changePj("mm");
+});
+
+gs.addEventListener('mouseenter', ()=>{
+    changePj("gs");
+});
+
+pp.addEventListener('mouseleave', removeChanges);
+mm.addEventListener('mouseleave', removeChanges);
+gs.addEventListener('mouseleave', removeChanges);
+
+function changePj(pj){
+    switch(pj){
+        case "pp":
+            pjContainer.classList.add('pj-pp');
+            mm.classList.add('blur');
+            gs.classList.add('blur');
+            break;
+        case "mm":
+            pjContainer.classList.add('pj-mm');
+            pp.classList.add('blur');
+            gs.classList.add('blur');
+            break;
+        case "gs":
+            pjContainer.classList.add('pj-gs');
+            mm.classList.add('blur');
+            pp.classList.add('blur');
+            break;
+    }
+
+}
+
+function removeChanges(){
+    pjContainer.classList.remove('pj-pp');
+    pjContainer.classList.remove('pj-mm');
+    pjContainer.classList.remove('pj-gs');
+    mm.classList.remove('blur');
+    pp.classList.remove('blur');
+    gs.classList.remove('blur');
+}
+
+let info = document.querySelector('.txt-info');
+let image = document.querySelector('.img-info');
+info.addEventListener('scroll', function(){
+
+    let scrollTop = info.scrollTop;
+
+    if(scrollTop <= 270){
+        image.style.backgroundImage = "url('../images/game-info/txt-1.svg')";
+    }else if(scrollTop > 270 && scrollTop <= 630){
+        image.style.backgroundImage = "url('../images/game-info/txt-2.svg')";
+    }else if(scrollTop > 630 && scrollTop <= 1070){
+        image.style.backgroundImage = "url('../images/game-info/txt-3.svg')";
+    }else{
+        image.style.backgroundImage = "url('../images/game-info/txt-4.svg')";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const parallaxContainer = document.querySelector(".ctn-parallax");
+  
+    parallaxContainer.addEventListener("mousemove", (event) => {
+      const { clientX, clientY } = event;
+      const { offsetWidth, offsetHeight } = parallaxContainer;
+  
+      const centerX = offsetWidth / 2; //centro en x del contenedor parallax
+      const centerY = offsetHeight / 2; //centro en y del contenedor parallax
+  
+      const moveX = (clientX - centerX) / 20;
+      const moveY = (clientY - centerY) / 20;
+  
+      const layer1 = document.querySelector(".l1");
+      const layer2 = document.querySelector(".l2");
+      const girl = document.querySelector(".l3");
+      const panther = document.querySelector(".l4");
+      const hulk = document.querySelector(".l5");
+      const grass = document.querySelector(".l6");
+  
+        layer1.style.transform = `scale(${1 + clientX/100 * 0.001})`;
+        layer2.style.transform = `scale(${1 + clientX/100 * 0.001})`;
+        grass.style.transform = `scale(${1 + clientX/100 * 0.001})`;
+
+        panther.style.transform = `translateX(${moveX * -0.5}px) translateY(${moveY * -0.7}px) rotate(4deg)`;
+        hulk.style.transform = `translateX(${moveX * -1.4}px) translateY(${moveY * -1.7}px)`;
+        girl.style.transform = `translateX(${moveX * 1}px) translateY(${moveY * -2.2}px) rotate(-5.483deg)`;
+    });
+  });
