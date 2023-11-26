@@ -119,21 +119,25 @@ main{
 
 .building-left{
     left:-4.5%;
-    top: 8%;
-    transform: translate(0%, 3%);
+    top: 11.5%;
+    transform: translateX(-800px);
     z-index: 2;
+    opacity: 0;
 }
 
 .building-center{
-    top: 50%;
-    left: 50%;
-    transform: translate(-45.5%, 95%);
+    bottom: -10%;
+    right: 26%;
+    transform: translateY(300px);
+    opacity: 0;
 }
 
 .building-right{
-    right: -0.5%;
-    transform: translate(0%, 8%);
+    right: -0.8%;
+    bottom: -11%;
+    transform: translateX(800px);
     z-index: 2;
+    opacity: 0;
 }
 
 .logo{
@@ -142,40 +146,44 @@ main{
     z-index: 11;
 }
 
-.hero-pjs{
-    position: absolute;
-    top: 35%;
-    left: 40%;
-}
-
 .w-spider{
-    left: -39%;
-    transform: translate(0%, 17%);
+    left: 6.5%;
+    top: 46%;
     z-index: 4;
+    transform: translateX(-450px);
+    opacity: 0;
 }
 
 .b-spider{
-    left: 18.5%;
-    transform: translate(0%, 7%);
+    right: 14.5%;
+    top: 37%;
     z-index: 4;
+    transform: translateX(450px);
+    opacity: 0;
 }
 
 .spider{
-    left: -9.5%;
-    transform: translate(0%, 18%);
+    left: 32%;
+    top: 47%;
     z-index: 4;
+    transform: translateY(675px);
+    opacity: 0;
 }
 
 .l-web{
-    left: -48%;
-    transform: translate(0%, 9%);
+    left: -14%;
+    top: 43.5%;
     z-index: 4;
+    transform: translateY(465px);
+    opacity: 0;
 }
 
 .r-web{
-    left: 45%;
-    transform: translate(0%, 20%);
+    left: 77%;
+    top: 44%;
     z-index: 4;
+    transform: translateX(675px);
+    opacity: 0;
 }
 
 .hero{
