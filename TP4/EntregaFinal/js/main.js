@@ -54,7 +54,7 @@ let cardThree = document.querySelector(".c3");
 window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY
-    let movement = scrollY / 3.5;
+    let movement = scrollY / 4;
     let translateY = -45 + movement - 50;
 
     if(scrollY>=100 && scrollY<=800){
@@ -63,13 +63,29 @@ window.addEventListener('scroll', function() {
         elf.style.transform = 'translate(644px, 123px)';
     }
 
-    if(scrollY>850){
+    if(scrollY>1100){
         cardOne.style.opacity = 1;
         cardOne.style.transform = `translateY(0)`;
+        cardOne.style.transition = `transform 0.8s ease, opacity 2s ease`;
+        cardOne.style.transitionDelay = `400ms`;
         cardTwo.style.opacity = 1;
         cardTwo.style.transform = `translateY(0)`;
+        cardTwo.style.transition = `transform 0.8s ease, opacity 2s ease`;
+        cardTwo.style.transitionDelay = `700ms`;
         cardThree.style.opacity = 1;
         cardThree.style.transform = `translateY(0)`;
+        cardThree.style.transition = `transform 0.8s ease, opacity 2s ease`;
+        cardThree.style.transitionDelay = `1000ms`;
+    }else{
+        cardOne.style.opacity = 0;
+        cardOne.style.transform = `translateY(512px)`;
+        cardOne.style.transitionDelay = `0ms`;
+        cardTwo.style.opacity = 0;
+        cardTwo.style.transform = `translateY(512px)`;
+        cardTwo.style.transitionDelay = `0ms`;
+        cardThree.style.opacity = 0;
+        cardThree.style.transform = `translateY(512px)`;
+        cardThree.style.transitionDelay = `0ms`;
     }
 
 

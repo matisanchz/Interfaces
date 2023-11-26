@@ -16,7 +16,7 @@
     --sky: #5499F8;
     --yellow: #FFE901;
     /*Fuente*/
-    --font-lato: 'Lato', sans-serif;
+    --font-lato: 'Lato';
     /*Tamaños*/
     --title: 60px;
     --small: 20px;
@@ -219,29 +219,23 @@ main{
 .description{
     display: flex;
     justify-content: center;
-    padding-top: 235px;
+    padding-top: 150px;
     padding-bottom: 150px;
 }
 
 .c1{
     transform: translateY(515px);
     opacity: 0;
-    transition: transform 0.8s ease, opacity 2s ease;
-    transition-delay: 400ms;
 }
 
 .c2{
     transform: translateY(515px);
     opacity: 0;
-    transition: transform 0.8s ease, opacity 2s ease;
-    transition-delay: 700ms;
 }
 
 .c3{
     transform: translateY(515px);
     opacity: 0;
-    transition: transform 0.8s ease, opacity 2s ease;
-    transition-delay: 1000ms;
 }
 
 .cont-desc{
@@ -724,11 +718,12 @@ main{
 
 .btn-txt{
     background: var(--yellow);
-    font: var(--font-lato);
+    font: 'Lato';
     color: #02187E;
-    font-style: var(--style-bold);
+    -webkit-text-stroke: 2px;
+    font-style: var(--normal);
     font-size: var(--small);
-    font-weight: 900;
+    font-weight: 550;
     letter-spacing: 2.2px;
     line-height: 94.5%; 
 }
