@@ -223,6 +223,27 @@ main{
     padding-bottom: 150px;
 }
 
+.c1{
+    transform: translateY(515px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 2s ease;
+    transition-delay: 400ms;
+}
+
+.c2{
+    transform: translateY(515px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 2s ease;
+    transition-delay: 700ms;
+}
+
+.c3{
+    transform: translateY(515px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 2s ease;
+    transition-delay: 1000ms;
+}
+
 .cont-desc{
     display: flex;
     flex-direction: column;

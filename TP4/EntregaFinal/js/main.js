@@ -39,6 +39,10 @@ function hideCross(){
 
 let elf = document.querySelector(".elf");
 
+let cardOne = document.querySelector(".c1");
+let cardTwo = document.querySelector(".c2");
+let cardThree = document.querySelector(".c3");
+
 window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY
@@ -50,6 +54,16 @@ window.addEventListener('scroll', function() {
     }else{
         elf.style.transform = 'translate(644px, 123px)';
     }
+
+    if(scrollY>850){
+        cardOne.style.opacity = 1;
+        cardOne.style.transform = `translateY(0)`;
+        cardTwo.style.opacity = 1;
+        cardTwo.style.transform = `translateY(0)`;
+        cardThree.style.opacity = 1;
+        cardThree.style.transform = `translateY(0)`;
+    }
+
 
 });
 
