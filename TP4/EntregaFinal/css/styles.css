@@ -375,14 +375,18 @@ main{
     100% { background-position:397px }
 }
 
+/***************MIDDLE SECTION*********************/
+
 .section-middle{
     background-color: black;
     height: 3530px;
 }
 
-.skew-y{
-    transform: skewY(-7deg);
-}
+/* .skew-y{
+    transform: skew(-7deg);
+} */
+
+/***************SPIDER GIRL SECTION*********************/
 
 .ghost-spider{
     height: 566px;
@@ -427,16 +431,19 @@ main{
     width: 543px;
 }
 
+/***************AVENGERS SECTION*********************/
+
 .avengers {
     position: relative;
     height: 800px;
 }
 .avengers h1{
     margin-top: 175px;
+    margin-bottom: 75px;
 }
 
 .ctn-parallax {
-    position: relative;
+    /* position: relative; */
     height: 527.63px;
 }
 
@@ -466,10 +473,13 @@ main{
     top: 109px;
 }
 
+/***************GAMEPLAY INFO*********************/
+
 .game-info{
     background-color: #FFFFFF;
     height: 800px;
-    transform: skewY(7deg);
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+    padding-top: 100px;
 }
 
 .ctn-info{
@@ -480,8 +490,7 @@ main{
 .game-info h1, .game-info p{
     color: var(--secondary);
 }
-
-.game-info .skew-y{
+.game-info h1{
     padding-top: 80px;
 }
 
@@ -518,20 +527,24 @@ main{
     padding-top: 25px;
 }
 
-.buy-now{
-    height: 476px;
-}
+/***************BUY SECTION*********************/
 
-.ctn-buy{
+/* .buy-now{
+    height: 476px;
+} */
+
+/* .ctn-buy{
     padding-top: 120px;
     padding-bottom: 120px;
-}
+} */
 
 .ctn-buy .btn-buy{
     width: 292px;
     margin-top: 45px;
     height: 50px;
 }
+
+/***************CARDS SECTION*********************/
 
 .pjs-info{
     background-image: url('../images/game-info/blank-background.svg');
