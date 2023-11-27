@@ -9,6 +9,10 @@
     outline: none;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 :root{
     /*Colores*/
     --primary: #FFFFFF;
@@ -63,9 +67,10 @@ header{
     justify-content: center;
     position: fixed;
     top: 0;
-    background: linear-gradient(to bottom, rgb(84, 153, 248) 70%, rgb(84, 153, 248, 0));
+    background: linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0));
     height: 103px;
     z-index: 10;
+    overflow-x: hidden;
 }
 
 .header-ctn{
@@ -99,6 +104,7 @@ header button{
 main{
     position: relative;
     margin-bottom: 0px;
+    overflow-x: hidden;
 }
 
 .btn-buy {
@@ -135,29 +141,29 @@ main{
 
 .hero-images{
     position: relative;
-    height: 720px;
+    height: 823px;
     background-image: url('../images/hero/sky.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .building-left{
-    left:-4.5%;
-    top: 11.5%;
+    left:-4.2%;
+    top:20%;
     transform: translateX(-800px);
     z-index: 2;
     opacity: 0;
 }
 
 .building-center{
-    bottom: -10%;
-    right: 26%;
+    bottom: -9%;
+    right: 26.5%;
     transform: translateY(300px);
     opacity: 0;
 }
 
 .building-right{
-    right: -0.8%;
+    right: -0.6%;
     bottom: -11%;
     transform: translateX(800px);
     z-index: 2;
@@ -165,53 +171,48 @@ main{
 }
 
 .logo{
-    left: 30%;
-    transform: translate(0%, 12%);
+    left: 26.5%;
+    top: 14%;
     z-index: 11;
 }
 
 .w-spider{
-    left: 6.5%;
-    top: 46%;
+    left: 7.5%;
+    top: 51%;
     z-index: 4;
-    transform: translateX(-450px);
     opacity: 0;
 }
 
 .b-spider{
-    right: 14.5%;
-    top: 37%;
+    right: 15%;
+    top: 45%;
     z-index: 4;
-    transform: translateX(450px);
     opacity: 0;
 }
 
 .spider{
-    left: 32%;
-    top: 47%;
+    left: 31.6%;
+    top: 53%;
     z-index: 4;
-    transform: translateY(675px);
     opacity: 0;
 }
 
 .l-web{
-    left: -14%;
-    top: 43.5%;
+    left: -14.2%;
+    top: 49.5%;
     z-index: 4;
-    transform: translateY(465px);
     opacity: 0;
 }
 
 .r-web{
-    left: 77%;
-    top: 44%;
+    left: 76.5%;
+    top: 51%;
     z-index: 4;
-    transform: translateX(675px);
     opacity: 0;
 }
 
 .hero{
-    height: 844.5px;
+    height: 900px;
     background-image: url('../images/hero/background.png');
     background-size: 100% 90% ;
     background-repeat: no-repeat;
@@ -222,6 +223,7 @@ main{
 
 .hero-section{
     position: relative;
+    padding-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -379,12 +381,9 @@ main{
 
 .section-middle{
     background-color: black;
-    height: 3530px;
+    height: 3120px;
+    margin-top: 50px;
 }
-
-/* .skew-y{
-    transform: skew(-7deg);
-} */
 
 /***************SPIDER GIRL SECTION*********************/
 
@@ -393,7 +392,7 @@ main{
     background-image: url('../images/slides/Ghost.svg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-color: white;
+    transform: translateY(-60px);
 }
 
 .gameplay{
@@ -435,16 +434,19 @@ main{
 
 .avengers {
     position: relative;
-    height: 800px;
+    height: 690px;
+    overflow: visible;
+    z-index: 1;
+    
 }
 .avengers h1{
-    margin-top: 175px;
+    margin-top: 110px;
     margin-bottom: 75px;
 }
 
 .ctn-parallax {
-    /* position: relative; */
     height: 527.63px;
+    box-shadow: 26px 29px 41px 14px rgba(0, 0, 0, 0.15);
 }
 
 .back-images{
@@ -477,10 +479,15 @@ main{
 
 .game-info{
     background-color: #FFFFFF;
-    height: 800px;
-    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+    height: 700px;
+    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 88%);
     padding-top: 100px;
 }
+
+.game-info .container{
+    margin-top: 50px;
+}
+
 
 .ctn-info{
     display: flex;

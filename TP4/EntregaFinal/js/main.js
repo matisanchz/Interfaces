@@ -53,7 +53,7 @@ let cardThree = document.querySelector(".c3");
 
 window.addEventListener('scroll', function() {
 
-    let scrollY = window.scrollY
+    let scrollY = window.scrollY;
     let movement = scrollY / 4;
     let translateY = -45 + movement - 50;
 
