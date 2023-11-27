@@ -502,13 +502,14 @@ main{
 }
 
 .img-info{
-    background-image: url('../images/game-info/txt-1.svg');
-    background-repeat: no-repeat;
-    transition: background-image 1s ease;
     height: 302.76px;
     width: 552px;
-    padding: 55px;
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+.img-info img{
+    opacity: 1;
+    transition: opacity 2s ease 10s;
 }
 
 .txt-info{

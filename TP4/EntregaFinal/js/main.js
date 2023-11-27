@@ -144,22 +144,44 @@ function removeChanges(){
 
 let info = document.querySelector('.txt-info');
 let image = document.querySelector('.img-info');
+
+let img1 = document.querySelector('.img1');
+let img2 = document.querySelector('.img2');
+let img3 = document.querySelector('.img3');
+let img4 = document.querySelector('.img4');
+
 info.addEventListener('scroll', function(){
 
     let scrollTop = info.scrollTop;
 
     if(scrollTop <= 270){
-        image.style.backgroundImage = "url('../images/game-info/txt-1.svg')";
+        if(img1.classList.contains('none')){
+            img1.classList.toggle('none');
+            img2.classList.add('none');
+        }
     }else if(scrollTop > 270 && scrollTop <= 630){
-        image.style.backgroundImage = "url('../images/game-info/txt-2.svg')";
+        if(img2.classList.contains('none')){
+            img2.classList.toggle('none');
+            img1.classList.add('none');
+            img3.classList.add('none');
+        }
     }else if(scrollTop > 630 && scrollTop <= 1070){
-        image.style.backgroundImage = "url('../images/game-info/txt-3.svg')";
+        if(img3.classList.contains('none')){
+            img3.classList.toggle('none');
+            img2.classList.add('none');
+            img4.classList.add('none');
+        }
     }else{
-        image.style.backgroundImage = "url('../images/game-info/txt-4.svg')";
+        if(img4.classList.contains('none')){
+            img4.classList.toggle('none');
+            img3.classList.add('none');
+        }
     }
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+
     const parallax = document.querySelector(".ctn-parallax");
   
     parallax.addEventListener("mousemove", (event) => {
