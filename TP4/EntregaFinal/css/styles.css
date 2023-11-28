@@ -23,11 +23,12 @@ html{
     --font-lato: 'Lato';
     /*Tamaños*/
     --title: 60px;
+    --subtitle: 40px;
     --small: 20px;
     /*Estilos*/
     --style-normal: normal;
     --style-bold: bold;
-    --style-semibold: 600;
+    --style-semibold: 500;
 }
 
 body{
@@ -46,7 +47,7 @@ body{
     width: 100vw;
 }
 
-h1, span, p, input{
+h1, h2, span, p, input{
     font-family: var(--font-lato);
 }
 
@@ -54,12 +55,19 @@ h1{
     font-size: var(--title);
     font-weight: var(--style-semibold);
     color: var(--primary);
+    line-height: 1;
 }
-
+h2{
+    font-size: var(--subtitle);
+    font-weight: var(--style-normal);
+    color: var(--secondary);
+    line-height: 1;
+}
 p{
     font-size: var(--small);
     font-weight: var(--style-normal);
     color: var(--primary);
+    line-height: 1;
 }
 
 header{
@@ -120,7 +128,8 @@ main{
 .btn-buy:hover {
     transform: translateY(-5px);
     box-shadow: 4px 15px 10px -5px #02187E;
-    background-color: red;
+    background-color:#62a4ff;
+    color: var(--yellow);
 }
 
 .btn-buy::before {
@@ -233,7 +242,9 @@ main{
     transform: translate(2%, 50%);
     z-index: 3;
 }
-
+.hero-text h1{
+    margin-bottom: 15px;
+}
 .img-hero{
     position: absolute;
 }
@@ -551,7 +562,9 @@ main{
     margin-top: 45px;
     height: 50px;
 }
-
+.ctn-buy h1{
+    line-height: 1.2;
+}
 /***************CARDS SECTION*********************/
 
 .pjs-info{
