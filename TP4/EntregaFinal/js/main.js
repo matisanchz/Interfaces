@@ -12,12 +12,18 @@ function manageMenu(){
         hideCross();
         nav.classList.toggle('show');
         nav.classList.toggle('closed-menu');
+        if((1 - (window.scrollY) / 260)>0.2){
+            header.style.background = 'linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0))';
+        }
         isClicked = false;
     }else{
         showCross();
         nav.classList.toggle('show');
         nav.classList.toggle('closed-menu');
         isClicked = true;
+        if((1 - (window.scrollY) / 260)>0.2){
+            header.style.background = 'rgb(84, 153, 248)';
+        }
     }
 }
 
@@ -61,12 +67,12 @@ window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY;
     let movement = scrollY / 4;
-    let translateY = -45 + movement - 50;
+    let translateY = -45 + movement - 60;
 
-    if(scrollY>=100 && scrollY<=800){
+    if(scrollY>=100 && scrollY<=810){
         elf.style.transform = 'translate(644px,' + translateY +'px)';
     }else{
-        elf.style.transform = 'translate(644px, 123px)';
+        elf.style.transform = 'translate(644px, 120px)';
     }
 
     if(scrollY>1100){
@@ -161,32 +167,28 @@ info.addEventListener('scroll', function(){
     let scrollTop = info.scrollTop;
 
     if(scrollTop <= 270){
-        if(img1.classList.contains('none')){
-            img1.classList.toggle('none');
-            img2.classList.add('none');
-        }
+        
+        img1.style.opacity = 1;
+        img2.style.opacity = 0;
+
     }else if(scrollTop > 270 && scrollTop <= 630){
-        if(img2.classList.contains('none')){
-            img2.classList.toggle('none');
-            img1.classList.add('none');
-            img3.classList.add('none');
-        }
+        img1.style.opacity = 0;
+        img2.style.opacity = 1;
+        img3.style.opacity = 0;
     }else if(scrollTop > 630 && scrollTop <= 1070){
-        if(img3.classList.contains('none')){
-            img3.classList.toggle('none');
-            img2.classList.add('none');
-            img4.classList.add('none');
-        }
+        img2.style.opacity = 0;
+        img3.style.opacity = 1;
+        img4.style.opacity = 0;
     }else{
-        if(img4.classList.contains('none')){
-            img4.classList.toggle('none');
-            img3.classList.add('none');
-        }
+        img3.style.opacity = 0;
+        img4.style.opacity = 1;
     }
 
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    img1.style.opacity = 1;
 
     const parallax = document.querySelector(".ctn-parallax");
   

@@ -92,6 +92,7 @@ header{
     display: flex;
     flex-direction: column;
     height: 54px;
+    margin-top: 7px;
 }
 
 .hambur > div {
@@ -113,51 +114,50 @@ header button{
 /***************NAVBAR MENU*********************/
 
 nav{
-    position: fixed;
-    z-index: 98;
+    padding-top: 50px;
+    z-index: 5;
 }
 
 .navbar { 
-    display: flex;
-    flex-direction: column;
-    margin-top: 95px;
-    background-color: #333;
+    position: fixed;
+    margin-top: -7140px;
+    background-color: #3e8cfa;
     color: white;
-    width: 100px;
-    height: 200px;
+    width: 250px;
     transition: left 0.3s ease;
 }
 
-.navbar div {
+.option {
+    display: flex;
+    align-items: center;
     padding: 20px;
+    padding-left: 35px;
+}
+
+.option span{
+    padding-left: 35px;
+}
+
+.option:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 15px 10px -5px #02187E;
+    background-color:#62a4ff;
+    color: var(--yellow);
+}
+
+.option:hover::before {
+    transform: scale(1.2);
 }
 
 .closed-menu{
-    left: -150px;
+    left: -300px;
 }
 
 .show {
     left: 0px;
 }
 
-/*.navbar.show div {
-    display: block;
-    animation: fadeIn 0.5s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}*/
-
 main{
-    position: relative;
     margin-bottom: 0px;
     overflow-x: hidden;
 }
@@ -305,14 +305,14 @@ main{
 }
 
 .game-hero{
-    transform: translate(0%, 97%);
+    transform: translate(-2%, 94%);
     z-index: 3;
 }
 
 .description{
     display: flex;
     justify-content: center;
-    padding-top: 150px;
+    padding-top: 120px;
     padding-bottom: 150px;
 }
 
@@ -390,7 +390,7 @@ main{
 
 .sprite-one {
     position: absolute;
-    transform: translate(290px, 150px);
+    transform: translate(290px, 200px);
     background-image: url('../images/sprite-one.png');
     background-repeat: repeat-x;
     width: 43.28px;
@@ -406,7 +406,7 @@ main{
 
 .sprite-two {
     position: absolute;
-    transform: translate(565px, 220px);
+    transform: translate(565px, 275px);
     background-image: url('../images/sprite-two.png');
     background-repeat: repeat-x;
     width: 166.06px;
@@ -422,7 +422,7 @@ main{
 
 .sprite-three {
     position: absolute;
-    transform: translate(1000px, 125px);
+    transform: translate(1000px, 180px);
     background-image: url('../images/sprite-three.png');
     background-repeat: repeat-x;
     width: 79.5px;
@@ -561,14 +561,18 @@ main{
 }
 
 .img-info{
+    position: relative;
     height: 302.76px;
     width: 552px;
     margin-top: 25px;
 }
 
 .img-info img{
-    opacity: 1;
-    transition: opacity 2s ease 10s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    transition: opacity 2.5s ease;
 }
 
 .txt-info{
@@ -690,10 +694,8 @@ main{
     flex-direction: column;
     background-color: var(--sky);
     opacity: 0.95;
-    /*height: 120vh;
-    width: 100%;*/
     margin:auto;
-    z-index: 5;
+    z-index: 6;
 }
 
 .preloader-box{
