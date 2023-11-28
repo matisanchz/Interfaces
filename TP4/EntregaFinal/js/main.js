@@ -12,12 +12,18 @@ function manageMenu(){
         hideCross();
         nav.classList.toggle('show');
         nav.classList.toggle('closed-menu');
+        if((1 - (window.scrollY) / 260)>0.2){
+            header.style.background = 'linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0))';
+        }
         isClicked = false;
     }else{
         showCross();
         nav.classList.toggle('show');
         nav.classList.toggle('closed-menu');
         isClicked = true;
+        if((1 - (window.scrollY) / 260)>0.2){
+            header.style.background = 'rgb(84, 153, 248)';
+        }
     }
 }
 

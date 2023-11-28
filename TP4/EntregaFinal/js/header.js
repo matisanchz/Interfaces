@@ -10,6 +10,7 @@ let blackSpider = document.querySelector(".b-spider");
 let whiteSpider = document.querySelector(".w-spider");
 let rightWeb = document.querySelector(".r-web");
 let leftWeb = document.querySelector(".l-web");
+let header = document.querySelector("header");
 
 window.addEventListener('scroll', function() {
 
@@ -22,9 +23,13 @@ window.addEventListener('scroll', function() {
         logo.style = 'position: absolute';
         logo.style.transform = 'translateY(' + translateY + 'px) ';
         logo.style.transform = 'scale(' + scale + ')';
+        if(!nav.classList.contains('show')){
+            header.style.background = 'linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0))';
+        }
     }else{
         logo.style = 'position: fixed';
         logo.style.transform = `translateY(-190px) scale(0.20)`;
+        header.style.background = 'rgb(84, 153, 248)';
     }
 
 });
