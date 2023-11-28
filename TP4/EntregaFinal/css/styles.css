@@ -170,19 +170,13 @@ nav{
     box-shadow: 4px 15px 10px -5px #02187E;
     background-color:#62a4ff;
     color: var(--yellow);
+    transition-delay: 0s;
 }
 
 .option:hover::before {
     transform: scale(1.2);
+    transition-delay: 0s;
 }
-
-/*.closed-menu{
-    left: -300px;
-}
-
-.show {
-    left: 0px;
-}*/
 
 main{
     margin-bottom: 0px;

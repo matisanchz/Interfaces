@@ -12,9 +12,9 @@ function manageMenu(){
     if(isClicked){
         hideCross();
         nav.classList.toggle('open');
-        options.forEach(function(option){
-            option.classList.toggle('open');
-        });
+        for(let i = 0; i <options.length; i++){
+            options[i].classList.toggle('open');
+        }
         if((1 - (window.scrollY) / 260)>0.2){
             header.style.background = 'linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0))';
         }
@@ -22,9 +22,9 @@ function manageMenu(){
     }else{
         showCross();
         nav.classList.toggle('open');
-        options.forEach(function(option){
-            option.classList.toggle('open');
-        });
+        for(let i = 0; i< options.length; i++){
+            options[i].classList.toggle('open');
+        }
         isClicked = true;
         if((1 - (window.scrollY) / 260)>0.2){
             header.style.background = 'rgb(84, 153, 248)';
