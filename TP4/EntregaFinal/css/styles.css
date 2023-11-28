@@ -111,28 +111,36 @@ header button{
 }
 
 /***************NAVBAR MENU*********************/
+
+nav{
+    position: fixed;
+    z-index: 98;
+}
+
 .navbar { 
     display: flex;
     flex-direction: column;
+    margin-top: 95px;
     background-color: #333;
     color: white;
-    width: 0;
-    height: 100vh;
-    position: fixed;
-    transition: width 0.5s ease;
-    visibility: hidden;
+    width: 100px;
+    height: 200px;
+    transition: left 0.3s ease;
 }
 
 .navbar div {
     padding: 20px;
-    display: none;
 }
 
-.navbar.show {
-    width: 200px;
+.closed-menu{
+    left: -150px;
 }
 
-.navbar.show div {
+.show {
+    left: 0px;
+}
+
+/*.navbar.show div {
     display: block;
     animation: fadeIn 0.5s ease;
 }
@@ -146,7 +154,7 @@ header button{
         opacity: 1;
         transform: translateX(0);
     }
-}
+}*/
 
 main{
     position: relative;

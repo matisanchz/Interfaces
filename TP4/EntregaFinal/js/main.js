@@ -5,17 +5,18 @@ let isClicked = false;
 let hambur = document.querySelector(".hambur");
 let nav = document.querySelector(".navbar");
 
-hambur.addEventListener('click', function(e){
-    nav.classList.toggle('show')
-    manageCross();
-});
+hambur.addEventListener('click', manageMenu);
 
-function manageCross(){
+function manageMenu(){
     if(isClicked){
         hideCross();
+        nav.classList.toggle('show');
+        nav.classList.toggle('closed-menu');
         isClicked = false;
     }else{
         showCross();
+        nav.classList.toggle('show');
+        nav.classList.toggle('closed-menu');
         isClicked = true;
     }
 }
