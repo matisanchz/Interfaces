@@ -305,7 +305,7 @@ main{
 }
 
 .game-hero{
-    transform: translate(0%, 97%);
+    transform: translate(-2%, 94%);
     z-index: 3;
 }
 
@@ -561,14 +561,18 @@ main{
 }
 
 .img-info{
+    position: relative;
     height: 302.76px;
     width: 552px;
     margin-top: 25px;
 }
 
 .img-info img{
-    opacity: 1;
-    transition: opacity 2s ease 10s;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    transition: opacity 2.5s ease;
 }
 
 .txt-info{
