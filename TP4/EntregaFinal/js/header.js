@@ -23,7 +23,7 @@ window.addEventListener('scroll', function() {
         logo.style = 'position: absolute';
         logo.style.transform = 'translateY(' + translateY + 'px) ';
         logo.style.transform = 'scale(' + scale + ')';
-        if(!nav.classList.contains('show')){
+        if(!nav.classList.contains('open')){
             header.style.background = 'linear-gradient(to bottom, rgb(84, 153, 248) 88.34%, rgba(84, 153, 248, 0))';
         }
     }else{

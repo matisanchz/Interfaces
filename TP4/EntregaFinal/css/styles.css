@@ -121,21 +121,48 @@ nav{
 .navbar { 
     position: fixed;
     margin-top: -7140px;
-    background-color: #3e8cfa;
     color: white;
     width: 250px;
-    transition: left 0.3s ease;
+    transition: transform 0.3s ease;
+    transform: translateX(-300px);
 }
 
 .option {
     display: flex;
     align-items: center;
+    background-color: #3e8cfa;
     padding: 20px;
     padding-left: 35px;
+    transform: translateX(-300px);
+    transition: transform 0.3s ease; 
+}
+
+.open{
+    transform: translateX(0px);
 }
 
 .option span{
     padding-left: 35px;
+}
+
+.opt1{
+    transition-delay: 0.2s;
+}
+
+.opt2{
+    transition-delay: 0.4s;
+}
+
+.opt3{
+    transition-delay: 0.6s;
+}
+
+.opt4{
+    transition-delay: 0.8s;
+}
+
+.opt5{
+    transition-delay: 1s;
 }
 
 .option:hover {
@@ -143,18 +170,12 @@ nav{
     box-shadow: 4px 15px 10px -5px #02187E;
     background-color:#62a4ff;
     color: var(--yellow);
+    transition-delay: 0s;
 }
 
 .option:hover::before {
     transform: scale(1.2);
-}
-
-.closed-menu{
-    left: -300px;
-}
-
-.show {
-    left: 0px;
+    transition-delay: 0s;
 }
 
 main{
