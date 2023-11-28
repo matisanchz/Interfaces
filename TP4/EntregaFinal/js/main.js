@@ -3,8 +3,12 @@
 let isClicked = false;
 
 let hambur = document.querySelector(".hambur");
+let nav = document.querySelector(".navbar");
 
-hambur.addEventListener('click', manageCross);
+hambur.addEventListener('click', function(e){
+    nav.classList.toggle('show')
+    manageCross();
+});
 
 function manageCross(){
     if(isClicked){
@@ -28,6 +32,7 @@ function showCross(){
         lastLine.classList.add("shadow-disappear");
         lastLine.classList.add("last-line");
     }
+    
 }
 
 function hideCross(){
