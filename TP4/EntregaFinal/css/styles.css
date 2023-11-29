@@ -92,7 +92,7 @@ header{
     display: flex;
     flex-direction: column;
     height: 54px;
-    margin-top: 7px;
+    margin-top: 12px;
 }
 
 .hambur > div {
@@ -532,6 +532,10 @@ main{
     box-shadow: 26px 29px 41px 14px rgba(0, 0, 0, 0.15);
 }
 
+.avengers .container{
+    transform: translateY(12px);
+}
+
 .back-images{
     position: relative;
 }
@@ -541,19 +545,16 @@ main{
 }
 
 .l3{
-    /*transform: translate(20px, -94px);*/
     left: 20px;
     top: -94px;
 }
 
 .l4{
-    /*transform: translate(445px, -254px);*/
     left: 445px;
     top: -254px;
 }
 
 .l5{
-    /*transform: translate(670px, 109px);*/
     left: 670px;
     top: 109px;
 }
@@ -568,13 +569,14 @@ main{
 }
 
 .game-info .container{
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 
 .ctn-info{
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
 }
 
 .game-info h1, .game-info p{
@@ -624,15 +626,6 @@ main{
 
 /***************BUY SECTION*********************/
 
-/* .buy-now{
-    height: 476px;
-} */
-
-/* .ctn-buy{
-    padding-top: 120px;
-    padding-bottom: 120px;
-} */
-
 .ctn-buy .btn-buy{
     width: 292px;
     margin-top: 45px;
@@ -679,24 +672,6 @@ main{
 .pj-gs{
     background-image: url('../images/game-info/pink-background.svg');
 }
-
-/*.pj-pp{
-    border-top: 36px solid rgba(37, 82, 200, 0.61);
-    border-bottom: 36px solid rgba(37, 82, 200, 0.61);
-    background-color:  #D1D9ED;
-}
-
-.pj-mm{
-    border-top: 36px solid rgba(48, 76, 113, 1);
-    border-bottom: 36px solid rgba(48, 76, 113, 1);
-    background-color: #C7C7C7;
-}
-
-.pj-gs{
-    border-top: 36px solid rgba(201, 43, 148, 1);
-    border-bottom: 36px solid rgba(201, 43, 148, 1);
-    background-color: #F6E2EF;
-}*/
 
 
 /***************PRELOADER*********************/
