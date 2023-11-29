@@ -197,6 +197,8 @@ info.addEventListener('scroll', function(){
 
 });
 
+/*Seteamos algunas imagenes en posiciones concretas, al cargar el documento*/
+/*Parallax en base al movimiento del ratón, para la sección de los vengadores*/
 document.addEventListener("DOMContentLoaded", function () {
 
     img1.style.opacity = 1;
@@ -235,6 +237,7 @@ const sectionMiddle = document.querySelector('.section-middle');
 const originalPosition = parallaxContainer.offsetTop + parallaxContainer.offsetHeight / 2 - window.innerHeight / 2;
 const sectionHeight = sectionMiddle.clientHeight;
 
+/*Manejo de las 3 cards de la sección ghost-spider, en base al scroll*/
 window.addEventListener('scroll', function() {
     const scrollY = window.scrollY;
     const newPosition = originalPosition - scrollY * 0.5;
