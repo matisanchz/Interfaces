@@ -470,7 +470,7 @@ main{
 .ghost-spider{
     position: relative;
     height: 566px;
-    background-image: url('../images/slides/Ghost.svg');
+    background-image: url('../images/slides/ghost.svg');
     background-size: cover;
     background-repeat: no-repeat;
     transform: translateY(-60px);
