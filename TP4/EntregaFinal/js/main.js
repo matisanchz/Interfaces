@@ -8,6 +8,7 @@ let options = document.querySelectorAll(".option");
 
 hambur.addEventListener('click', manageMenu);
 
+/*Manejo del menu hamburguesa, y su efecto en el nav/header*/
 function manageMenu(){
     if(isClicked){
         hideCross();
@@ -32,6 +33,7 @@ function manageMenu(){
     }
 }
 
+/*Mostrar cruz*/
 function showCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
     let mediumLine = (hambur.children[1]).firstElementChild;
@@ -47,6 +49,7 @@ function showCross(){
     
 }
 
+/*Ocultar cruz*/
 function hideCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
     let mediumLine = (hambur.children[1]).firstElementChild;
@@ -68,6 +71,7 @@ let cardOne = document.querySelector(".c1");
 let cardTwo = document.querySelector(".c2");
 let cardThree = document.querySelector(".c3");
 
+/*Manejo de movimientos en la imagen del elfo, y las 3 cards, en base al scroll*/
 window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY;
@@ -114,6 +118,7 @@ let pp = document.getElementById('peter-parker');
 let mm = document.getElementById('miles-morales');
 let gs = document.getElementById('gwen-stacy');
 
+/*Manejo de hover: scale y blur, para los 3 spider*/
 pp.addEventListener('mouseenter', ()=>{
     changePj("pp");
 });
@@ -167,6 +172,7 @@ let img2 = document.querySelector('.img2');
 let img3 = document.querySelector('.img3');
 let img4 = document.querySelector('.img4');
 
+/*Manejo de las imagenes en la sección del medio, a medida que se scrollea los textos*/
 info.addEventListener('scroll', function(){
 
     let scrollTop = info.scrollTop;
