@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     img1.style.opacity = 1;
 
     const parallax = document.querySelector(".ctn-parallax");
-  
+   
     parallax.addEventListener("mousemove", (event) => {
         const { clientX, clientY } = event;
         const { offsetWidth, offsetHeight } = parallax;
@@ -223,3 +223,39 @@ document.addEventListener("DOMContentLoaded", function () {
         girl.style.transform = `translateX(${moveX * 1}px) translateY(${moveY * -2.2}px) rotate(-5.483deg)`;
     });
   });
+
+// // Obtén los elementos parallax y registra un evento de desplazamiento
+// const parallaxContainer = document.querySelector('.parallax-container');
+
+// window.addEventListener('scroll', function() {
+//     const scrollY = window.scrollY;
+//     parallaxContainer.style.transform = `translateY(${scrollY * 0.04}px)`;
+// });
+
+// Obtén el contenedor parallax y la sección correspondiente
+const parallaxContainer = document.querySelector('.parallax-container');
+const sectionMiddle = document.querySelector('.section-middle');
+
+// Calcula la posición original del contenedor parallax y la altura de la sección
+const originalPosition = parallaxContainer.offsetTop + parallaxContainer.offsetHeight / 2 - window.innerHeight / 2;
+const sectionHeight = sectionMiddle.clientHeight;
+
+// Registra un evento de desplazamiento
+window.addEventListener('scroll', function() {
+    // Calcula la cantidad de desplazamiento vertical
+    const scrollY = window.scrollY;
+
+    // Calcula la nueva posición del contenedor parallax
+    const newPosition = originalPosition - scrollY * 0.5;
+
+    // Ajusta la posición para centrar el contenedor parallax en la ventana
+    const centeredPosition = newPosition + window.innerHeight / 2 - parallaxContainer.offsetHeight / 2;
+
+    // Limita el desplazamiento hacia abajo para que no pase de su posición original
+    const maxScrollDown = originalPosition - sectionHeight;
+    const limitedPosition = Math.max(maxScrollDown, centeredPosition);
+
+    // Ajusta la posición del contenedor parallax, sumando un pequeño offset
+    const offset = 1200; // Ajusta este valor según sea necesario
+    parallaxContainer.style.transform = `translateY(${limitedPosition + offset}px)`;
+});
