@@ -719,7 +719,7 @@ main{
     background-color: var(--sky);
     opacity: 0.95;
     margin:auto;
-    z-index: 6;
+    z-index: 99;
 }
 
 .preloader-box{
