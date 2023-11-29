@@ -35,49 +35,6 @@ window.addEventListener('scroll', function() {
 
 });
 
-/*Genero movimientos de las imagenes situadas en el header/hero, para crear un efecto de aparición*/
-document.addEventListener("DOMContentLoaded", function () {
-    buildingLeft.style.opacity = 1;
-    buildingLeft.style.transform = `translateX(0)`;
-    buildingLeft.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    buildingLeft.style.transitionDelay = `1000ms`;
-
-    buildingRight.style.opacity = 1;
-    buildingRight.style.transform = `translateX(0)`;
-    buildingRight.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    buildingRight.style.transitionDelay = `1000ms`;
-
-    buildingCenter.style.opacity = 1;
-    buildingCenter.style.transform = `translateY(0)`;
-    buildingCenter.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    buildingCenter.style.transitionDelay = `1000ms`;
-
-    spider.style.opacity = 1;
-    spider.style.transform = `translateY(0)`;
-    spider.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    spider.style.transitionDelay = `1000ms`;
-
-    blackSpider.style.opacity = 1;
-    blackSpider.style.transform = `translateX(0)`;
-    blackSpider.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    blackSpider.style.transitionDelay = `1000ms`;
-
-    whiteSpider.style.opacity = 1;
-    whiteSpider.style.transform = `translateX(0)`;
-    whiteSpider.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    whiteSpider.style.transitionDelay = `1000ms`;
-
-    rightWeb.style.opacity = 1;
-    rightWeb.style.transform = `translateX(0)`;
-    rightWeb.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    rightWeb.style.transitionDelay = `1000ms`;
-
-    leftWeb.style.opacity = 1;
-    leftWeb.style.transform = `translateY(0)`;
-    leftWeb.style.transition = `transform 0.8s ease, opacity 2s ease`;
-    leftWeb.style.transitionDelay = `1000ms`;
-});
-
 /*Parallax del header/hero, en base al scroll*/
 window.addEventListener("scroll", function () {
 
