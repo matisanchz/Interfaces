@@ -12,6 +12,7 @@ let rightWeb = document.querySelector(".r-web");
 let leftWeb = document.querySelector(".l-web");
 let header = document.querySelector("header");
 
+/*Manejo del movimiento del logo, en base al scroll de la pantalla*/
 window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY;
@@ -34,6 +35,7 @@ window.addEventListener('scroll', function() {
 
 });
 
+/*Genero movimientos de las imagenes situadas en el header/hero, para crear un efecto de aparición*/
 document.addEventListener("DOMContentLoaded", function () {
     buildingLeft.style.opacity = 1;
     buildingLeft.style.transform = `translateX(0)`;
@@ -76,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     leftWeb.style.transitionDelay = `1000ms`;
 });
 
+/*Parallax del header/hero, en base al scroll*/
 window.addEventListener("scroll", function () {
 
     let scroll = window.scrollY;

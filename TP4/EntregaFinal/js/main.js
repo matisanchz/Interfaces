@@ -8,6 +8,7 @@ let options = document.querySelectorAll(".option");
 
 hambur.addEventListener('click', manageMenu);
 
+/*Manejo del menu hamburguesa, y su efecto en el nav/header*/
 function manageMenu(){
     if(isClicked){
         hideCross();
@@ -32,6 +33,7 @@ function manageMenu(){
     }
 }
 
+/*Mostrar cruz*/
 function showCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
     let mediumLine = (hambur.children[1]).firstElementChild;
@@ -47,6 +49,7 @@ function showCross(){
     
 }
 
+/*Ocultar cruz*/
 function hideCross(){
     let firstLine = (hambur.children[0]).firstElementChild;
     let mediumLine = (hambur.children[1]).firstElementChild;
@@ -68,6 +71,7 @@ let cardOne = document.querySelector(".c1");
 let cardTwo = document.querySelector(".c2");
 let cardThree = document.querySelector(".c3");
 
+/*Manejo de movimientos en la imagen del elfo, y las 3 cards, en base al scroll*/
 window.addEventListener('scroll', function() {
 
     let scrollY = window.scrollY;
@@ -114,6 +118,7 @@ let pp = document.getElementById('peter-parker');
 let mm = document.getElementById('miles-morales');
 let gs = document.getElementById('gwen-stacy');
 
+/*Manejo de hover: scale y blur, para los 3 spider*/
 pp.addEventListener('mouseenter', ()=>{
     changePj("pp");
 });
@@ -167,6 +172,7 @@ let img2 = document.querySelector('.img2');
 let img3 = document.querySelector('.img3');
 let img4 = document.querySelector('.img4');
 
+/*Manejo de las imagenes en la sección del medio, a medida que se scrollea los textos*/
 info.addEventListener('scroll', function(){
 
     let scrollTop = info.scrollTop;
@@ -191,12 +197,14 @@ info.addEventListener('scroll', function(){
 
 });
 
+/*Seteamos algunas imagenes en posiciones concretas, al cargar el documento*/
+/*Parallax en base al movimiento del ratón, para la sección de los vengadores*/
 document.addEventListener("DOMContentLoaded", function () {
 
     img1.style.opacity = 1;
 
     const parallax = document.querySelector(".ctn-parallax");
-  
+   
     parallax.addEventListener("mousemove", (event) => {
         const { clientX, clientY } = event;
         const { offsetWidth, offsetHeight } = parallax;
@@ -223,3 +231,19 @@ document.addEventListener("DOMContentLoaded", function () {
         girl.style.transform = `translateX(${moveX * 1}px) translateY(${moveY * -2.2}px) rotate(-5.483deg)`;
     });
   });
+
+const parallaxContainer = document.querySelector('.parallax-container');
+const sectionMiddle = document.querySelector('.section-middle');
+const originalPosition = parallaxContainer.offsetTop + parallaxContainer.offsetHeight / 2 - window.innerHeight / 2;
+const sectionHeight = sectionMiddle.clientHeight;
+
+/*Manejo de las 3 cards de la sección ghost-spider, en base al scroll*/
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const newPosition = originalPosition - scrollY * 0.5;
+    const centeredPosition = newPosition + window.innerHeight / 2 - parallaxContainer.offsetHeight / 2;
+    const maxScrollDown = originalPosition - sectionHeight;
+    const limitedPosition = Math.max(maxScrollDown, centeredPosition);
+    const offset = 1200; 
+    parallaxContainer.style.transform = `translateY(${limitedPosition + offset}px)`;
+});
