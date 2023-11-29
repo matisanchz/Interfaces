@@ -441,6 +441,28 @@ main{
     100% { background-position:1662.45px }
 }
 
+.sprite-two:hover {
+    transform: translate(565px, 248px);
+    width: 95px;
+    height: 87.84px;
+    background-image: url('../images/sprite-two-b.png');
+    animation: spriteTwoB 2.5s steps(5) infinite;
+}
+
+@keyframes spriteTwoB {
+    0% { background-position:0 }
+    100% { background-position:478.34px }
+}
+
+.hover-here{
+    transform: translate(630px, 310px);
+    position: absolute;
+    width: 67px;
+    height: 67px;
+    background-image: url('../images/hover.svg');
+    z-index: 7;
+}
+
 .sprite-three {
     position: absolute;
     transform: translate(1000px, 180px);
@@ -637,11 +659,12 @@ main{
 /***************CARDS SECTION*********************/
 
 .pjs-info{
+    position: relative;
     background-image: url('../images/game-info/blank-background.svg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 842px;
-    z-index: 50;
+    z-index: 8;
 }
 
 .pjs-info .container{
@@ -823,7 +846,6 @@ main{
     background: linear-gradient(180deg,  #8FBEFC 21.2%, #F7E3D8  81.48%);
     position: relative;
     overflow: hidden;
-    z-index:-1;
 }
 
 .btn-subs{
